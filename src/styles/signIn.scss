@@ -1,0 +1,43 @@
+@import "adstracts/variables";
+@import "adstracts/mixins";
+
+.block-title{
+    @include clear;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    //border: 1px solid lightseagreen;
+    width: 60%;
+    font-weight: bold;
+}
+
+.block-text{
+    font-size: 18px;
+    margin-bottom: 2rem;
+}
+.block-form{
+
+}
+.block-field{
+    margin-bottom: 0.5rem;
+
+    &__input{
+        margin-bottom: 1rem;
+        outline: none;
+        width: 75%;
+        border: none;
+        //border-bottom: 1px solid #4c5566;
+        border-bottom: 1px solid $main-bg-color;
+    }
+}
+.block-form-btn{
+    width: 30%;
+    min-width: 100px;
+    padding: .5rem 1rem;
+    border-radius: 2rem;
+    background-color: $main-bg-color;
+    color: white;
+    &:hover{
+        color: red
+    }
+
+}
