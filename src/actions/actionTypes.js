@@ -1,3 +1,8 @@
+export const AUTH_REQUEST                     = "AUTH_REQUEST";
+export const AUTH_REQUEST_SUCCESS             = "AUTH_REQUEST_SUCCESS";
+export const AUTH_REQUEST_FAIL                = "AUTH_REQUEST_FAIL";
+// export const SET_TOKEN                     = "SET_TOKEN";
+
 export const GET_MOVIE                        = "GET_MOVIE";
 export const GET_MOVIE_SUCCESS                = "GET_MOVIE_SUCCESS";
 export const GET_MOVIE_FAIL                   = "GET_MOVIE_FAIL";

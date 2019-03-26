@@ -20,7 +20,7 @@ class Header extends Component {
                     <BurgerMenu />
                     <h1 className="header__title"> multiplex </h1>
                 </nav>
-                <Link className="header__sing-in" to="/">
+                <Link className="header__sing-in" to="/login">
                     <img src="https://multiplex.ua/img/ava_temp.svg" alt="sing in"/>
                 </Link>
             </div>

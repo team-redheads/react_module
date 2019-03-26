@@ -17,23 +17,21 @@ class Sessions extends Component {
             return resDays
         });
         // console.log('resDays', resDays);
-
         const dayList = resDays.map(( day, index ) => {
-            return <li className="block-session__li" key={ index }>
-                <span className="block-session__day"> { day } </span>
-                <span className="block-session__times">
-                             {
-                                 session.sort(dynamicSort("date")).map( (session, index) => {
-
-                                     const dateDay = moment(session.date).format('dddd' );
-                                     const dateTime = moment(session.date).format('LT' );
-                                     return (
-                                         dateDay >= nowDay && dateDay === day && <SessionTimes time={ dateTime } key={index}/>
-                                     )
-                                 })
-                             }
-                         </span>
-            </li>
+            return (
+                <li className="block-session__li" key={ index }>
+                    <span className="block-session__day"> { day } </span>
+                    <span className="block-session__times">
+                        {
+                            session.sort(dynamicSort("date")).map( (session, index) => {
+                                const dateDay = moment(session.date).format('dddd' );
+                                const dateTime = moment(session.date).format('LT' );
+                                return dateDay >= nowDay && dateDay === day && <SessionTimes time={ dateTime } key={index}/>
+                            })
+                        }
+                    </span>
+                </li>
+            )
         });
         return (
             <div className='block-session'>

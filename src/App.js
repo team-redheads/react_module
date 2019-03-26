@@ -10,23 +10,25 @@ import Header from './components/header/index';
 import DetailsMoviePageContainer from './containers/detailsMoviePageContainer';
 import MovieContainer from './containers/movieContainer'
 import TrailerPage from './components/trailerPage';
+import Auth from './containers/auth';
 
 
 class App extends Component {
-  render() {
-    return (
-        <div className="wrapper">
-          <Header />
-          <Switch>
+    render() {
+        return (
+            <div className="page-wrapper">
+                <Header />
+                <Switch>
             {/* --- LIST WITH FILMS --- */}
-            <Route exact path="/" component={ MovieContainer } />
-            <Route exact path="/movie/:id" component={ DetailsMoviePageContainer } />
-            <Route exact path="/trailer/:url" component={ TrailerPage } />
-            <Route render={() => <div className='notFound'>404 NOT FOUND</div>} />
-          </Switch>
-        </div>
-    );
-  }
+                    <Route exact path="/" component={ MovieContainer } />
+                    <Route exact path="/movie/:id" component={ DetailsMoviePageContainer } />
+                    <Route exact path="/trailer/:url" component={ TrailerPage } />
+                    <Route exact path="/login" component={ Auth } />
+                    <Route render={() => <div className='notFound'>404 NOT FOUND</div>} />
+                </Switch>
+            </div>
+        );
+    }
 }
 
 export default App;

@@ -1,5 +1,5 @@
-@import "adstracts/variables";
-@import "adstracts/mixins";
+@import "abstracts/variables";
+@import "abstracts/mixins";
 
 .block-title{
     @include clear;
@@ -36,6 +36,7 @@
     border-radius: 2rem;
     background-color: $main-bg-color;
     color: white;
+    outline: none;
     &:hover{
         color: red
     }
