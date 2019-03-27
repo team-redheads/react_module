@@ -1,0 +1,39 @@
+.panel {
+  width: 20vw;
+  height: 300px;
+  border: 1px solid red;
+  align-self: flex-start;
+  &__item-bar{
+    &__line {
+      width: 100%;
+      border-top: 1px solid gray;
+      border-bottom: 1px solid gray;
+      font-size: 18px;
+      display: flex;
+      justify-content: space-around;
+      &__del{
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+        background-color: #d0d3d8;
+        border-radius: 50%;
+        margin-left: 2px;
+      }
+      & span {
+        width: 33%;
+        display: inline-block;
+      }
+    }
+    &__sum {
+      font-size: 24px;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 30px;
+    }
+
+  }
+}
+.panel p {
+  color: gray;
+}

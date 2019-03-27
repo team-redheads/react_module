@@ -12,7 +12,7 @@
 @import "auth";
 @import "mattPosters";
 @import "signIn";
-
+@import "components/index";
 
 .page-wrapper{
     @include clear;
@@ -31,7 +31,3 @@
     margin-top: 5rem;
     padding: 0.5rem 1rem;
 }
-
-
-
-

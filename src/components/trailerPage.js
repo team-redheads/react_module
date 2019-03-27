@@ -15,8 +15,4 @@ class TrailerPage extends Component {
         );
     }
 }
-<<<<<<< HEAD
 export default TrailerPage;
-=======
-export default TrailerPage;
->>>>>>> 57447ff544ce2c9c2dbb81748b5da2940cdb6317

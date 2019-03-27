@@ -5,6 +5,7 @@ import './styles/index.scss';
 
 // import 'moment-timezone';
 import 'moment/locale/ru';
+import HallPage from './containers/hallPage/HallPage.js'
 
 import Header from './components/header/index';
 import DetailsMoviePageContainer from './containers/detailsMoviePageContainer';
@@ -24,6 +25,7 @@ class App extends Component {
                     <Route exact path="/movie/:id" component={ DetailsMoviePageContainer } />
                     <Route exact path="/trailer/:url" component={ TrailerPage } />
                     <Route exact path="/login" component={ Auth } />
+                    <Route exact path="/hall" component={ HallPage } />
                     <Route render={() => <div className='notFound'>404 NOT FOUND</div>} />
                 </Switch>
             </div>

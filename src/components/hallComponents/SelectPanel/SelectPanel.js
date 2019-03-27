@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {connect}   from 'react-redux';
 import * as actions from '../../../actions/actionHall.js';
-import './index.css';
 
 let mapStateToProps = state => ({
   places: state.places.places,
@@ -36,7 +35,7 @@ class SelectPanel extends Component {
               <span>Цена</span>
             </div>
             {p.places.map( (elem,ind ) =>(
-              <div className = 'panel__item-bar__line'>
+              <div className = 'panel__item-bar__line' key = {ind}>
                 <span>{elem.row}</span>
                 <span>{elem.place}</span>
                 <span>{p.price} грн

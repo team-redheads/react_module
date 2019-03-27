@@ -1,4 +1,9 @@
 export default {
+    auth: {
+        token: null,
+        error: null,
+        isFetching: false
+    },
     movie: [
         {
             data: [],
@@ -26,5 +31,4 @@ export default {
     curSession: {
       data: null
     }
-
 };

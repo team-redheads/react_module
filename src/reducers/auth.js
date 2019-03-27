@@ -29,6 +29,6 @@ export default (state = initialState.auth, { type, payload }) => {
         // 	return state;
         // }
         default:
-            return state;
+            return state
     }
 };

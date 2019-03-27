@@ -1,0 +1,54 @@
+.room{
+  user-select: none;
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  &__screen{
+    border-top: 25px solid #2bc40170;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    height: 0;
+    width: 50%;
+    margin-bottom: 70px;
+    position: relative;
+  }
+  &__screen:before {
+    content: 'ЕКРАН';
+    position: absolute;
+    letter-spacing: 1em;
+    top: -20px;
+    left: 40%;
+    color: #fff;
+    font-size: 12px;
+  }
+  &__hall {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &__cell{
+        width: 1.5em;
+        height: 2em;
+        color: #23990360;
+        margin: 3px;
+        border-radius: 0.3em;
+        font-size: 18px;
+        line-height: 4vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+.user {
+  display: block;
+  width: 1.3em;
+  height: 1.7em;
+}
