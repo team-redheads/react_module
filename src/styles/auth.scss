@@ -1,0 +1,31 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+.auth-wrapper{
+    @include clear;
+    background-color: white;
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    font-size: 16px;
+    color: black;
+
+    .block-auth{
+        @include clear;
+        width: 40%;
+        //border: 1px solid red;
+        margin: 3rem 1rem 0 7rem;
+        padding: 2rem 1rem 0 4rem;
+    }
+
+    .block-posters{
+        width: 60%;
+        background-color: $main-bg-color;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        height: calc(100vh - 60px);
+    }
+}

@@ -1,0 +1,54 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+$colorWhite: #fff;
+$font-size-h1: 40px;
+
+.block-information{
+    @include clear;
+    margin: 0 1rem;
+    padding: 1rem;
+    padding-top: 2rem;
+
+    //border: 1px solid lightseagreen;
+    width: 100%;
+    color: $colorWhite;
+
+
+    .block-title {
+        @include clear;
+        margin-bottom: 2rem;
+        //border: 1px solid lawngreen;
+    }
+
+    .block-title h1{
+        @include clear;
+        color: $colorWhite;
+        font-size: $font-size-h1;
+    }
+
+    .block-list-info{
+        @include clear;
+        //border: 1px solid wheat;
+        margin-bottom: 2rem;
+        &__li{
+            @include list-clear;
+            //border: 1px solid turquoise;
+            padding: 0.2rem 0;
+            display: flex;
+            justify-content: left;
+        }
+        &__key{
+            //border: 1px solid yellow;
+            font-weight: bold;
+            width: 180px;
+        }
+        &__value{
+            width: calc(100% - 180px);
+            color: #929398;
+        }
+    }
+    .block-description{
+        text-align: justify;
+    }
+}

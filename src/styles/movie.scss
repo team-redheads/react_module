@@ -1,0 +1,220 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+$red: #f00;
+$white: #fff;
+
+.films{
+    @include clear;
+    //border: 1px solid red;
+    display: flex;
+    flex: 0 0 auto;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    &__list{
+        @include clear;
+        display: flex;
+        flex-wrap: wrap;
+        flex: 0 0 auto;
+        width: 100%;
+        height: calc(100vh - 60px);
+        transition: margin-left 250ms;
+    }
+    &__film{
+        @include list-clear;
+        //border: 1px solid lightgreen;
+        width: 25%;
+        min-width: 350px;
+        position: relative;
+        background-image: url("https://www.kinonews.ru/insimgs/2019/newsimg/newsimg85605.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: block;
+        transition: all 0.5s;
+        border-radius: 2rem;
+        &:hover{
+            box-shadow: 0px 0px 50px 15px rgba(0,0,0,0.50) ;
+            border-radius: 2rem;
+            .films__info{
+                border-radius: 2rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 80%;
+                background-image: linear-gradient(rgba(0,0,0,0.9), rgba(255,255,255,0));
+            }
+        }
+    }
+
+    &__info {
+        display: none;
+    }
+    &__title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 20%;
+        //border: 1px solid fuchsia;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        font-size: 1.5em;
+        color: white;
+        text-align: center;
+        //background-color: #474f5690;
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(0,0,0,1));
+
+        &:hover{
+            color: $red;
+            cursor:pointer;
+        }
+    }
+
+    &__details{
+        font-size: 16px;
+    }
+    &__session{
+        font-size: 16px;
+        h3 {
+            text-transform: uppercase;
+        }
+    }
+
+    .details{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 1.5rem 0;
+        width: 100%;
+
+        &__link{
+            //color: $red;
+            text-decoration: none;
+            font-size: 20px;
+            display: flex;
+            //border: 1px solid red;
+            //padding: 20px;
+            align-items: center;
+            color: $white;
+            &:hover{
+                color: $red;
+            }
+        }
+        &__icon{
+            //border: 1px solid blue;
+            font-size: 40px;
+            margin-right: 8px;
+        }
+    }
+
+    .session{
+        @include clear;
+        width: 100%;
+        height: 60vh;
+        //border: 1px solid lightgreen;
+        &__title{
+            padding: 1rem 0;
+            color: $text-color;
+            text-align: center;
+            //border: 1px solid white;
+        }
+        &__list{
+            @include list-clear;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 90%;
+            margin: 0 auto;
+            //padding: 1rem;
+            //border: 1px solid fuchsia;
+        }
+        &__day-of-week{
+            width: 200px;
+            color: $main-bg-color;
+            
+        }
+        &__day{
+            background-color: #00000090;
+        }
+        &__link{
+            color: $text-color;
+            padding: 0.5em 1em;
+            border: 1px solid $red;
+            border-radius: 1.2em;
+            margin-right: 0.5em;
+            background-color: $red;
+            text-decoration: none;
+            position: relative;
+            &:hover{
+                //background-color: #8b0000;
+                background-color: #ff000099;
+                //border: 1px solid #8b0000;
+                border: 1px solid #ff000099;
+                color: $text-color;
+                text-decoration: none;
+                cursor: pointer;
+
+                //.session__price{
+                //
+                //}
+            }
+        }
+        //&__price{
+        //    border: 1px solid fuchsia;
+        //    position: absolute;
+        //    bottom: 0;
+        //    z-index: 100;
+        //    //display: none;
+        //}
+    }
+
+
+    // for carousels
+    .arrow {
+        position: absolute;
+        //top: 0px;
+        //padding: 0;
+        background: #00000000;
+        //border-radius: 15px;
+        //border: 1px solid white;
+        outline: none;
+        font-size: 30px;
+        line-height: 24px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 5%;
+        height: 100%;
+        z-index: 2;
+    }
+
+    .arrow:focus {
+        outline: none;
+    }
+
+    .arrow:hover {
+        color: $red;
+        cursor: pointer;
+    }
+    .prev {
+        left: 0px;
+        background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(255,255,255,0));
+    }
+
+    .next {
+        z-index: 100;
+        right: 0px;
+        background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(0,0,0,1));
+    }
+}
+
+.trailer{
+    width: 100%;
+    //border: 1px solid fuchsia;
+    height: calc(100vh - 60px);
+}

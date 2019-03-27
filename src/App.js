@@ -1,28 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from "react-router-dom";
+// import './App.css';
+import './styles/index.scss';
+
+// import 'moment-timezone';
+import 'moment/locale/ru';
+
+import Header from './components/header/index';
+import DetailsMoviePageContainer from './containers/detailsMoviePageContainer';
+import MovieContainer from './containers/movieContainer'
+import TrailerPage from './components/trailerPage';
+import Auth from './containers/auth';
+
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="page-wrapper">
+                <Header />
+                <Switch>
+            {/* --- LIST WITH FILMS --- */}
+                    <Route exact path="/" component={ MovieContainer } />
+                    <Route exact path="/movie/:id" component={ DetailsMoviePageContainer } />
+                    <Route exact path="/trailer/:url" component={ TrailerPage } />
+                    <Route exact path="/login" component={ Auth } />
+                    <Route render={() => <div className='notFound'>404 NOT FOUND</div>} />
+                </Switch>
+            </div>
+        );
+    }
 }
 
 export default App;
