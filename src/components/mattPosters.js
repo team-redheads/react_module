@@ -19,8 +19,8 @@ class MattPosters extends Component{
     render() {
         const posterItem = posters.map((poster,index) =>{
             return (
-                <div key={index} className='poster-item' >
-                    <img src={`${poster}`} alt="" className='poster-item__image'/>
+                <div key={index} className='poster-item' style={{backgroundImage: `url('${ poster }')`}}>
+                    {/*<img src={`${poster}`} alt="" className='poster-item__image'/>*/}
                 </div>
             )
         });
