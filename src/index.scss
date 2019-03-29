@@ -1,15 +1,15 @@
-@import './styles/auth.scss';
-@import './styles/signIn.scss';
-@import './styles/signUp.scss';
-@import './styles/mattPosters.scss';
+@import './_styles/auth.scss';
+@import './_styles/signIn.scss';
+@import './_styles/signUp.scss';
+@import './_styles/posters.scss';
 
 * {
 	font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
-        'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-        box-sizing: border-box;
-        outline: none;
+		'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	box-sizing: border-box;
+	outline: none;
 }
 
 body {
-    margin: 0;
+	margin: 0;
 }

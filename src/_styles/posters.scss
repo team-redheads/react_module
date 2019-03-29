@@ -1,3 +1,12 @@
+.poster-list {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: inherit;
+    background-color: #282c34;
+}
+
 .poster-item{
     width: 25%;
     height: 33.3%;

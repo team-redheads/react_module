@@ -1,20 +1,15 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 
-import logo from '../img/logo.svg'
-import { signInValidation } from '../utils/validate'
-import { renderField } from './common/customField'
+import logo from '../_img/logo.svg'
+import { signInValidation } from '../_utils/validate'
+import { renderField } from './customField/customField'
 
 class SignIn extends Component {
-	submit = values => {
-		const { postAuthRequest } = this.props
-		postAuthRequest(values)
-	}
-
 	render() {
 		const { handleSubmit, submitting, pristine } = this.props
 		return (
-			<form className="sign-in" onSubmit={handleSubmit(this.submit)}>
+			<form className="sign-in" onSubmit={handleSubmit}>
 				<div className="sign-in__logo">
 					<img src={logo} alt="logo" />
 				</div>

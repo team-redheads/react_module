@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import SignIn from '../components/signIn'
-import SignUp from '../components/signUp'
+import SignIn from '../components/SignIn'
+import SignUp from '../components/SignUp'
 
-import MattPosters from '../components/mattPosters'
+import MattPosters from '../components/Posters'
 // import { postAuthRequest } from '../actions/actionAuth'
 
 class Auth extends Component {
@@ -20,18 +20,22 @@ class Auth extends Component {
 		})
 	}
 
+	takeValueSignIn = values => {
+		console.log('-----value_sign-in', values)
+	}
+
+	takeValueSignUp = values => {
+		console.log('-----value_sign-up', values)
+	}
+
 	render() {
-		console.log('----props-auth', this.props)
 		return (
 			<div className="auth-block">
 				<div className="auth-block__form">
 					{this.state.auth ? (
-						<SignIn
-							// postAuthRequestFunc={postAuthRequest}
-							// onSubmit={this.submit}
-						/>
+						<SignIn onSubmit={this.takeValueSignIn} />
 					) : (
-						<SignUp onSubmit={this.submit} />
+						<SignUp onSubmit={this.takeValueSignUp} />
 					)}
 					<button
 						className="auth-block__btn"
