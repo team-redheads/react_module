@@ -2,23 +2,20 @@ import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 
 import logo from '../_img/logo.svg'
-
-import { signUpValidation } from '../_utils/validate'
+import { signInValidation } from '../_utils/validate'
 import { renderField } from './customField/customField'
 
-class SignUp extends Component {
+class SignInAdmin extends Component {
 	render() {
 		const { handleSubmit, submitting, pristine } = this.props
 		return (
-			<form className="sign-up" onSubmit={handleSubmit}>
-				<div className="sign-up__logo">
+			<form className="sign-in" onSubmit={handleSubmit}>
+				<div className="sign-in__logo">
 					<img src={logo} alt="logo" />
 				</div>
-				<h1 className="sign-up__title">
-					Регистрация для входа в личный кабинет
-				</h1>
-				<p className="sign-up__text">Введите E-mail и пароль</p>
-				<div className="sign-up__input">
+				<h1 className="sign-in__title">Вход в админ-панель </h1>
+				<p className="sign-in__text">Введите E-mail и пароль </p>
+				<div className="sign-in__input">
 					<Field
 						name="email"
 						type="email"
@@ -26,7 +23,7 @@ class SignUp extends Component {
 						component={renderField}
 					/>
 				</div>
-				<div className="sign-up__input">
+				<div className="sign-in__input">
 					<Field
 						name="password"
 						type="password"
@@ -35,16 +32,17 @@ class SignUp extends Component {
 					/>
 				</div>
 				<button
-					className="sign-up__btn"
+					className="sign-in__btn"
 					disabled={pristine || submitting}
 				>
-					Регистрация
+					Войти
 				</button>
 			</form>
 		)
 	}
 }
+
 export default reduxForm({
-	form: 'signUp',
-	validate: signUpValidation,
-})(SignUp)
+	form: 'signInAdmin',
+	validate: signInValidation,
+})(SignInAdmin)
