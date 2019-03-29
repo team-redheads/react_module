@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 
-import AddMovie from '../components/AddMovie'
+import AddMovie from './AddMovie'
 
 class MainAdmin extends Component {
 	render() {

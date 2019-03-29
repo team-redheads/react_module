@@ -8,8 +8,8 @@ class AdminPanel extends Component {
 		console.log('-----children', this.props.children)
 		return (
 			<React.Fragment>
-					<Header />
-                    <MainAdmin />
+				<Header />
+				<MainAdmin />
 			</React.Fragment>
 		)
 	}
