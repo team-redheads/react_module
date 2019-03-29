@@ -1,6 +1,12 @@
+@import './_styles/header.scss';
+@import './_styles/mainAdmin.scss';
+@import './_styles/addMovie.scss';
+
+
 @import './_styles/auth.scss';
 @import './_styles/signIn.scss';
 @import './_styles/signUp.scss';
+
 @import './_styles/posters.scss';
 
 
@@ -12,5 +18,6 @@
 }
 
 body {
-	margin: 0;
+    margin: 0;
+    background-color: #ebebeb;
 }

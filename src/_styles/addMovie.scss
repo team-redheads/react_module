@@ -1,0 +1,126 @@
+.add-movie-block {
+	position: relative;
+	width: 100%;
+	padding: 10px 0;
+
+	&__title {
+		margin: 0 0 50px 0;
+	}
+
+	.movie-content {
+		display: flex;
+		justify-content: space-evenly;
+
+		&__img-trailer {
+			position: relative;
+			width: 250px;
+			height: 365px;
+			box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+		}
+
+		.img-add {
+			width: 250px;
+			height: 365px;
+			margin: 0 0 30px 0;
+
+			&__text {
+				position: absolute;
+				top: 50%;
+				transform: translate(0, -50%);
+				margin: 0;
+				text-align: center;
+			}
+
+			&__input-file {
+				width: 100%;
+				height: 100%;
+				opacity: 0;
+				cursor: pointer;
+			}
+		}
+
+		.add-movie__input {
+			position: relative;
+			width: 310px;
+			margin: 0;
+
+			& > p {
+				margin: 0 0 6px 0;
+				font-size: 14px;
+				font-weight: bold;
+			}
+
+			& input {
+				width: 100%;
+				margin-bottom: 15px;
+				border: 1px solid #d3d3d3;
+				padding: 10px 15px;
+				background-color: #ebebeb;
+			}
+		}
+	}
+
+	.movie-content__inputs {
+		display: flex;
+		flex-wrap: wrap;
+		width: 680px;
+
+		.add-movie__input {
+			position: relative;
+			width: 310px;
+			margin: 0 15px;
+
+			& > p {
+				margin: 0 0 6px 0;
+				font-size: 14px;
+				font-weight: bold;
+			}
+
+			& input {
+				width: 100%;
+				margin-bottom: 15px;
+				border: 1px solid #d3d3d3;
+				padding: 10px 15px;
+				background-color: #ebebeb;
+			}
+		}
+
+		.add-movie__textarea {
+			position: relative;
+			width: 680px;
+			margin: 0 15px;
+
+			& > p {
+				margin: 0 0 6px 0;
+				font-size: 14px;
+				font-weight: bold;
+			}
+			& textarea {
+				width: 100%;
+				height: 200px;
+				margin-bottom: 15px;
+				border: 1px solid #d3d3d3;
+				padding: 10px 15px;
+				background-color: #ebebeb;
+				resize: none;
+			}
+		}
+	}
+	.add-movie__btn {
+		position: absolute;
+		left: 120px;
+		bottom: 25px;
+		border: none;
+		padding: 10px 45px;
+		color: #fff;
+		background: #ff3e2f;
+		font-size: 14px;
+		font-weight: bold;
+		cursor: pointer;
+
+		&:disabled {
+			background-color: #d3d3d3;
+			cursor: not-allowed;
+		}
+	}
+}

@@ -33,3 +33,6 @@ export const signUpValidation = values => {
 	}
 	return errors
 }
+
+export const inputValid = value => 
+    value ? undefined : 'Необходимо ввести'
