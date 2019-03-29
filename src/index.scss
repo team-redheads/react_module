@@ -1,0 +1,15 @@
+@import './styles/auth.scss';
+@import './styles/signIn.scss';
+@import './styles/signUp.scss';
+@import './styles/mattPosters.scss';
+
+* {
+	font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+        'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+        box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    outline: none;
+}

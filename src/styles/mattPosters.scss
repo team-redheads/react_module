@@ -1,0 +1,17 @@
+.poster-item{
+    width: 25%;
+    height: 33.3%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    &::after{
+        content: '';
+        position: absolute;
+        width: 25%;
+        height: 33.3%;
+        background-color: #00000080;
+        transition: all 0.5s;
+    }
+    &:hover::after{
+        background-color: #00000010;
+    }
+}

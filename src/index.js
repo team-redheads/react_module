@@ -4,10 +4,12 @@ import ReactDom from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
+import './index.scss'
 import Router from './Router'
+import store from './store/store'
 
 ReactDom.render(
-	<Provider>
+	<Provider store={store}>
 		<BrowserRouter>
 			<Router />
 		</BrowserRouter>
