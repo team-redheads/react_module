@@ -1,6 +1,7 @@
 import * as types from "../actions/actionTypes";
 
 import axios from "axios";
+import AxiosInstance from "../utils/axiosConfig";
 
 const getSession =                  payload => ({ type: types.GET_SESSION, payload});
 const getSessionSuccess =           payload => ({ type: types.GET_SESSION_SUCCESS, payload });
@@ -14,9 +15,13 @@ const getSessionByMovieIdFail =     payload => ({ type: types.GET_SESSION_BY_MOV
 export const getSessionRequest = () => async dispatch => {
     dispatch(getSession());
     try {
-        const { data } = await axios({
+        // const { data } = await axios({
+        //     method: "GET",
+        //     url: "https://test-app-a-level.herokuapp.com/api/movie/session",
+        // });
+        const { data } = await AxiosInstance({
             method: "GET",
-            url: "https://test-app-a-level.herokuapp.com/api/movie/session",
+            url: "movie/session"
         });
         // console.log("--- data getSessionRequest", data);
         dispatch(getSessionSuccess(data));
@@ -29,9 +34,13 @@ export const getSessionByMovieIdRequest = (id) => async dispatch => {
     dispatch(getSessionByMovieId());
     try {
         // console.log(" --- id getSessionByMovieIdRequest ", id);
-        const { data } = await axios({
+        // const { data } = await axios({
+        //     method: "GET",
+        //     url: `https://test-app-a-level.herokuapp.com/api/movie/session?movie=${id}`,
+        // });
+        const { data } = await AxiosInstance({
             method: "GET",
-            url: `https://test-app-a-level.herokuapp.com/api/movie/session?movie=${id}`,
+            url: `movie/session?movie=${id}`
         });
         // console.log("--- data getSessionByMovieIdRequest", data);
         dispatch(getSessionByMovieIdSuccess(data));

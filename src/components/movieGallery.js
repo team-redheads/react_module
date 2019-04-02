@@ -16,10 +16,10 @@ class MovieGallery extends Component {
             // return <MovieItem key={ index } movie={ movie } sessions={ sessions } />
         });
         return (
-            <div className="films" >
+            <div className="movie-wrapper" >
                 {/*<div className="arrow prev"> <Icon type="left" /> </div>*/}
 
-                <div className="films__list" >
+                <div className="block-movie" >
                     { movieItems }
                 </div>
 

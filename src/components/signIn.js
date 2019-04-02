@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from "redux-form";
 
-// import { signInValidation } from "../../utils/validate";
+import { signInValidation } from "../utils/validate";
 import { renderField } from "./common";
 import logo from "./header/img/logo.svg";
 
@@ -40,5 +40,5 @@ class SignIn extends Component{
 }
 export default reduxForm({
     form: "signIn",
-    // validate: signInValidation
+    validate: signInValidation
 })(SignIn);
