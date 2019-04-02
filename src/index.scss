@@ -1,0 +1,45 @@
+@import '~antd/dist/antd.css';
+
+@import './_styles/abstracts/variables';
+@import './_styles/abstracts/mixins';
+
+@import '/_styles/header';
+@import './_styles/movie';
+@import './_styles/datailsMoviePage';
+@import './_styles/poster';
+@import './_styles/information';
+@import './_styles/session';
+@import './_styles/auth';
+@import './_styles/mattPosters';
+@import './_styles/signIn';
+@import './_styles/components/index';
+
+* {
+	outline: none;
+	box-sizing: border-box;
+	font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+		'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+	margin: 0;
+	background-color: #ebebeb;
+}
+
+.page-wrapper {
+	@include clear;
+	width: 100%;
+	height: 100vh;
+	background-color: $main-bg-color;
+	color: $text-color;
+	font-size: 62.5%; // 10px
+}
+
+.notFound {
+	font-size: 500%;
+	width: 380px;
+	//border: 1px solid fuchsia;
+	margin: 0 auto;
+	margin-top: 5rem;
+	padding: 0.5rem 1rem;
+}
