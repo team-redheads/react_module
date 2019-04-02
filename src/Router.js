@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Switch, Route } from "react-router-dom";
-// import './App.css';
 import './_styles/index.scss';
 
 // import 'moment-timezone';
@@ -14,7 +13,7 @@ import TrailerPage from './components/trailerPage';
 import Auth from './containers/auth';
 
 
-class App extends Component {
+class Router extends Component {
     render() {
         return (
             <div className="page-wrapper">
@@ -33,4 +32,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default Router;
