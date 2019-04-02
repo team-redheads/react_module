@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from "redux-form";
 
 import { signInValidation } from "../_utils/validate";
-import { renderField } from "./common";
+import { renderField } from "./customField";
 import logo from "./header/img/logo.svg";
 
 
