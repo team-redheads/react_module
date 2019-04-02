@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import './burgerMenu.css'
-import menuLogo from '../img/menu_logo.svg'
+import menuLogo from '../../../_img/menu_logo.svg'
 
 class BurgerMenu extends Component {
     state = {

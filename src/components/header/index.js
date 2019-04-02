@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import logo from './img/logo.svg'
+import logo from '../../_img/logo.svg'
 import './header.css'
 import BurgerMenu from './burgerMenu/index'
 

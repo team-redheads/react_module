@@ -3,7 +3,7 @@ import { Field, reduxForm } from "redux-form";
 
 import { signInValidation } from "../_utils/validate";
 import { renderField } from "./customField";
-import logo from "./header/img/logo.svg";
+import logo from "../_img/logo.svg";
 
 
 class SignIn extends Component{
