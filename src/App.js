@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from "react-router-dom";
 // import './App.css';
-import './styles/index.scss';
+import './_styles/index.scss';
 
 // import 'moment-timezone';
 import 'moment/locale/ru';

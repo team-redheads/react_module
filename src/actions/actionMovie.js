@@ -1,5 +1,5 @@
 import * as types from "../actions/actionTypes";
-import AxiosInstance from "../utils/axiosConfig";
+import AxiosInstance from "../_utils/axiosConfig";
 
 const getMovie             = payload => ({type: types.GET_MOVIE, payload});
 const getMovieSuccess      = payload => ({type: types.GET_MOVIE_SUCCESS, payload});
