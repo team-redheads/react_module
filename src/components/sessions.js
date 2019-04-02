@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import { nowDay } from "../utils/nowDate";
-import { dynamicSort } from "../utils/dynamicSort";
+import { nowDay } from "../_utils/nowDate";
+import { dynamicSort } from "../_utils/dynamicSort";
 
 import SessionTimes from './sessionTimes';
 import moment from 'moment';

@@ -1,7 +1,7 @@
 import * as types from "./actionTypes";
 
 // import axios from "axios";
-import AxiosInstance from "../utils/axiosConfig";
+import AxiosInstance from "../_utils/axiosConfig";
 
 // export const setToken = payload => ({
 //     type: types.SET_TOKEN,

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Icon } from 'antd';
 import { Link } from 'react-router-dom';
 
-import { nowDay, nowTime } from "../utils/nowDate";
-import { dynamicSort } from "../utils/dynamicSort";
+import { nowDay, nowTime } from "../_utils/nowDate";
+import { dynamicSort } from "../_utils/dynamicSort";
 
 import moment from 'moment';
 
