@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {Icon} from "antd";
 
 
-class Poster extends Component{
+class MoviePoster extends Component{
     render() {
         const { poster, trailer, title} = this.props;
         const url = encodeURIComponent(trailer);
@@ -19,4 +19,4 @@ class Poster extends Component{
         );
     }
 }
-export default Poster;
+export default MoviePoster;
