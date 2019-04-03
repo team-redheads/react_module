@@ -4,15 +4,20 @@
 @import './_styles/abstracts/mixins';
 
 @import '/_styles/header';
+
 @import './_styles/movie';
 @import './_styles/datailsMoviePage';
-@import './_styles/poster';
 @import './_styles/information';
 @import './_styles/session';
-@import './_styles/auth';
-@import './_styles/mattPosters';
-@import './_styles/signIn';
 @import './_styles/components/index';
+
+@import './_styles/moviePoster.scss';
+
+@import './_styles/auth';
+@import './_styles/signIn';
+@import './_styles/signUp';
+@import './_styles/authPoster';
+
 
 * {
 	outline: none;

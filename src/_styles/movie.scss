@@ -11,6 +11,8 @@ $white: #fff;
     flex: 0 0 auto;
     width: 100%;
     position: relative;
+    overflow: hidden;
+    background-color: $main-bg-color;
 }
 
 .block-movie{

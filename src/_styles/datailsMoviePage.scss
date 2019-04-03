@@ -4,14 +4,24 @@
 .block-info{
 
     @include clear;
-    background-color: $main-bg-color;
     width: 100%;
+    height: calc(100vh - 60px);
     font-size: 16px;
     //border: 1px solid fuchsia;
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    
+    background: url("_img/bg.jpg") fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &__bg-color {
+        display: flex;
+        background-color: rgba(31, 35, 55, 0.85);
+        width: 100%;
+    }
 
     &__session{
         padding: 1rem;
