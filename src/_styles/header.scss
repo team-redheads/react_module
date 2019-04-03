@@ -78,7 +78,7 @@
             
             &__btn_active span::before,
             &__btn_active span::after {
-                top: 0;
+                top: -2px;
                 left: -2px;
 				border: 2px solid #000;
                 transform: rotate(45deg);
