@@ -61,7 +61,7 @@
 				left: 10px;
 				width: 30px;
                 border: 2px solid #fff;
-                transition: 0.2s;
+                transition: 0.1s;
 			}
 
 			&__btn span::before,
@@ -69,13 +69,11 @@
 				content: '';
 				top: -11px;
 				left: -2px;
-				width: 30px;
 			}
 
 			&__btn span::after {
 				top: 7px;
 				left: -2px;
-				width: 30px;
             }
             
             &__btn_active span::before,
