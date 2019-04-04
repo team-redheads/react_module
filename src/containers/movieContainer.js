@@ -10,11 +10,11 @@ import MovieGallery from '../components/movieGallery'
 
 class MovieContainer extends Component {
 	componentDidMount() {
-		this.props.getMovieRequest()
+		this.props.getMovieRequest();
 		this.props.getSessionRequest()
 	}
 	render() {
-		const { movie, session } = this.props
+		const { movie, session } = this.props;
 		return (
 			<React.Fragment>
 				<Header title={'Multiplex'} />
@@ -39,6 +39,6 @@ const mapDispatchToProps = dispatch =>
 MovieContainer = connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(MovieContainer)
+)(MovieContainer);
 
 export default MovieContainer
