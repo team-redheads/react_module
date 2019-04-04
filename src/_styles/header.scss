@@ -1,4 +1,4 @@
-@import "abstracts/variables";
+@import 'abstracts/variables';
 
 .header-block {
 	display: flex;
@@ -27,8 +27,8 @@
 		&__title {
 			margin: 0;
 			color: #fff;
-            font-size: 24px;
-            text-transform: uppercase;
+			font-size: 24px;
+			text-transform: uppercase;
 			cursor: pointer;
 		}
 
@@ -52,6 +52,53 @@
 				cursor: pointer;
 				z-index: 40;
 			}
+
+            &__btn span,
+            &__btn span::before,
+			&__btn span::after {
+				position: absolute;
+				top: 45%;
+				left: 10px;
+				width: 30px;
+                border: 2px solid #fff;
+                transition: 0.1s;
+			}
+
+			&__btn span::before,
+			&__btn span::after {
+				content: '';
+				top: -11px;
+				left: -2px;
+			}
+
+			&__btn span::after {
+				top: 7px;
+				left: -2px;
+            }
+            
+            &__btn_active span::before,
+            &__btn_active span::after {
+                top: -2px;
+                left: -2px;
+				border: 2px solid #000;
+                transform: rotate(45deg);
+			}
+
+			&__btn_active span::after {
+                transform: rotate(-45deg);           
+			}
+
+            // &__btn_active span::before {
+			// 	background-color: #000;
+			// 	margin: -2px 0 0 0;
+			// 	transform: rotate(45deg);
+			// }
+
+			// &__btn_active span::after {
+			// 	background-color: #000;
+			// 	margin: -2px 0 0 0;
+			// 	transform: rotate(-45deg);
+			// }
 
 			// &__btn span,
 			// &__btn span::before,
