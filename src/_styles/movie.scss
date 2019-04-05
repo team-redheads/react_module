@@ -11,24 +11,19 @@ $white: #fff;
     flex: 0 0 auto;
     width: 100%;
     position: relative;
-    overflow: hidden;
     background-color: $main-bg-color;
 }
 
 .block-movie{
     @include list-clear;
     display: flex;
-    //flex-wrap: wrap;
     flex: 0 0 auto;
     width: 100%;
     height: calc(100vh - 60px);
-    transition: margin-left 250ms;
-    overflow-x: scroll;
     &__item{
-        //@include clear;
         display: block;
         height: calc(100vh - 60px);
-        width: 25%;
+        width: 100%;
         min-width: 300px;
         position: relative;
         background-position: center center;
@@ -160,4 +155,43 @@ $white: #fff;
     width: 100%;
     //border: 1px solid fuchsia;
     height: calc(100vh - 60px);
+}
+
+.arrow-prev,
+.arrow-next {
+    position: absolute;
+    background: #00000000;
+    outline: none;
+    font-size: 30px;
+    line-height: 24px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 100%;
+    z-index: 100;
+}
+
+.arrow-prev:focus,
+.arrow-next:focus{
+    outline: none;
+}
+.arrow-prev:hover,
+.arrow-next:hover{
+    color: $red;
+    cursor: pointer;
+}
+.arrow-prev {
+    left: 0px;
+    background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(255,255,255,0));
+}
+.arrow-next {
+    right: 0px;
+    top: 0px;
+    background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(0,0,0,1));
+}
+
+.slick-slider{
+    width: 100vw;
 }

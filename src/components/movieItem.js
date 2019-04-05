@@ -30,7 +30,7 @@ class MovieItem extends Component {
 
         const url = encodeURIComponent(movie.trailer);
         return (
-            <li className="block-movie__item" style={{backgroundImage: `url('${movie.poster}')`}} >
+            <div className="block-movie__item" style={{backgroundImage: `url('${movie.poster}')`}} >
                 <span className="block-movie__info">
                         <span className="block-movie__header details">
                             <Link to={`/movie/${movie._id}`} className="details__link">
@@ -53,7 +53,7 @@ class MovieItem extends Component {
                 <Link to={`/movie/${movie._id}`} className="details__link">
                     <span className="block-movie__title"> {movie.title} </span>
                 </Link>
-            </li>
+            </div>
         );
     }
 }

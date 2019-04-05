@@ -1,6 +1,5 @@
 import * as types from "../actions/actionTypes";
 
-import axios from "axios";
 import AxiosInstance from "../_utils/axiosConfig";
 
 const getSession =                  payload => ({ type: types.GET_SESSION, payload});
