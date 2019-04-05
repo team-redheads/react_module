@@ -23,7 +23,6 @@ function SamplePrevArrow(props) {
     );
 }
 
-
 class MovieGallery extends Component {
     renderMovies () {
         const { movie, session } = this.props;
@@ -43,17 +42,6 @@ class MovieGallery extends Component {
     };
 
     render() {
-        // const { movie, session } = this.props;
-        // const movieItems = movie && movie.map( (movie, index) => {
-        //     const nowData = moment().format("YYYY MM DD"); // сегодняшний день
-        //     const rentStart = moment(movie.rentStart).format("YYYY MM DD");
-        //     const rentEnd = moment(movie.rentEnd).format("YYYY MM DD");
-        //     return ( nowData >= rentStart &&
-        //         nowData <= rentEnd ) &&
-        //         <MovieItem key={ index } movie={ movie } session={ session } />
-        //     // return <MovieItem key={ index } movie={ movie } sessions={ sessions } />
-        // });
-
         const settings = {
             speed: 500,
             slidesToShow: 4,

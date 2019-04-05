@@ -11,6 +11,23 @@ $colorWhite: #fff;
     padding-top: 2rem;
     width: 25%;
     min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    &__timetable{
+        padding: 0.5rem  0;
+        width: 100%;
+        font-size: 18px;
+        text-align: center;
+        font-weight: bold;
+        border-bottom: 1px solid $bg-btn;
+        border-radius: 2rem;
+        background-color: $bg-btn;
+        transition: all .5s;
+        &:hover{
+            border-bottom: 1px solid $color-hover;
+            color: $color-hover;
+        }
+    }
     &__li{
         @include list-clear;
         margin-bottom: 1rem;
