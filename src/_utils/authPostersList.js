@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-
-const posters = [
+const authPostersList = [
     'http://pics.kinokadr.ru/films/w/wolverine/wolverine.jpg',
     'https://i.pinimg.com/originals/4b/01/51/4b0151a28368c65412db0d2bf906dc35.jpg',
     'https://cs8.pikabu.ru/post_img/big/2017/02/19/4/1487481943128165538.jpg',
@@ -15,20 +13,4 @@ const posters = [
     'https://static.kinoafisha.info/k/movie_posters/1920x1080/upload/movie_posters/7/7/0/7922077/fc1d56257d79df6711063c6f83aff191.jpg',
 ];
 
-class MattPosters extends Component{
-    render() {
-        const posterItem = posters.map((poster,index) =>{
-            return (
-                <div key={index} className='poster-item' style={{backgroundImage: `url('${ poster }')`}}>
-                    {/*<img src={`${poster}`} alt="" className='poster-item__image'/>*/}
-                </div>
-            )
-        });
-        return (
-            <>
-                {posterItem}
-            </>
-        );
-    }
-}
-export default MattPosters;
+export default authPostersList;

@@ -1,0 +1,38 @@
+.auth-block {
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: row;
+	width: 100%;
+	height: 100vh;
+	align-items: center;
+	color: black;
+	font-size: 16px;
+
+	&__form {
+		position: relative;
+		width: 390px;
+		margin: 0 auto;
+		padding: 40px 40px 100px 40px;
+	}
+
+	&__btn {
+		position: absolute;
+		bottom: 108px;
+		right: 40px;
+		border: none;
+		padding: 0 0 4px 0;
+		color: #aaaaaa;
+		background: none;
+		font-size: 12px;
+		cursor: pointer;
+	}
+
+	&__btn:hover {
+		color: #000000;
+	}
+
+	&__posters {
+		width: 50%;
+		height: 100vh;
+	}
+}

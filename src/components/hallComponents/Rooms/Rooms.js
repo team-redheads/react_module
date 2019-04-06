@@ -55,7 +55,7 @@ class Rooms extends Component {
     if ( !this.props.currentSession.data ) return
     this.props.setPrice( this.props.currentSession.data.costs )
     axios({
-  			url: `https://test-app-a-level.herokuapp.com/api/movie/space?room=${this.props.currentSession.data.room}`,
+  			url: `http://subdomain.entony.fs.a-level.com.ua/api/movie/space?room=${this.props.currentSession.data.room}`,
   		}).then( response => {
           this.setState( {room: response.data, price: this.props.currentSession.data.costs} )
           console.log(response,"roomsData")

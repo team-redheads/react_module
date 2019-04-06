@@ -10,7 +10,7 @@ const token = localStorage.getItem("token");
 // });
 
 const AxiosInstance = axios.create({
-    baseURL: "https://test-app-a-level.herokuapp.com/api/",
+    baseURL: "http://subdomain.entony.fs.a-level.com.ua/api/",
     headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`
