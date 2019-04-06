@@ -13,6 +13,7 @@ let namezator = {
 let HallPage = props => {
   console.log(props.currentSession,"props.curSession");
   let roomeId = props.currentSession.data ? props.currentSession.data.room : false;
+  console.log(roomeId,'roomeId')
   return (
     <div className = 'hall-page' style = { {backgroundColor: namezator [roomeId] } }>
       <Rooms />
