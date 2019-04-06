@@ -2,20 +2,15 @@ import React, { Component } from 'react';
 import { connect }   from 'react-redux';
 import * as actions from '../../../actions/actionHall.js';
 import axios from "axios";
-import { Redirect } from "react-router-dom";
 import UserIcon from './UserIcon.js';
 
-let mapStateToProps = state => ( { places: state.places.places, currentSession: state.curSession } )
+let mapStateToProps = state => ( { places: state.places.places } )
 
 class Rooms extends Component {
-  state = {
-    room: null,
-    price: 0,
-  }
   generateHall = () => {
     let res = []
     let line = []
-    let showState = JSON.parse( JSON.stringify (this.state.room.space) )
+    let showState = JSON.parse( JSON.stringify (this.props.room.space) )
     showState.sort( (a, b) => a.row - b.row ).forEach( (elem, ind, arr) =>{
       if ( elem.row === ( arr[ind+1] ? arr[ ind+1 ].row : null) ) {
         line.push( elem )
@@ -49,28 +44,10 @@ class Rooms extends Component {
     console.log( 'cilck', this.props.places.indexOf(elem) )
   }
 
-
-  componentDidMount () {
-    console.log(this.props.currentSession,"curSession")
-    if ( !this.props.currentSession.data ) return
-    this.props.setPrice( this.props.currentSession.data.costs )
-    axios({
-  			url: `http://subdomain.entony.fs.a-level.com.ua/api/movie/space?room=${this.props.currentSession.data.room}`,
-  		}).then( response => {
-          this.setState( {room: response.data, price: this.props.currentSession.data.costs} )
-          console.log(response,"roomsData")
-      } )
-        .catch( err => console.error( err.message ) )
-
-
-  }
-
   render () {
-    if ( !this.props.currentSession.data ) return ( <Redirect to='/' /> )
-    if ( !this.state.room )return ( <div className = 'room'>Loading...</div> )
     return (
       <div className = 'room'>
-        <h1 className = 'room__title'>{this.state.room.name}</h1>
+        <h1 className = 'room__title'>{/*this.state.room.name*/}</h1>
         <div className = 'room__screen'></div>
         <div className = 'room__hall'>
           {this.generateHall ().map( (line, ind) =>(
@@ -80,7 +57,7 @@ class Rooms extends Component {
                 return(
                 <div className = 'room__hall__line__cell'
                      key = {index + ind}
-                     title = {`ряд: ${elem.row}; место: ${elem.place}; цена: ${this.state.price}`}
+                     title = {`ряд: ${elem.row}; место: ${elem.place}; цена: ${this.props.price}`}
                      style = {{background: inStock ? 'orange' : elem.free ? 'gray' : '#239903',
                               color: elem.free ? 'gray' : '#239903'}}
                      onMouseOver = {this.mouseHandler(elem)}

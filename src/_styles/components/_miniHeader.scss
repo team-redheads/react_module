@@ -1,0 +1,22 @@
+.miniHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #f9f8f2;
+  font-size: 24px;
+  font-weight: 500;
+}
+.date {
+  font-size: 16px;
+}
+.names-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.names-header p {
+  margin: 0;
+}
