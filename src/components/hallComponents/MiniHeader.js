@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import InfoCard from './InfoCard.js'
 
 export default props => (
   <div className = 'miniHeader'>
-    <div className = 'names-header'>
-      <p>{ props.nameRoom }</p>
-    </div>
-    <div className = 'names-header'>
-      <p>{ props.nameMovie }</p>
-      <p className = 'date'>{ moment(props.dateSession ).format('LLLL') }</p>
-    </div>
+    <InfoCard title = { props.nameRoom }/>
+    <InfoCard title = { props.nameMovie } info = { moment(props.dateSession ).format('LLLL') } />
   </div>
 )

@@ -10,6 +10,7 @@ import { Switch, Route } from 'react-router-dom'
 // import 'moment-timezone';
 import 'moment/locale/ru'
 import HallPage from './containers/hallPage/HallPage.js'
+import BuyTickets from './containers/BuyTickets.js'
 
 import DetailsMoviePageContainer from './containers/detailsMoviePageContainer'
 import MovieContainer from './containers/movieContainer'
@@ -31,6 +32,7 @@ class Router extends Component {
 					<Route exact path="/trailer/:url" component={TrailerPage} />
 					<Route exact path="/auth" component={AuthUser} />
 					<Route exact path="/hall" component={HallPage} />
+					<Route exact path="/buy" component={BuyTickets} />
 					<Route
 						render={() => (
 							<div className="notFound">404 NOT FOUND</div>
