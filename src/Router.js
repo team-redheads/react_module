@@ -1,13 +1,6 @@
-// {/*<<<<<<< HEAD*/}
-// import React, { Component } from 'react';
-// import { Switch, Route } from "react-router-dom";
-// import './_styles/index.scss';
-// =======
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
-// >>>>>>> d93a695919fc737ab88d960b794507dda1ab85e3
 
-// import 'moment-timezone';
 import 'moment/locale/ru'
 import HallPage from './containers/hallPage/HallPage.js'
 
@@ -15,6 +8,7 @@ import DetailsMoviePageContainer from './containers/detailsMoviePageContainer'
 import MovieContainer from './containers/movieContainer'
 import TrailerPage from './components/trailerPage'
 import AuthUser from './containers/AuthUser'
+import Soon from './containers/soonContainer';
 
 class Router extends Component {
 	render() {
@@ -30,6 +24,7 @@ class Router extends Component {
 					/>
 					<Route exact path="/trailer/:url" component={TrailerPage} />
 					<Route exact path="/auth" component={AuthUser} />
+					<Route exact path="/soon" component={ Soon } />
 					<Route exact path="/hall" component={HallPage} />
 					<Route
 						render={() => (

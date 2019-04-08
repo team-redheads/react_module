@@ -59,7 +59,7 @@ class Header extends Component {
 								<li className="content-block__item">
 									<Link
 										className="content-block__link"
-										to="/"
+										to="/soon"
 									>
 										Скоро в прокате
 									</Link>
