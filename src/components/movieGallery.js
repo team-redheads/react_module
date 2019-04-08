@@ -34,8 +34,9 @@ class MovieGallery extends Component {
             const rentEnd = moment(movie.rentEnd).format("YYYY MM DD");
 
             return (
-                (nowData >= rentStart && nowData <= rentEnd ) &&
-                <MovieItem key={ index } movie={ movie } session={ session } />
+                (nowData >= rentStart && nowData <= rentEnd )  ?
+                    <MovieItem key={ index } movie={ movie } session={ session } /> :
+                    <MovieItem key={ index } movie={ movie } rentStart={ movie.rentStart }  />
             )
         });
         return movieItems

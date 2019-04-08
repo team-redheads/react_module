@@ -38,23 +38,34 @@ class MovieItem extends Component {
         return (
             <div className="block-movie__item" style={{backgroundImage: `url('${movie.poster}')`}} >
                 <span className="block-movie__info">
-                        <span className="block-movie__header details">
-                            <Link to={`/movie/${movie._id}`} className="details__link">
-                                <span> <Icon type="info-circle" className="details__icon" /></span>
-                                <span > Подробнее </span>
-                            </Link>
-                            <Link to={`/trailer/${url}`} className="details__link">
-                                <span> <Icon type="play-circle" className="details__icon" /> </span>
-                                <span> Трейлер </span>
-                            </Link>
-                        </span>
-                        <span className="block-movie__session session">
-                            <h2 className='session__title'> Расписание сеансов </h2>
-                            <h3 className='session__title'> { nowDay } </h3>
-                            <ul className='session__list'>
-                                { sessionItem }
-                            </ul>
-                        </span>
+                    <span className="block-movie__header details">
+                        <Link to={`/movie/${movie._id}`} className="details__link">
+                            <span> <Icon type="info-circle" className="details__icon" /></span>
+                            <span > Подробнее </span>
+                        </Link>
+                        <Link to={`/trailer/${url}`} className="details__link">
+                            <span> <Icon type="play-circle" className="details__icon" /> </span>
+                            <span> Трейлер </span>
+                        </Link>
+                    </span>
+                    {
+
+                        (!this.props.rentStart) ? (
+                            <span className="block-movie__session session">
+                                            <h2 className='session__title'> Расписание сеансов </h2>
+                                            <h3 className='session__title'> {nowDay} </h3>
+                                            <ul className='session__list'>
+                                                {sessionItem}
+                                            </ul>
+                                        </span>
+                        ) : (
+                            <span className="block-movie__rental-period rental-period">
+                                <span className='rental-period__img'>  </span>
+                                <span className='rental-period__title'> Премьера </span>
+                                <span className='rental-period__date'> { moment(this.props.rentStart).format('DD MMMM') } </span>
+                            </span>
+                        )
+                    }
                 </span>
                 <Link to={`/movie/${movie._id}`} className="details__link">
                     <span className="block-movie__title"> {movie.title} </span>
