@@ -75,6 +75,9 @@ $white: #fff;
             text-transform: uppercase;
         }
     }
+    &__rental-period{
+        font-size: 16px;
+    }
 
 }
 
@@ -147,6 +150,41 @@ $white: #fff;
             color: $text-color;
             text-decoration: none;
             cursor: pointer;
+        }
+    }
+}
+
+.rental-period{
+    @include clear;
+    width: 100%;
+    height: 60vh;
+    //border: 1px solid red;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__img{
+        //border: 1px solid salmon;
+        background-image: url("https://multiplex.ua/img/premiere.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 200px;
+        height: 100px;
+        margin: 0 auto;
+        margin-top: 5vh;
+    }
+    &__title{
+        margin-top: 5vh;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    &__date{
+        font-size: 18px;
+        color: $red;
+        font-weight: bold;
+        &:hover {
+            color: $white;
         }
     }
 }
