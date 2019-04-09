@@ -1,0 +1,13 @@
+.infoCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.infoTitle {
+  font-size: 24px;
+  font-weight: 500;
+}
+.miniInfo {
+  font-size: 16px;
+  opacity: 0.7;
+}

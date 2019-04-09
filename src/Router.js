@@ -7,8 +7,10 @@ import { setToken } from "./actions/actionAuth";
 
 import 'moment/locale/ru';
 
-import HallPage from './containers/hallPage/HallPage.js'
 import PrivateRoute from "./privateRouter";
+
+import HallPage from './containers/hallPage/HallPage.js'
+import BuyTickets from './containers/BuyTickets.js'
 
 import DetailsMoviePageContainer from './containers/detailsMoviePageContainer';
 import MovieContainer from './containers/movieContainer';
@@ -34,17 +36,14 @@ class Router extends Component {
 		return (
 			<React.Fragment>
 				<Switch>
-					{/* --- LIST WITH FILMS --- */}
 					<Route exact path="/" component={MovieContainer} />
-					<Route
-						exact
-						path="/movie/:id"
-						component={DetailsMoviePageContainer}
-					/>
+					<Route exact path="/movie/:id" component={DetailsMoviePageContainer}/>
 					<Route exact path="/trailer/:url" component={TrailerPage} />
 					<Route exact path="/auth" component={AuthUser} />
 					<Route exact path="/soon" component={ Soon } />
 					<Route exact path="/hall" component={HallPage} />
+					<Route exact path="/buy" component={BuyTickets} />
+
 					<PrivateRoute exact path="/personal" component={Personal} />
 
 					<Route

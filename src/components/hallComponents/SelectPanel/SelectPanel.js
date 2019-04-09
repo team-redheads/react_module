@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect}   from 'react-redux';
 import * as actions from '../../../actions/actionHall.js';
+import { Link } from 'react-router-dom';
 
 let mapStateToProps = state => ({
   places: state.places.places,
@@ -39,13 +40,13 @@ class SelectPanel extends Component {
                 <span>{elem.row}</span>
                 <span>{elem.place}</span>
                 <span>{p.price} грн
-                  <span className = 'panel__item-bar__line__del'
+                  <span className = 'panel__item-bar__line__del' style = {{display:p.simple ? "none" : "inline-block"}}
                     onClick = {this.clickDelHandler(elem)}>x</span>
                 </span>
               </div>
             ))}
             <div className = 'panel__item-bar__sum'
-              style = {{ display: p.places.length <=1 ? 'none' : 'block' }}>
+              style = {{ display: p.places.length <=1 ? 'none' : p.simple ? "none" : "block" }}>
               <span>Удалить все</span>
               <span className = 'panel__item-bar__line__del'
                 onClick = {this.allDel}>x</span>
@@ -58,6 +59,7 @@ class SelectPanel extends Component {
                 ),0)}
               </span>
             </div>
+            { p.simple ? false : <Link to = '/buy'><button>Продолжить</button></Link>}
         </div>
       </div>
     )
