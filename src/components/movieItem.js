@@ -26,10 +26,7 @@ class MovieItem extends Component {
                 dateDay === nowDay &&
                 session.movie === movie._id &&
                 dateTime >= nowTime &&
-                <React.Fragment>
-                    <Link className='session__link' to='/hall' onClick = {this.clickHanler( session )}> { dateTime } </Link>
-                </React.Fragment>
-
+                    <Link key={index} className='session__link' to='/hall' onClick = {this.clickHanler( session )}> { dateTime } </Link>
             );
         });
 
@@ -52,12 +49,12 @@ class MovieItem extends Component {
 
                         (!this.props.rentStart) ? (
                             <span className="block-movie__session session">
-                                            <h2 className='session__title'> Расписание сеансов </h2>
-                                            <h3 className='session__title'> {nowDay} </h3>
-                                            <ul className='session__list'>
-                                                {sessionItem}
-                                            </ul>
-                                        </span>
+                                <h2 className='session__title'> Расписание сеансов </h2>
+                                <h3 className='session__title'> {nowDay} </h3>
+                                <ul className='session__list'>
+                                    {sessionItem}
+                                </ul>
+                            </span>
                         ) : (
                             <span className="block-movie__rental-period rental-period">
                                 <span className='rental-period__img'>  </span>

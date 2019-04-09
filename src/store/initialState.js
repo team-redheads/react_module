@@ -1,6 +1,7 @@
 export default {
     auth: {
         token: null,
+        message: null,
         error: null,
         isFetching: false
     },

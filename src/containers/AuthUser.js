@@ -1,17 +1,18 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Redirect } from "react-router-dom";
 
-import SignIn from '../components/signIn'
-import SignUp from '../components/SignUp'
+import SignIn from '../components/signIn';
+import SignUp from '../components/SignUp';
 
-import Posters from '../components/AuthPosters'
-import { postAuthRequest } from '../actions/actionAuth'
+import Posters from '../components/AuthPosters';
+import { postAuthRequest, postSignUpAuthRequest } from '../actions/actionAuth';
 
 class AuthUser extends Component {
 	state = {
 		auth: true,
-	}
+	};
 
 	changeAuth = () => {
 		this.setState(prevState => {
@@ -19,17 +20,31 @@ class AuthUser extends Component {
 				auth: !prevState.auth,
 			}
 		})
-	}
+	};
 
 	takeValueSignIn = values => {
-		console.log('-----value_sign-in', values)
-	}
+		// console.log('-----value_sign-in', values);
+		this.props.postAuthRequest(values);
+	};
 
 	takeValueSignUp = values => {
-		console.log('-----value_sign-up', values)
-	}
+		values.firstName = 'Unknown';
+		values.lastName = 'Unknown';
+		values.confirmPassword = values.password;
+		this.props.postSignUpAuthRequest(values);
+	};
 
 	render() {
+		const { token } = this.props;
+
+		const token_lS = localStorage.getItem("token");
+		// console.log("token    ", token);
+		// console.log("token_lS ", token_lS);
+
+		if (token && token === token_lS) {
+			return <Redirect to="/personal" />;
+		}
+
 		return (
 			<div className="auth-block">
 				<div className="auth-block__form">
@@ -54,11 +69,11 @@ class AuthUser extends Component {
 }
 
 const mapDispatchToProps = dispatch =>
-	bindActionCreators({ postAuthRequest }, dispatch)
+	bindActionCreators({ postAuthRequest, postSignUpAuthRequest }, dispatch);
 
 const mapStateToProps = state => ({
-	token: state.auth.token,
-})
+	token: state.auth.token
+});
 
 export default connect(
 	mapStateToProps,
