@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import {connect}   from 'react-redux';
+import { connect }   from 'react-redux';
 import * as actions from '../../../actions/actionHall.js';
 import axios from "axios";
-import {Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import UserIcon from './UserIcon.js';
 
-let mapStateToProps = state => ({ places: state.places.places, currentSession: state.curSession })
+let mapStateToProps = state => ( { places: state.places.places, currentSession: state.curSession } )
 
 class Rooms extends Component {
   state = {
@@ -15,18 +15,18 @@ class Rooms extends Component {
   generateHall = () => {
     let res = []
     let line = []
-    let showState = JSON.parse(JSON.stringify(this.state.room.space))
-    showState.sort( (a, b) => a.row - b.row ).forEach((elem, ind, arr) =>{
-      if ( elem.row === (arr[ind+1] ? arr[ind+1].row : null) ) {
-        line.push(elem)
+    let showState = JSON.parse( JSON.stringify (this.state.room.space) )
+    showState.sort( (a, b) => a.row - b.row ).forEach( (elem, ind, arr) =>{
+      if ( elem.row === ( arr[ind+1] ? arr[ ind+1 ].row : null) ) {
+        line.push( elem )
       }
       else {
-        line.push(elem)
-        res.push(line.sort( (a, b) => a.place - b.place ))
+        line.push( elem )
+        res.push( line.sort( (a, b) => a.place - b.place ) )
         line = []
       }
     })
-    console.log(res,"res")
+    console.log( res,"res" )
     return res
   }
   mouseHandler = elem => event => {
@@ -34,7 +34,7 @@ class Rooms extends Component {
   }
 
   mouseOutHandler = elem => event => {
-    if ( !elem.free && !this.checkId(elem._id) ) event.target.style.background = '#239903'
+    if ( !elem.free && !this.checkId ( elem._id ) ) event.target.style.background = '#239903'
   }
 
   checkId = id => this.props.places.some( el => el._id === id )
@@ -45,12 +45,12 @@ class Rooms extends Component {
     let newMass = [...this.props.places]
     let check = newMass.reduce( ( prev, el, ind ) => el._id === elem._id ? ind : prev ,-1 )
     check > -1 ? newMass.splice( check ,1 ) : newMass.push(elem)
-    this.props.setPlaces(newMass)
-    console.log('cilck', this.props.places.indexOf(elem))
+    this.props.setPlaces( newMass )
+    console.log( 'cilck', this.props.places.indexOf(elem) )
   }
 
 
-  componentDidMount(){
+  componentDidMount () {
     console.log(this.props.currentSession,"curSession")
     if ( !this.props.currentSession.data ) return
     this.props.setPrice( this.props.currentSession.data.costs )
@@ -60,12 +60,12 @@ class Rooms extends Component {
           this.setState( {room: response.data, price: this.props.currentSession.data.costs} )
           console.log(response,"roomsData")
       } )
-        .catch( err => console.error(err.message))
+        .catch( err => console.error( err.message ) )
 
 
   }
 
-  render(){
+  render () {
     if ( !this.props.currentSession.data ) return ( <Redirect to='/' /> )
     if ( !this.state.room )return ( <div className = 'room'>Loading...</div> )
     return (
@@ -73,9 +73,9 @@ class Rooms extends Component {
         <h1 className = 'room__title'>{this.state.room.name}</h1>
         <div className = 'room__screen'></div>
         <div className = 'room__hall'>
-          {this.generateHall().map((line, ind) =>(
+          {this.generateHall ().map( (line, ind) =>(
             <div className ='room__hall__line' key = {ind}>
-              {line.map((elem,index) =>{
+              {line.map( (elem,index ) => {
                 let inStock = this.checkId(elem._id)
                 return(
                 <div className = 'room__hall__line__cell'
