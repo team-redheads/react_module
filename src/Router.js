@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import { setToken } from "./actions/actionAuth";
+import jwtDecode from "./_utils/checkExp";
 
 import 'moment/locale/ru';
 
@@ -25,7 +26,7 @@ class Router extends Component {
 	componentDidMount() {
 		const token = localStorage.getItem("token");
 
-		if (token) {
+		if ( token && jwtDecode(token) ) {
 			const { setToken } = this.props;
 			console.log(' --- token ----', token);
 			return setToken(token);

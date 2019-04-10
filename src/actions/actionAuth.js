@@ -73,12 +73,10 @@ export const getLogOutAuthRequest = () => async dispatch => {
             method: "GET",
             url: "auth/logout"
         });
-
-        // localStorage.setItem("token", data.token);
-        console.log(' ----- data getLogOutAuthRequest', data);
-        console.log(' ----- localStorage', localStorage);
+        // console.log(' ----- data getLogOutAuthRequest', data);
+        // console.log(' ----- localStorage', localStorage);
         localStorage.removeItem ( "token" );
-        console.log(' ----- localStorage after removeItem', localStorage);
+        // console.log(' ----- localStorage after removeItem', localStorage);
         dispatch(authLogOutRequestSuccess(data));
     } catch (err) {
         dispatch(authLogOutRequestFail(err));

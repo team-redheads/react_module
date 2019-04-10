@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Redirect } from "react-router-dom";
+import jwtDecode from "../_utils/checkExp";
 
 import SignIn from '../components/signIn';
 import SignUp from '../components/SignUp';
@@ -39,11 +40,15 @@ class AuthUser extends Component {
 
 		const token_lS = localStorage.getItem("token");
 		// console.log("token    ", token);
-		// console.log("token_lS ", token_lS);
+		// console.log("token_lS ", jwtDecode(token_lS));
 
-		if (token && token === token_lS) {
-			return <Redirect to="/personal" />;
+		if (token_lS && jwtDecode(token_lS)){
+			if (token && token === token_lS) {
+				return <Redirect to="/personal" />;
+			}
 		}
+
+		// jwtDecode(token_lS) ? (token && token === token_lS ?  <Redirect to="/personal" /> : null) : null
 
 		return (
 			<div className="auth-block">

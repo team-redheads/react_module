@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.scss'
 import store from './store'
 import Router from './Router'
-store.subscribe(()=>console.log(store.getState(),"store"))
+// store.subscribe(()=>console.log(store.getState(),"store"))
 
 ReactDOM.render(
 	<Provider store={store}>

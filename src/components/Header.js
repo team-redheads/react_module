@@ -5,10 +5,9 @@ import logo from '../_img/logo.svg'
 import logoM from '../_img/logo-menu.svg'
 import ava from '../_img/ava.svg'
 import logout from '../_img/logout.svg'
-// import { bindActionCreators } from "redux";
+import { bindActionCreators } from "redux";
 import { getLogOutAuthRequest } from "../actions/actionAuth";
 import { connect } from "react-redux";
-// import { Redirect } from "react-router-dom";
 
 class Header extends Component {
 	state = {
@@ -23,11 +22,17 @@ class Header extends Component {
 		})
 	};
 
+	handleLogout (event) {
+		// console.log('handleLogout this.props', this.props);
+		const { getLogOutAuthRequest } = this.props;
+		getLogOutAuthRequest();
+	}
+
 
 	render() {
+		console.log(" render this.props ---- ", this.props);
 		const token_lS = localStorage.getItem("token");
 
-		console.log(" token_lS ---- ", token_lS);
 		return (
 			<div className="header-block">
 				<div className="nav-block">
@@ -100,10 +105,8 @@ class Header extends Component {
 							<Link className="log-in-block__link" to="/auth">
 								<img src={ava}  alt=""/>
 							</Link> :
-							<Link className="log-in-block__link" to="/">
-								<img src={logout} alt=""
-									 // onClick={}
-								/>
+							<Link className="log-in-block__link" to="/" >
+								<img src={logout} alt="" onClick={ this.handleLogout.bind(this) } />
 							</Link>
 					}
 				</div>
@@ -121,16 +124,13 @@ class Header extends Component {
 	}
 }
 
-// const mapDispatchToProps = dispatch => bindActionCreators({ getLogOutAuthRequest  }, dispatch);
-
-// const mapStateToProps = state => ({
-// 	token: state.auth.token
-// });
-
+const mapDispatchToProps = dispatch => bindActionCreators({ getLogOutAuthRequest  }, dispatch);
+const mapStateToProps = state => ({
+	token: state.auth.token
+});
 Header = connect(
-	// mapStateToProps,
-	 null,
-	{ getLogOutAuthRequest  }
+	mapStateToProps,
+	mapDispatchToProps
 )(Header);
 
 export default Header
