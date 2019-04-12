@@ -20,4 +20,3 @@ export default (state = initialState.movie, {type, payload}) => {
             return state;
     }
 };
-

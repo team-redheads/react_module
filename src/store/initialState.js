@@ -44,5 +44,10 @@ export default {
     },
     curSession: {
       data: null
-    }
+    },
+    roomNames: {
+        data: null,
+        error: null,
+        isFetching: false
+    },
 };
