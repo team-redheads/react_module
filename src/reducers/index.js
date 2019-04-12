@@ -1,10 +1,9 @@
 import { combineReducers } from "redux";
 import { reducer as formReducer } from "redux-form";
-// import { reducer as formReducer } from "redux-form";
-
-// import auth from "./auth";
 
 import auth from './auth';
+import user from './user';
+import actors from './actors'
 import movie from './movie';
 import movie_by_id from './movie_by_id';
 import session from './session';
@@ -15,6 +14,8 @@ import choicePlaces from './choicePlaces.js'
 
 export default combineReducers({
     auth,
+    user,
+    actors,
     movie,
     movie_by_id,
     session,

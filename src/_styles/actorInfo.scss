@@ -1,0 +1,91 @@
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+.ant-btn {
+    line-height: 1.5;
+    position: relative;
+    display: inline;
+    font-weight: normal;
+    text-align: center;
+    background-image: none;
+    border: none;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+    cursor: pointer;
+    transition: all 0.3s;
+    touch-action: manipulation;
+    height: 30px;
+    font-size: 16px;
+    border-radius: 15px;
+}
+
+.ant-btn:hover,
+.ant-btn:active,
+.ant-btn:focus  {
+    background-color: #4c5566 ;
+}
+.ant-btn:focus{
+    background: none ;
+    color: #929398;
+
+}
+.ant-btn-primary {
+    color: #929398;
+    background: none;
+    border: none;
+    display: inline;
+}
+
+.ant-modal-content {
+    position: relative;
+    border: 0;
+    background-color: #4c556695;
+}
+.ant-modal-title {
+    color: $text-color;
+    font-size: 18px;
+    background-color: $main-bg-color;
+}
+.ant-modal-header {
+    padding: 16px 24px;
+    background-color: $main-bg-color;
+    border-bottom: none;
+    border-radius: 0;
+}
+
+.ant-modal-footer {
+    display: none;
+}
+.ant-modal-close-x {
+    color: $text-color;
+}
+
+.block-actor-info{
+    display: flex;
+    color: $text-color;
+    &__wrapper-img > img {
+        width: 200px
+    }
+    &__wrapper-text{
+        padding: 0 2rem;
+
+        h2 {
+            color: #929398;
+            font-weight: bolder;
+            font-style: italic;
+        }
+    }
+    &__title{
+        color: $text-color;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 2;
+    }
+    &__text {
+        padding-left: 10px;
+        font-size: 16px;
+        color: #929398;
+    }
+
+}
+
+

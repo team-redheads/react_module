@@ -19,7 +19,7 @@ import TrailerPage from './components/trailerPage';
 import AuthUser from './containers/AuthUser';
 import Soon from './containers/soonContainer';
 import Header from './components/Header';
-import Personal from './components/Personal';
+import PersonalContainer from './containers/PersonalContainer';
 
 class Router extends Component {
 
@@ -45,7 +45,7 @@ class Router extends Component {
 					<Route exact path="/hall" component={HallPage} />
 					<Route exact path="/buy" component={BuyTickets} />
 
-					<PrivateRoute exact path="/personal" component={Personal} />
+					<PrivateRoute exact path="/personal/:id" component={PersonalContainer} />
 
 					<Route
 						render={() => (

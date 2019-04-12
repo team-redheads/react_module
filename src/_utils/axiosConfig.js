@@ -1,13 +1,7 @@
 import axios from "axios";
+// import jwtDecode from "../_utils/checkExp";
 
 const token = localStorage.getItem("token");
-// const instance = axios.create({
-// 	baseURL: "https://test-app-a-level.herokuapp.com/api/",
-// 	headers: {
-// 		"Content-Type": "application/json",
-// 		Authorization: `Bearer ${token}`
-// 	}
-// });
 
 const AxiosInstance = axios.create({
     baseURL: "http://subdomain.entony.fs.a-level.com.ua/api/",
@@ -20,6 +14,7 @@ const AxiosInstance = axios.create({
 AxiosInstance.interceptors.request.use(
     config => {
         const token = localStorage.getItem("token");
+        // console.log("AxiosInstance token", token);
         // проверка токена с  jwt decode
 
         if (token) {

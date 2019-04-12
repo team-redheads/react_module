@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 import { getMovieByIdRequest } from '../actions/actionMovie'
 import { getSessionByMovieIdRequest } from '../actions/actionSession'
+import { getActorsRequest } from '../actions/actionActors'
 
 import Header from '../components/Header'
 import Sessions from '../components/sessions'
@@ -15,9 +16,14 @@ class DetailsMoviePageContainer extends Component {
 		const { id } = this.props.match.params;
 		this.props.getMovieByIdRequest(id);
 		this.props.getSessionByMovieIdRequest(id);
+		this.props.getActorsRequest(id);
 	}
 	render() {
-		const { movie_by_id, session_by_movie_id } = this.props;
+		// console.log('movie container props', this.props);
+
+		const { movie_by_id, session_by_movie_id, actors } = this.props;
+
+
 		return (
 			<React.Fragment>
 				{movie_by_id && session_by_movie_id && (
@@ -30,7 +36,7 @@ class DetailsMoviePageContainer extends Component {
 									trailer={movie_by_id[0].trailer}
 									title={movie_by_id[0].title}
 								/>
-								<Information movie={movie_by_id[0]} />
+								<Information movie={movie_by_id[0]} actors={actors} />
 								<Sessions session={session_by_movie_id} />
 							</div>
 						</div>
@@ -44,14 +50,14 @@ class DetailsMoviePageContainer extends Component {
 const mapStateToProps = state => ({
 	movie_by_id: state.movie_by_id.data,
 	session_by_movie_id: state.session_by_movie_id.data,
-	// sessions: state.sessions
-	// singInForm: state.form.signIn
+	actors: state.actors.data
 });
 const mapDispatchToProps = dispatch =>
 	bindActionCreators(
 		{
 			getMovieByIdRequest,
 			getSessionByMovieIdRequest,
+			getActorsRequest
 		},
 		dispatch
 	);

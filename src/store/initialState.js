@@ -5,7 +5,20 @@ export default {
         error: null,
         isFetching: false
     },
+    user: {
+        data: null,
+        message: null,
+        error: null,
+        isFetching: false
+    },
     movie: [
+        {
+            data: [],
+            error: null,
+            isFetching: false
+        },
+    ],
+    actors: [
         {
             data: [],
             error: null,

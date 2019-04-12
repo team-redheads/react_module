@@ -3,6 +3,7 @@ import React from 'react'
 export const renderField = ({
 	input,
 	label,
+	disabled,
 	type = 'text',
 	meta: { touched, error },
 }) => {
@@ -13,8 +14,9 @@ export const renderField = ({
 				placeholder={label}
 				type={type}
 				className="block-field__input"
+				disabled={disabled}
 			/>
-			{touched && error && <span className="error">{error}</span>}
+			{touched && error &&  <span className="error">{error}</span>}
 		</div>
 	)
 }

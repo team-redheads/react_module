@@ -32,18 +32,11 @@ export const getMovieRequest = () => async dispatch => {
 
 export const getMovieByIdRequest = id => async dispatch => {
     dispatch(getMovieById());
-    // const token = localStorage.getItem("token");
     try {
-        // console.log(" --- id reducer", id);
-        // const { data } = await axios({
-        //     method: "GET",
-        //     url: `https://test-app-a-level.herokuapp.com/api/movie/?_id=${id}`,
-        // });
         const { data } = await AxiosInstance({
             method: "GET",
             url: `movie/?_id=${id}`
         });
-        console.log(" --- data reducer", data);
         dispatch(getMovieByIdSuccess(data));
     } catch (err) {
         dispatch(getMovieByIdFail(err));

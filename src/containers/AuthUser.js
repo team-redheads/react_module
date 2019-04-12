@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Redirect } from "react-router-dom";
 import jwtDecode from "../_utils/checkExp";
+import jwt from "jwt-decode";
 
 import SignIn from '../components/signIn';
 import SignUp from '../components/SignUp';
@@ -44,7 +45,7 @@ class AuthUser extends Component {
 
 		if (token_lS && jwtDecode(token_lS)){
 			if (token && token === token_lS) {
-				return <Redirect to="/personal" />;
+				return <Redirect to={`/personal/${jwt(token).id}`} />;
 			}
 		}
 

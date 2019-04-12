@@ -6,11 +6,14 @@
 @import './_styles/abstracts/mixins';
 
 @import '/_styles/header';
+@import '/_styles/headerPersonal';
+
 
 @import './_styles/movie';
 @import './_styles/soon';
 @import './_styles/datailsMoviePage';
 @import './_styles/information';
+@import './_styles/actorInfo';
 @import './_styles/session';
 @import './_styles/components/index';
 
@@ -20,6 +23,8 @@
 @import './_styles/signIn';
 @import './_styles/signUp';
 @import './_styles/authPoster';
+
+@import './_styles/profile';
 
 
 * {

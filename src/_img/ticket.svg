@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="tickets-bar_icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-305.000000, -231.000000)">
+        <path d="M321,239 L321,234 L318.829294,234 C318.417458,235.165192 317.306219,236 316,236 C314.693781,236 313.582542,235.165192 313.170706,234 L311,234 L311,239 L312,239 L312,242 L311,242 L311,250 L321,250 L321,242 L320,242 L320,239 L321,239 Z M311,242 L311,239 L315,239 L315,242 L311,242 Z M313.5,240.5 L313,240 L313,240.5 L313,240 L312.5,240.5 L313,241 L313,240.5 L313,241 L313.5,240.5 Z M314,242 L314,239 L318,239 L318,242 L314,242 Z M316.5,240.5 L316,240 L316,240.5 L316,240 L315.5,240.5 L316,241 L316,240.5 L316,241 L316.5,240.5 Z M319.5,240.5 L319,240 L319,240.5 L319,240 L318.5,240.5 L319,241 L319,240.5 L319,241 L319.5,240.5 Z M317,239 L321,239 L321,242 L317,242 L317,239 Z" id="Combined-Shape" stroke="#FFFFFF" stroke-width="2" transform="translate(316.000000, 242.000000) rotate(45.000000) translate(-316.000000, -242.000000) "></path>
+    </g>
+</svg>

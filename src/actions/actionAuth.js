@@ -27,7 +27,6 @@ export const postAuthRequest = payload => async dispatch => {
             data: payload
         });
         localStorage.setItem("token", data.token);
-        console.log(' ----- data postAuthRequest', data);
         dispatch(authRequestSuccess(data));
     } catch (err) {
         dispatch(authRequestFail(err));
@@ -73,10 +72,7 @@ export const getLogOutAuthRequest = () => async dispatch => {
             method: "GET",
             url: "auth/logout"
         });
-        // console.log(' ----- data getLogOutAuthRequest', data);
-        // console.log(' ----- localStorage', localStorage);
         localStorage.removeItem ( "token" );
-        // console.log(' ----- localStorage after removeItem', localStorage);
         dispatch(authLogOutRequestSuccess(data));
     } catch (err) {
         dispatch(authLogOutRequestFail(err));

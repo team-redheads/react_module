@@ -1,0 +1,73 @@
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+.profile-block{
+    //border: 1px solid red;
+    display: flex;
+    &__button{
+        //border: 1px solid blue;
+        width: 35%;
+        padding-top: 2.5rem;
+    }
+    &__title h1{
+        font-size: 36px;
+        font-weight: bolder;
+        margin-bottom: 2rem;
+    }
+    &__btn {
+        border: none;
+        border-radius: 25px;
+        padding: 12px 30px;
+        color: #fff;
+        background: #ff3e2f;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        &:disabled {
+            background-color: #282c34;
+            cursor: not-allowed;
+        }
+    }
+    &__icon{
+        margin-right: 0.3rem;
+    }
+
+    &__content{
+        //border: 1px solid yellowgreen;
+        width: 65%;
+        padding: 2.5rem 3.5rem;
+        margin-top: 2.5rem;
+        background-color: $bg-color-white;
+    }
+    &__personal-info{
+
+    }
+}
+.personal-info{
+    display: flex;
+    flex-direction: column;
+    &__title h2{
+        font-size: 26px;
+        font-weight: bolder;
+        margin-bottom: 2rem;
+    }
+    &__text {
+        font-size: 18px;
+        margin-bottom: 1.2rem;
+    }
+    &__input {
+        position: relative;
+    }
+    &__input > div {
+        margin-bottom: 10px;
+    }
+
+    &__input input {
+        width: 90%;
+        margin: 0 0 16px 0;
+        border: none;
+        border-bottom: 1px solid #282c34;
+        background-color: $bg-color-white;
+        font-size: 16px;
+    }
+}
