@@ -10,12 +10,12 @@ export default class SoonWrapper extends Component{
         const nowData = moment().format("YYYY MM DD"); // сегодняшний день
         const resRentSt = [];
 
-        movie && movie.sort(dynamicSort('rentStart')).map( (movie, index, arr) => {
+        movie && movie.sort(dynamicSort('rentStart')).map( (movie) => {
             const rentStart = moment(movie.rentStart).format("YYYY MM DD");
             const rentEnd = moment(movie.rentEnd).format("YYYY MM DD");
             return !(nowData >= rentStart && nowData <= rentEnd )  &&
-                resRentSt.indexOf(movie.rentStart.split('T')[0]) === -1 &&
-                resRentSt.push(movie.rentStart.split('T')[0])
+                resRentSt.indexOf(movie.rentStart) === -1 &&
+                resRentSt.push(movie.rentStart)
         });
         const dayList = resRentSt.map( (day, index) => {
             return (
@@ -28,7 +28,7 @@ export default class SoonWrapper extends Component{
                         {
                             movie && movie.sort(dynamicSort('rentStart')).map((movie,ind) => {
                                 const url = encodeURIComponent(movie.trailer);
-                                return movie.rentStart.split('T')[0] === day &&
+                                return movie.rentStart.split('T')[0] === day.split('T')[0] &&
                                     <div key={ind} className='soon-list__movies-item' >
                                         <Link to={`/movie/${movie._id}`} className="soon-list__movies-poster" style={{backgroundImage: `url('${movie.poster}')`}}></Link>
                                         <Link to={`/trailer/${url}`} className="soon-list__movies-trailer"><Icon type="play-circle" className="icon-trailer" /></Link>

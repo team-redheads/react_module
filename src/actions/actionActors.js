@@ -14,7 +14,7 @@ export const getActorsRequest = id => async dispatch => {
             method: "GET",
             url: `movie/actors?movie=${id}`
         });
-        console.log(' ----- ACTORS data', data);
+        // console.log(' ----- ACTORS data', data);
         dispatch(getActorsSuccess(data));
     } catch (err) {
         dispatch(getActorsFail(err));

@@ -9,7 +9,7 @@ import SignIn from '../components/signIn';
 import SignUp from '../components/SignUp';
 
 import Posters from '../components/AuthPosters';
-import { postAuthRequest, postSignUpAuthRequest } from '../actions/actionAuth';
+import { postSignInRequest, postSignUpAuthRequest } from '../actions/actionAuth';
 
 class AuthUser extends Component {
 	state = {
@@ -26,7 +26,7 @@ class AuthUser extends Component {
 
 	takeValueSignIn = values => {
 		// console.log('-----value_sign-in', values);
-		this.props.postAuthRequest(values);
+		this.props.postSignInRequest(values);
 	};
 
 	takeValueSignUp = values => {
@@ -75,7 +75,7 @@ class AuthUser extends Component {
 }
 
 const mapDispatchToProps = dispatch =>
-	bindActionCreators({ postAuthRequest, postSignUpAuthRequest }, dispatch);
+	bindActionCreators({ postSignInRequest, postSignUpAuthRequest }, dispatch);
 
 const mapStateToProps = state => ({
 	token: state.auth.token

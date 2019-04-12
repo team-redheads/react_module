@@ -18,7 +18,7 @@ const authLogOutRequestSuccess   = payload => ({ type: types.AUTH_LOG_OUT_REQUES
 const authLogOutRequestFail      = payload => ({ type: types.AUTH_LOG_OUT_REQUEST_FAIL, payload});
 
 
-export const postAuthRequest = payload => async dispatch => {
+export const postSignInRequest = payload => async dispatch => {
     dispatch(authRequest());
     try {
         const { data } = await AxiosInstance({
