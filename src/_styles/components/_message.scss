@@ -1,0 +1,43 @@
+.mesMain {
+  width: 100%;
+  min-height: 110%;
+  display: flex;
+  justify-content: center;
+  align-items:flex-start;
+  position: absolute;
+  z-index: 9999;
+}
+.messageCont {
+  width: 50%;
+  height: 40%;
+  box-shadow: 0 10px 15px #000;
+  text-align: center;
+  display: inline-block;
+  background-color: white;
+  margin-top: 3rem;
+  border-radius: 5px;
+}
+.mesBtn {
+	transition: all 0.1s;
+	position: relative;
+	padding: 0.5rem 0.5rem;
+  margin: 0px 10px 10px 10px;
+	border-radius: 10px;
+	font-size: 1rem;
+	color: #FFF;
+	text-decoration: none;
+	background-color: #3498DB;
+	border-bottom: 5px solid #2980B9;
+}
+.mesBtn:active
+{
+	transform: translate(0px,5px);
+	border-bottom: 1px solid;
+  margin-bottom: 14.3px;
+}
+.messageCont h2 {
+  color: #3498DB;
+}
+.messageCont p {
+  opacity: 0.8;
+}

@@ -6,28 +6,32 @@ import Header from '../../components/Header';
 import * as actions from '../../actions/actionHall.js';
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import MiniHeader from '../../components/hallComponents/MiniHeader.js'
+import MiniHeader from '../../components/hallComponents/MiniHeader.js';
+import * as actionsRN from '../../actions/roomNames.js';
+import colorTrans from '../../_utils/colorTrans.js';
 
-let mapStateToProps = state => ( { currentSession: state.curSession, movies: state.movie.data } )
+let mapStateToProps = state => ( { currentSession: state.curSession, movies: state.movie.data, roomNames: state.roomNames.data } )
 
 class HallPage extends Component {
   state = {
     room: null,
     price: 0,
     movieName: '',
-    movieDate: null,
+    movieDate: null
   }
   getCurrentMovieName = id => (
-    this.props.movies.find( el => el._id === id ).title
+    this.props.movies.find ( el => el._id === id ).title
   )
-  // getAllData = async () => {
-  //
-  // }
+  getCurrentRoomName = id => {
+    if ( !this.props.roomNames ) return
+    return this.props.roomNames.rooms.find ( el => el._id === id ).name
+  }
   componentDidMount () {
     console.log(this.props.currentSession,"curSession")
     console.log(this.props.movies,'movie')
     if ( !this.props.currentSession.data ) return
     this.props.setPrice( this.props.currentSession.data.costs )
+    this.props.getRoomNamesRequest()
     axios({
         url: `http://subdomain.entony.fs.a-level.com.ua/api/movie/space?room=${this.props.currentSession.data.room}`,
       }).then( response => {
@@ -42,13 +46,14 @@ class HallPage extends Component {
         .catch( err => console.error( err.message ) )
   }
   render (){
-    console.log(this.state.movieName,'this.state.movieName')
+    console.log(this.state.movieName,'this.state.movieName', this.props.roomNames, 'rn')
     if ( !this.props.currentSession.data ) return ( <Redirect to='/' /> )
     if ( !this.state.room )return ( <div className = 'room'>Loading...</div> )
     return (
       <div className = 'hall-page'>
         <Header title={ 'Multiplex' } />
-        <MiniHeader nameMovie = { this.state.movieName } dateSession = { this.state.movieDate } nameRoom = 'green' />
+        <MiniHeader nameMovie = { this.state.movieName } dateSession = { this.state.movieDate }
+                    nameRoom = { colorTrans (this.getCurrentRoomName( this.props.currentSession.data.room )) + " зал" } />
         <div className = 'hall-content'>
           <Rooms room = { this.state.room } price = { this.state.price }/>
           <SelectPanel />
@@ -57,5 +62,5 @@ class HallPage extends Component {
     )
   }
 }
-HallPage = connect ( mapStateToProps, actions )( HallPage )
+HallPage = connect ( mapStateToProps, Object.assign( actions, actionsRN ) )( HallPage )
 export default HallPage

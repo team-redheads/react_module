@@ -3,10 +3,14 @@ import { connect }   from 'react-redux';
 import * as actions from '../../../actions/actionHall.js';
 // import axios from "axios";
 import UserIcon from './UserIcon.js';
+import Message from './Message.js';
 
 let mapStateToProps = state => ( { places: state.places.places } )
 
 class Rooms extends Component {
+  state = {
+    message: false
+  }
   generateHall = () => {
     let res = []
     let line = []
@@ -25,18 +29,20 @@ class Rooms extends Component {
     return res
   }
   mouseHandler = elem => event => {
-    if ( !elem.free && !this.checkId(elem._id) ) event.target.style.background = 'orange'
+    if ( (!elem.free && !elem.booked) && !this.checkId(elem._id) ) event.target.style.background = 'orange'
   }
 
   mouseOutHandler = elem => event => {
-    if ( !elem.free && !this.checkId ( elem._id ) ) event.target.style.background = '#239903'
+    if ( (!elem.free && !elem.booked) && !this.checkId ( elem._id ) ) event.target.style.background = '#239903'
   }
 
   checkId = id => this.props.places.some( el => el._id === id )
 
   clickHanler = elem => event => {
     console.log( elem._id,"elem._id" )
-    if ( elem.free ) return
+    this.setState ({ message: true })
+    if ( !localStorage.getItem('token') ) return
+    if ( elem.free || elem.booked ) return
     let newMass = [...this.props.places]
     let check = newMass.reduce( ( prev, el, ind ) => el._id === elem._id ? ind : prev ,-1 )
     check > -1 ? newMass.splice( check ,1 ) : newMass.push(elem)
@@ -45,11 +51,12 @@ class Rooms extends Component {
   }
 
   render () {
+    let token = localStorage.getItem('token')
     return (
       <div className = 'room'>
-        <h1 className = 'room__title'>{/*this.state.room.name*/}</h1>
         <div className = 'room__screen'></div>
         <div className = 'room__hall'>
+          { !token && this.state.message ? <Message title = 'Выбор мест' btn = { true } description = 'Для продолжения необходимо войти в личный кабинет или зарегестрироваться' /> : false }
           {this.generateHall ().map( (line, ind) =>(
             <div className ='room__hall__line' key = {ind}>
               {line.map( (elem,index ) => {
@@ -58,12 +65,12 @@ class Rooms extends Component {
                 <div className = 'room__hall__line__cell'
                      key = {index + ind}
                      title = {`ряд: ${elem.row}; место: ${elem.place}; цена: ${this.props.price}`}
-                     style = {{background: inStock ? 'orange' : elem.free ? 'gray' : '#239903',
-                              color: elem.free ? 'gray' : '#239903'}}
+                     style = {{background: inStock ? 'orange' : elem.free || elem.booked ? 'gray' : '#239903',
+                              color: elem.free || elem.booked ? 'gray' : '#239903'}}
                      onMouseOver = {this.mouseHandler(elem)}
                      onMouseOut = {this.mouseOutHandler(elem)}
                      onClick = {this.clickHanler(elem)}>
-                     {inStock ? <UserIcon check = {true}/> : elem.free ? <UserIcon /> : elem.place}
+                     {inStock ? <UserIcon check = {true}/> : elem.free || elem.booked ? <UserIcon /> : elem.place}
                   </div>
               )})}
             </div>

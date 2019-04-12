@@ -9,7 +9,14 @@ let mapStateToProps = state => ({
 })
 
 class SelectPanel extends Component {
-
+  state = {
+    contin: false
+  }
+  clickHandler = event => {
+    console.log('start')
+    this.setState({ contin: true })
+    console.log('finish', this.state.contin)
+  }
   clickDelHandler = elem => event => {
     let newArr = [...this.props.places]
     newArr.splice(newArr.indexOf(elem),1)
@@ -18,6 +25,12 @@ class SelectPanel extends Component {
 
   allDel = event => {
     this.props.setPlaces([])
+  }
+  componentWillUnmount (){
+    if ( !this.state.contin ) {
+      this.props.clearPlaces()
+      console.log('willUnM', this.state.contin)
+    }
   }
 
   render(){
@@ -59,7 +72,7 @@ class SelectPanel extends Component {
                 ),0)}
               </span>
             </div>
-            { p.simple ? false : <Link to = '/buy'><button>Продолжить</button></Link>}
+            { p.simple ? false : <Link to = '/buy'><button onMouseDown = { this.clickHandler }>Продолжить</button></Link>}
         </div>
       </div>
     )
