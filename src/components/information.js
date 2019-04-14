@@ -44,20 +44,36 @@ class Information extends Component {
                         <span className="block-list-info__key">Производство: </span>
                         <span className="block-list-info__value">{`${movie.country.join(', ')}`} </span>
                     </li>
-
+                    {
+                        actors && actors.length !== 0 ? (
+                            <li className="block-list-info__li">
+                                <span className="block-list-info__key">В главных ролях: </span>
+                                <span className="block-list-info__value">
+                                {
+                                    actors && actors.map( (item, index) => <ActorInfo key={index} movieActors={movie.actors} actor={item} /> )
+                                }
+                                </span>
+                            </li>
+                         ) : (
+                            <li className="block-list-info__li">
+                                <span className="block-list-info__key">В главных ролях: </span>
+                                <span className="block-list-info__value">{`${movie.actors.join(', ')}`} </span>
+                            </li>
+                        )
+                    }
                     {/*<li className="block-list-info__li">*/}
                         {/*<span className="block-list-info__key">В главных ролях: </span>*/}
                         {/*<span className="block-list-info__value">{`${movie.actors.join(', ')}`} </span>*/}
                     {/*</li>*/}
 
-                    <li className="block-list-info__li">
-                        <span className="block-list-info__key">В главных ролях: </span>
-                        <span className="block-list-info__value">
-                            {
-                                actors && actors.map( (item, index) => <ActorInfo key={index} movieActors={movie.actors} actor={item} /> )
-                            }
-                        </span>
-                    </li>
+                    {/*<li className="block-list-info__li">*/}
+                        {/*<span className="block-list-info__key">В главных ролях: </span>*/}
+                        {/*<span className="block-list-info__value">*/}
+                            {/*{*/}
+                                {/*actors && actors.map( (item, index) => <ActorInfo key={index} movieActors={movie.actors} actor={item} /> )*/}
+                            {/*}*/}
+                        {/*</span>*/}
+                    {/*</li>*/}
                 </div>
                 <div className="block-description">
                     { movie.description }

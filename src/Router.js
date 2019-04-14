@@ -27,7 +27,7 @@ class Router extends Component {
 
 		if ( token && jwtDecode(token) ) {
 			const { setToken } = this.props;
-			console.log(' --- token ----', token);
+			// console.log(' --- token ----', token);
 			return setToken(token);
 		}
 	}
@@ -62,6 +62,6 @@ class Router extends Component {
 }
 
 // const mapDispatchToProps = dispatch => bindActionCreators({ setToken }, dispatch);
-Router = connect( null, { setToken })(Router)
+Router = connect( null, { setToken })(Router);
 
 export default Router

@@ -1,0 +1,63 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+$bg-table-header-color: #f9f9f9;
+$bg-table-item-color: #ffffff;
+$bg-table-item-color-hover: #e8e8e8;
+$color-text-table-header: #acacac;
+$color-text-table-item: #000000;
+$color-text-table-item-hover: #ff0000;
+
+.block-ticket{
+    text-align: center;
+    padding: 2.5rem;
+    width: 100%;
+    &__header{
+        font-weight: bold;
+        font-size: 26px;
+    }
+}
+.table-ticket{
+    width: 100%;
+    margin: 0 auto;
+    font-size: 16px;
+    margin-top: 2rem;
+    &__header{
+        background-color: $bg-table-header-color;
+    }
+    &__header-row{
+        color: $color-text-table-header;
+        font-size: 18px;
+        font-weight: bolder;
+    }
+    &__header-col{
+        width: 150px;
+        padding: 1rem;
+    }
+
+    &__item-row{
+        background-color: $bg-table-item-color;
+        color: $color-text-table-item;
+        font-size: 15px;
+        border-bottom: 1px solid $bg-table-item-color-hover;
+        cursor: pointer;
+        &:hover{
+            background-color: $bg-table-item-color-hover;
+        }
+
+    }
+    &__item-col{
+        padding: 0.7rem;
+    }
+    &__item-col-link{
+        color: $color-text-table-item;
+        text-decoration: none;
+        &:hover,
+        &:active,
+        &:focus{
+            color: $color-text-table-item-hover;
+        }
+    }
+
+
+}

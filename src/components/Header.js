@@ -30,7 +30,7 @@ class Header extends Component {
 
 
 	render() {
-		console.log(" render this.props ---- ", this.props);
+		// console.log(" render this.props ---- ", this.props);
 		const token_lS = localStorage.getItem("token");
 
 		return (

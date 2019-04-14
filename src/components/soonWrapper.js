@@ -8,7 +8,7 @@ import {nowDate} from "../_utils/nowDate";
 
 
 export default class SoonWrapper extends Component{
-    renderMovies = () => {
+    render() {
         const { movie } = this.props;
 
         const nowData = moment(nowDate).format("YYYY MM DD"); // сегодняшний день
@@ -16,10 +16,6 @@ export default class SoonWrapper extends Component{
 
         movie && movie.sort(dynamicSort('rentStart')).map( (movie) => {
             const rentStart = moment(movie.rentStart).format("YYYY MM DD");
-            const rentEnd = moment(movie.rentEnd).format("YYYY MM DD");
-            // return !(nowData >= rentStart && nowData <= rentEnd )  &&
-            //     resRentSt.indexOf(movie.rentStart) === -1 &&
-            //     resRentSt.push(movie.rentStart)
 
             return rentStart > nowData  &&
                 resRentSt.indexOf(movie.rentStart) === -1 &&
@@ -49,13 +45,10 @@ export default class SoonWrapper extends Component{
             )
         });
 
-        return dayList
-    };
-    render() {
         return (
             <div className='soon-wrapper'>
                 <div className='soon-title'> <h2>Скоро в кино</h2> </div>
-                {this.renderMovies()}
+                {dayList}
             </div>
         );
     }
