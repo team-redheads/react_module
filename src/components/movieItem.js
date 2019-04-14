@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Icon } from 'antd';
 import { Link } from 'react-router-dom';
 
-import { nowDay, nowTime } from "../_utils/nowDate";
+import {nowDate} from "../_utils/nowDate";
 import { dynamicSort } from "../_utils/dynamicSort";
 import * as actionHall from "../actions/actionHall.js";
 
@@ -18,6 +18,9 @@ class MovieItem extends Component {
     render() {
         const { movie , session } = this.props;
 
+        const nowDay  = moment(nowDate).format('dddd' );
+        const nowTime = moment(nowDate).format('HH:mm');
+
         const sessionItem = session && session.sort(dynamicSort("date")).map( (session, index) => {
             const dateDay = moment(session.date).format('dddd' );
             const dateTime = moment(session.date).format('LT' );
@@ -29,6 +32,7 @@ class MovieItem extends Component {
                     <Link key={index} className='session__link' to='/hall' onClick = {this.clickHanler( session )}> { dateTime } </Link>
             );
         });
+        // console.log( " --------------------- sessionItem", sessionItem );
 
         const url = encodeURIComponent(movie.trailer);
 
@@ -52,7 +56,9 @@ class MovieItem extends Component {
                                 <h2 className='session__title'> Расписание сеансов </h2>
                                 <h3 className='session__title'> {nowDay} </h3>
                                 <ul className='session__list'>
-                                    {sessionItem}
+                                    {
+                                        sessionItem
+                                    }
                                 </ul>
                             </span>
                         ) : (

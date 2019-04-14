@@ -3,33 +3,49 @@ import { Icon } from 'antd';
 import Slider from "react-slick";
 
 import moment from 'moment';
+import {nowDate} from "../_utils/nowDate";
+import { dynamicSort } from "../_utils/dynamicSort";
 
 import MovieItem from './movieItem';
 
-function SampleNextArrow(props) {
+const SampleNextArrow = props =>  {
     const { onClick } = props;
     return (
         <div className='arrow-next' onClick={onClick}>
             <Icon type="right" />
         </div>
     );
-}
-function SamplePrevArrow(props) {
+};
+const SamplePrevArrow = props => {
     const { onClick } = props;
     return (
         <div className='arrow-prev' onClick={onClick}>
             <Icon type="left" />
         </div>
     );
-}
+};
 
 class MovieGallery extends Component {
-    renderMovies () {
+    render() {
         const { movie, session } = this.props;
 
-        const movieItems = movie && movie.map( (movie, index) => {
-            const nowData = moment().format("YYYY MM DD"); // сегодняшний день
+        const settings = {
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            nextArrow: <SampleNextArrow />,
+            prevArrow: <SamplePrevArrow />
+        };
+        const rentMovie = [];
+        const nowData = moment(nowDate).format("YYYY MM DD"); // сегодняшний день
 
+        movie && movie.sort(dynamicSort("rentStart")).map( (movie) => {
+            const rentEnd = moment(movie.rentEnd).format("YYYY MM DD");
+            if  (nowData <= rentEnd )  rentMovie.push(movie);
+            return rentMovie
+        });
+
+        const rentMovieItems = rentMovie && rentMovie.map( (movie, index) => {
             const rentStart = moment(movie.rentStart).format("YYYY MM DD");
             const rentEnd = moment(movie.rentEnd).format("YYYY MM DD");
 
@@ -39,22 +55,13 @@ class MovieGallery extends Component {
                     <MovieItem key={ index } movie={ movie } rentStart={ movie.rentStart }  />
             )
         });
-        return movieItems
-    };
 
-    render() {
-        const settings = {
-            speed: 500,
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            nextArrow: <SampleNextArrow />,
-            prevArrow: <SamplePrevArrow />
-        };
+
         return (
             <div className="movie-wrapper" >
                 <div className="block-movie" >
                     <Slider {...settings}>
-                        { this.renderMovies() }
+                        { rentMovieItems }
                     </Slider>
                 </div>
             </div>

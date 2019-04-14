@@ -72,7 +72,7 @@ class SelectPanel extends Component {
                 ),0)}
               </span>
             </div>
-            { p.simple ? false : <Link to = '/buy'><button onMouseDown = { this.clickHandler }>Продолжить</button></Link>}
+            { p.simple ? false : <Link to = '/buy'><button onMouseDown = { this.clickHandler } className='buy-btn'>Продолжить</button></Link>}
         </div>
       </div>
     )

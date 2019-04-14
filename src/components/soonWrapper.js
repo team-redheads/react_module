@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
-import moment from 'moment';
-import {dynamicSort} from "../_utils/dynamicSort";
 import { Icon } from 'antd';
 import { Link } from "react-router-dom";
+
+import moment from 'moment';
+import {dynamicSort} from "../_utils/dynamicSort";
+import {nowDate} from "../_utils/nowDate";
+
 
 export default class SoonWrapper extends Component{
     renderMovies = () => {
         const { movie } = this.props;
-        const nowData = moment().format("YYYY MM DD"); // сегодняшний день
+
+        const nowData = moment(nowDate).format("YYYY MM DD"); // сегодняшний день
         const resRentSt = [];
 
         movie && movie.sort(dynamicSort('rentStart')).map( (movie) => {
             const rentStart = moment(movie.rentStart).format("YYYY MM DD");
             const rentEnd = moment(movie.rentEnd).format("YYYY MM DD");
-            return !(nowData >= rentStart && nowData <= rentEnd )  &&
+            // return !(nowData >= rentStart && nowData <= rentEnd )  &&
+            //     resRentSt.indexOf(movie.rentStart) === -1 &&
+            //     resRentSt.push(movie.rentStart)
+
+            return rentStart > nowData  &&
                 resRentSt.indexOf(movie.rentStart) === -1 &&
                 resRentSt.push(movie.rentStart)
         });

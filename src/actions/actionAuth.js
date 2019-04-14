@@ -44,22 +44,12 @@ export const postSignUpAuthRequest = payload => async dispatch => {
         });
         dispatch(authSignUpRequestSuccess(data));
 
-        if (data.message === 'User was successfully register') {
-            try {
-                const { data } = await AxiosInstance({
-                    method: "POST",
-                    url: "auth/login",
-                    data: {
-                        email: payload.email,
-                        password: payload.password
-                    }
-                });
-                localStorage.setItem("token", data.token);
-                dispatch(authRequestSuccess(data));
-            } catch (err) {
-                dispatch(authRequestFail(err));
-            }
-        }
+        if (data.message === 'User was successfully register')
+            dispatch(postSignInRequest({
+                    email: payload.email,
+                    password: payload.password
+                }
+            ))
     } catch (err) {
         dispatch(authSignUpRequestFail(err));
     }

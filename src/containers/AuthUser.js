@@ -9,7 +9,7 @@ import SignIn from '../components/signIn';
 import SignUp from '../components/SignUp';
 
 import Posters from '../components/AuthPosters';
-import { postSignInRequest, postSignUpAuthRequest } from '../actions/actionAuth';
+import { postSignInRequest, postSignUpAuthRequest, getLogOutAuthRequest } from '../actions/actionAuth';
 
 class AuthUser extends Component {
 	state = {
@@ -43,14 +43,17 @@ class AuthUser extends Component {
 		// console.log("token    ", token);
 		// console.log("token_lS ", jwtDecode(token_lS));
 
+		// if (token_lS && jwtDecode(token_lS)){
+		// 	if (token && token === token_lS) {
+		// 		return <Redirect to={`/personal/${jwt(token).id}`} />;
+		// 	}
+		// } else { this.props.getLogOutAuthRequest() }
+
 		if (token_lS && jwtDecode(token_lS)){
 			if (token && token === token_lS) {
 				return <Redirect to={`/personal/${jwt(token).id}`} />;
 			}
 		}
-
-		// jwtDecode(token_lS) ? (token && token === token_lS ?  <Redirect to="/personal" /> : null) : null
-
 		return (
 			<div className="auth-block">
 				<div className="auth-block__form">
@@ -75,7 +78,7 @@ class AuthUser extends Component {
 }
 
 const mapDispatchToProps = dispatch =>
-	bindActionCreators({ postSignInRequest, postSignUpAuthRequest }, dispatch);
+	bindActionCreators({ postSignInRequest, postSignUpAuthRequest, getLogOutAuthRequest }, dispatch);
 
 const mapStateToProps = state => ({
 	token: state.auth.token

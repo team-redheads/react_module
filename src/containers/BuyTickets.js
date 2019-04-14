@@ -62,7 +62,7 @@ class BuyTickets extends Component {
               <Information movie = { this.getCurrentMovie(this.props.currentSession.data.movie) } />
             </div>
             <div className = 'buy-select'><SelectPanel simple = {true} />
-              <button onMouseDown = {this.clickHanler}>Купить</button></div>
+              <button onMouseDown = {this.clickHanler} className='buy-btn'>Купить</button></div>
           </div>
         </div>
       </div>

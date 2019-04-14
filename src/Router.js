@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 
 import { setToken } from "./actions/actionAuth";
 import jwtDecode from "./_utils/checkExp";
@@ -45,7 +44,8 @@ class Router extends Component {
 					<Route exact path="/hall" component={HallPage} />
 					<Route exact path="/buy" component={BuyTickets} />
 
-					<PrivateRoute exact path="/personal/:id" component={PersonalContainer} />
+					<PrivateRoute path="/personal/:id" component={PersonalContainer} />
+					{/*<Route path="/personal/:id" component={PersonalContainer} />*/}
 
 					<Route
 						render={() => (
@@ -61,8 +61,7 @@ class Router extends Component {
 	}
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({ setToken }, dispatch);
-
-Router = connect( null, mapDispatchToProps)(Router)
+// const mapDispatchToProps = dispatch => bindActionCreators({ setToken }, dispatch);
+Router = connect( null, { setToken })(Router)
 
 export default Router
