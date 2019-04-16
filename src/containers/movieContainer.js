@@ -17,7 +17,7 @@ class MovieContainer extends Component {
 		const { movie, session } = this.props;
 		return (
 			<React.Fragment>
-				<Header title={'Multiplex'} />
+				<Header title={'Myplex'} />
 				<MovieGallery movie={movie} session={session} />
 			</React.Fragment>
 		)

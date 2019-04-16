@@ -13,7 +13,7 @@ export default (state = initialState.auth, { type, payload }) => {
             return { ...state, token, isFetching: false };
         }
         case types.AUTH_REQUEST_FAIL: {
-            return { ...state, isFetching: false };
+            return { ...state, isFetching: false, error: payload };
         }
         case types.SET_TOKEN: {
             return { ...state, token: payload };

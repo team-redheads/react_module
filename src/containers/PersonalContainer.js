@@ -3,8 +3,8 @@ import { Switch, Route } from 'react-router-dom';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {getUserByIdRequest, updateUserByIdRequest} from "../actions/actionUser";
-import jwt from "jwt-decode";
-import jwtDecode from "../_utils/checkExp";
+// import jwt from "jwt-decode";
+// import jwtDecode from "../_utils/checkExp";
 
 
 import Header from '../components/Header';
@@ -17,8 +17,8 @@ class PersonalContainer extends Component{
         const { id } = this.props.match.params;
         this.props.getUserByIdRequest(id);
 
-        const token = localStorage.getItem('token');
-        return !(jwtDecode(token)) ? this.props.history.push('/auth') : null
+        // const token = localStorage.getItem('token');
+        // return !(jwtDecode(token)) && this.props.history.push('/auth')
     }
     getInitialValues () {
         const { user } = this.props;
@@ -30,26 +30,29 @@ class PersonalContainer extends Component{
     }
     takeValueProfile = values => {
         const { id } = this.props.match.params;
-        // console.log('---------  value_profile', values);
         this.props.updateUserByIdRequest({ id: id, values });
         this.props.getUserByIdRequest(id);
     };
 
     render() {
         const { user } = this.props;
-        // const { id } = this.props.match.params;
-        // console.log('render user ', user);
+        // const { user, match } = this.props
+        // console.log(' ------- this.props.match.url', this.props.match.url);
+        // console.log(' ------- this.props.match.url', match);
 
         return (
             <React.Fragment>
                 <Header title={'Личный кабинет'} />
                 <React.Fragment>
-                    <HeaderPersonal user={ user } />
+                    <HeaderPersonal user={ user }
+                                    // match={match}
+                    />
                     {
                         user && <div className="personal-block__content">
                             <Switch>
                                 <Route exact
                                        path={`/personal/${user._id}`}
+                                       // path={`/${match.url}`}
                                        render={ () => (
                                            <Profile user={user}
                                                     onSubmit={this.takeValueProfile}
@@ -57,12 +60,11 @@ class PersonalContainer extends Component{
                                            />
                                        )}
                                 />
-                                <Route exact
-                                    // path="/personal/tickets"
+                                <Route
                                        path={`/personal/${ user._id}/tickets`}
-                                       // component={ <UserTickets />}
+                                       // path={`/${match.url}/:id`}
                                        render={ () => (
-                                           <UserTickets />
+                                           <UserTickets match={ this.props.match}/>
                                        )}
                                 />
                             </Switch>

@@ -28,7 +28,7 @@ class DetailsMoviePageContainer extends Component {
 			<React.Fragment>
 				{movie_by_id && session_by_movie_id && (
 					<React.Fragment>
-						<Header title={'Multiplex'} />
+						<Header title={'Myplex'} />
 						<div className="block-info">
 							<div className="block-info__bg-color">
 								<Poster

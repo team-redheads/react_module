@@ -53,7 +53,7 @@ class HallPage extends Component {
     if ( !this.state.room )return ( <div className = 'room'>Loading...</div> )
     return (
       <div className = 'hall-page'>
-        <Header title={ 'Multiplex' } />
+        <Header title={ 'Myplex' } />
         <MiniHeader nameMovie = { this.state.movieName } dateSession = { this.state.movieDate }
                     nameRoom = { colorTrans (this.getCurrentRoomName( this.props.currentSession.data.room )) + " зал" } />
         <div className = 'hall-content'>
