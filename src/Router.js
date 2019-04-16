@@ -48,9 +48,9 @@ class Router extends Component {
 					<Route exact path="/buy" component={BuyTickets} />
 
                     <Route path="/admin-panel/auth" component={AdminAuth} />
-					<PrivateRoute path="/admin-panel" component={AdminPanel} />
+					<PrivateRoute path="/admin-panel" auth={'/admin-panel/auth'} component={AdminPanel} />
 
-					<PrivateRoute path="/personal/:id" component={PersonalContainer} />
+					<PrivateRoute path="/personal/:id" auth={'/auth'} component={PersonalContainer} />
 					{/*<Route path="/personal/:id" component={PersonalContainer} />*/}
 
 					<Route

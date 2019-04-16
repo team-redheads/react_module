@@ -5,6 +5,9 @@ import { Redirect } from "react-router-dom";
 import { jwtDecode } from "../_utils/checkExp";
 import jwt from "jwt-decode";
 
+
+import ModalWindow from '../components/ModalWindow'
+
 import SignIn from '../components/signIn';
 import SignUp from '../components/SignUp';
 
@@ -55,7 +58,9 @@ class AuthUser extends Component {
 		// 	if (token && token === token_lS) {
 		// 		return <Redirect to={`/personal/${jwt(token).id}`} />;
 		// 	}
-		// }
+        // }
+        console.log(this.props.error)
+        const { error } = this.props
 		return (
 			<div className="auth-block">
 				<div className="auth-block__form">
@@ -74,6 +79,7 @@ class AuthUser extends Component {
 				<div className="auth-block__posters">
 					<Posters />
 				</div>
+                {error ? <ModalWindow text={error} /> : null}
 			</div>
 		)
 	}
@@ -83,7 +89,8 @@ const mapDispatchToProps = dispatch =>
 	bindActionCreators({ postSignInRequest, postSignUpAuthRequest, getLogOutAuthRequest }, dispatch);
 
 const mapStateToProps = state => ({
-	token: state.auth.token
+    token: state.auth.token,
+    error: state.auth.error
 });
 
 export default connect(
