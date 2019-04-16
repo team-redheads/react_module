@@ -62,7 +62,7 @@ export const getLogOutAuthRequest = () => async dispatch => {
             method: "GET",
             url: "auth/logout"
         });
-        localStorage.removeItem ( "token" );
+        // localStorage.removeItem ( "token" );
         dispatch(authLogOutRequestSuccess(data));
     } catch (err) {
         dispatch(authLogOutRequestFail(err));

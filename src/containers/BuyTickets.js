@@ -51,7 +51,7 @@ class BuyTickets extends Component {
      return(
       <div className = 'buy-main'>
         <div className = 'buy-layout'>
-          <Header title={ 'Multiplex' } />
+          <Header title={ 'Myplex' } />
           <div className = 'main-cont'>
             <div className = 'buy-poster'>
               <img src = { movie.poster } alt = { movie.title }/>

@@ -7,6 +7,7 @@ import ticket from '../_img/ticket.svg'
 class HeaderPersonal extends Component {
     render() {
         const { user } = this.props;
+        // console.log(' ------- this.props.match.url ------- ', this.props.match)
         // console.log("user ------------ ", user);
         return (
             <div className="personal-block__header">
@@ -22,6 +23,7 @@ class HeaderPersonal extends Component {
                                     activeClassName="nav-personal__link_active"
                                     // to="/personal/profile"
                                     to={`/personal/${user._id}`}
+                                    // to={`/${match.url}`}
                                 >
                                     <img src={profile} className='nav-personal__icon' alt=""/>
                                     Профайл
@@ -33,6 +35,7 @@ class HeaderPersonal extends Component {
                                     activeClassName="nav-personal__link_active"
                                     // to="/personal/tickets"
                                     to={`/personal/${user._id}/tickets`}
+                                    // to={`/${match.url}/tickets`}
                                 >
                                     <img src={ticket} className='nav-personal__icon' alt=""/>
                                     Билеты

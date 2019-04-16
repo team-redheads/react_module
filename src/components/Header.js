@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import logo from '../_img/logo.svg'
-import logoM from '../_img/logo-menu.svg'
+import logo from '../_img/logo2.svg'
+import logoM from '../_img/logo-menu2.svg'
 import ava from '../_img/ava.svg'
 import logout from '../_img/logout.svg'
-import { bindActionCreators } from "redux";
+// import { bindActionCreators } from "redux";
 import { getLogOutAuthRequest } from "../actions/actionAuth";
 import { connect } from "react-redux";
 
@@ -23,7 +23,8 @@ class Header extends Component {
 	};
 
 	handleLogout (event) {
-		// console.log('handleLogout this.props', this.props);
+		console.log('handleLogout this.props', this.props);
+		localStorage.removeItem ( "token" );
 		const { getLogOutAuthRequest } = this.props;
 		getLogOutAuthRequest();
 	}
@@ -105,7 +106,7 @@ class Header extends Component {
 							<Link className="log-in-block__link" to="/auth">
 								<img src={ava}  alt=""/>
 							</Link> :
-							<Link className="log-in-block__link" to="/" >
+							<Link className="log-in-block__link" to="/auth" >
 								<img src={logout} alt="" onClick={ this.handleLogout.bind(this) } className='logout' />
 							</Link>
 					}
@@ -124,13 +125,13 @@ class Header extends Component {
 	}
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({ getLogOutAuthRequest  }, dispatch);
+// const mapDispatchToProps = dispatch => bindActionCreators(, dispatch);
 const mapStateToProps = state => ({
 	token: state.auth.token
 });
 Header = connect(
 	mapStateToProps,
-	mapDispatchToProps
+	{ getLogOutAuthRequest  }
 )(Header);
 
 export default Header

@@ -40,20 +40,22 @@ class AuthUser extends Component {
 		const { token } = this.props;
 
 		const token_lS = localStorage.getItem("token");
-		// console.log("token    ", token);
-		// console.log("token_lS ", jwtDecode(token_lS));
+
+		console.log("token    ", token);
+		console.log("token_lS ", jwtDecode(token_lS));
+
+		if (jwtDecode(token_lS)){
+			if (token && token === token_lS) {
+				return <Redirect to={`/personal/${jwt(token).id}`} />;
+			}
+		} else { this.props.getLogOutAuthRequest() }
+
 
 		// if (token_lS && jwtDecode(token_lS)){
 		// 	if (token && token === token_lS) {
 		// 		return <Redirect to={`/personal/${jwt(token).id}`} />;
 		// 	}
-		// } else { this.props.getLogOutAuthRequest() }
-
-		if (token_lS && jwtDecode(token_lS)){
-			if (token && token === token_lS) {
-				return <Redirect to={`/personal/${jwt(token).id}`} />;
-			}
-		}
+		// }
 		return (
 			<div className="auth-block">
 				<div className="auth-block__form">

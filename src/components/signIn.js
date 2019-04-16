@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 
-import logo from '../_img/logo.svg'
+import logo from '../_img/logo2.svg'
 
 import { signInValidation } from '../_utils/validate'
 import { renderField } from './customField'
