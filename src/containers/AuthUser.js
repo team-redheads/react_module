@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Redirect } from "react-router-dom";
-import jwtDecode from "../_utils/checkExp";
+import { jwtDecode } from "../_utils/checkExp";
 import jwt from "jwt-decode";
 
 import SignIn from '../components/signIn';

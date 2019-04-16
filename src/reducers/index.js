@@ -13,6 +13,8 @@ import choiceSessionReducer from './choiceSessionReducer.js';
 import choicePlaces from './choicePlaces.js'
 import roomNames from './roomNames.js'
 
+import {adminAuth} from './adminAuth'
+
 export default combineReducers({
     auth,
     user,
@@ -24,5 +26,6 @@ export default combineReducers({
     form: formReducer,
     curSession: choiceSessionReducer,
     places: choicePlaces,
-    roomNames
+    roomNames,
+    adminAuth
 });

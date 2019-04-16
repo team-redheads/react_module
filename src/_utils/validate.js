@@ -6,11 +6,11 @@ export const signInValidation = values => {
 	} else if (
 		!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
 	) {
-		errors.email = 'Введите имейл'
+		errors.email = 'Введите адрес электронной почты'
 	}
 
 	if (!values.password) {
-		errors.password = 'Необходимо ввести пароль'
+		errors.password = 'Введите пароль'
 	}
 	return errors
 }

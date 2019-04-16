@@ -28,17 +28,33 @@
 @import './_styles/userTickets';
 
 
+@import './_styles/adminSignIn.scss';
+@import './_styles/adminAuth.scss';
+
+// @import './_styles/header.scss';
+@import './_styles/adminPanel.scss';
+
+@import './_styles/allMovie.scss';
+@import './_styles/addMovie.scss';
+@import './_styles/addMovieInfo.scss';
+@import './_styles/addUserInfo.scss';
+
+
+
+@import './_styles/modalWindow.scss';
+
 * {
 	outline: none;
 	box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #ebebeb;
 	font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
 		'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
-body {
-	margin: 0;
-	background-color: #ebebeb;
-}
 
 .page-wrapper {
 	@include clear;

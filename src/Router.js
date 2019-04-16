@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import { connect } from "react-redux";
 
 import { setToken } from "./actions/actionAuth";
-import jwtDecode from "./_utils/checkExp";
+import {jwtDecode} from "./_utils/checkExp";
 
 import 'moment/locale/ru';
 
@@ -19,6 +19,9 @@ import AuthUser from './containers/AuthUser';
 import Soon from './containers/soonContainer';
 import Header from './components/Header';
 import PersonalContainer from './containers/PersonalContainer';
+
+import AdminPanel from './containers/AdminPanel'
+import AdminAuth from './containers/AdminAuth'
 
 class Router extends Component {
 
@@ -43,6 +46,9 @@ class Router extends Component {
 					<Route exact path="/soon" component={ Soon } />
 					<Route exact path="/hall" component={HallPage} />
 					<Route exact path="/buy" component={BuyTickets} />
+
+                    <Route path="/admin-panel/auth" component={AdminAuth} />
+					<PrivateRoute path="/admin-panel" component={AdminPanel} />
 
 					<PrivateRoute path="/personal/:id" component={PersonalContainer} />
 					{/*<Route path="/personal/:id" component={PersonalContainer} />*/}

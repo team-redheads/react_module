@@ -1,7 +1,7 @@
 import jwt from "jwt-decode";
 import moment from "moment";
 
-export default token => {
+export const jwtDecode = token => {
 	// const decodeObj = jwt(token);
 
 	if (token) {
@@ -15,5 +15,15 @@ export default token => {
 	}
 	else {
 		return false
-	}
+    }
+    
 };
+        export const checkExp = token => {
+            const decodeObj = jwt(token)
+            return moment().isSameOrBefore(decodeObj.exp * 1000)
+        }
+        
+        export const takeId = token => {
+            const decodeObj = jwt(token)
+            return decodeObj.id
+        }
