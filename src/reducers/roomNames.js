@@ -1,8 +1,7 @@
 import initialState from "../store/initialState";
 
 export default (state = initialState.roomNames, action ) => {
-  if ( action.type === 'ROOMS_NAMES_FETCHING' ) return { ...state, isFetching: true };
-  if ( action.type === 'ROOMS_NAMES_SUCCESS' ) return { ...state, data: action.payload, isFetching: false };
-  if ( action.type === 'ROOMS_NAMES_FAIL' ) return { ...state, isFetching: false };
-  return state
+  return ( action.type === 'ROOMS_NAMES_FETCHING' ) ? { ...state, isFetching: true } :
+   ( action.type === 'ROOMS_NAMES_SUCCESS' ) ? { ...state, data: action.payload, isFetching: false } :
+   ( action.type === 'ROOMS_NAMES_FAIL' ) ? { ...state, isFetching: false } : state
 }
