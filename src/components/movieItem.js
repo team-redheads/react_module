@@ -14,15 +14,14 @@ import {connect} from "react-redux";
 class MovieItem extends Component {
     clickHanler = s => event => {
         this.props.setCurSession( s )
-    }
+    };
     render() {
         const { movie , session } = this.props;
-
-        const nowDay  = moment(nowDate).format('dddd' );
+        const nowDay  = moment(nowDate).format('YYYY.MM.DD dddd' );
         const nowTime = moment(nowDate).format('HH:mm');
 
         const sessionItem = session && session.sort(dynamicSort("date")).map( (session, index) => {
-            const dateDay = moment(session.date).format('dddd' );
+            const dateDay = moment(session.date).format('YYYY.MM.DD dddd' );
             const dateTime = moment(session.date).format('LT' );
 
             return (
@@ -31,8 +30,8 @@ class MovieItem extends Component {
                 dateTime >= nowTime &&
                     <Link key={index} className='session__link' to='/hall' onClick = {this.clickHanler( session )}> { dateTime } </Link>
             );
+
         });
-        // console.log( " --------------------- sessionItem", sessionItem );
 
         const url = encodeURIComponent(movie.trailer);
 
@@ -54,7 +53,7 @@ class MovieItem extends Component {
                         (!this.props.rentStart) ? (
                             <span className="block-movie__session session">
                                 <h2 className='session__title'> Расписание сеансов </h2>
-                                <h3 className='session__title'> {nowDay} </h3>
+                                <h3 className='session__title'> {moment(nowDate).format('dddd' )} </h3>
                                 <ul className='session__list'>
                                     {
                                         sessionItem

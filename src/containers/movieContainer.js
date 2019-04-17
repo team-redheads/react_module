@@ -15,6 +15,7 @@ class MovieContainer extends Component {
 	}
 	render() {
 		const { movie, session } = this.props;
+
 		return (
 			<React.Fragment>
 				<Header title={'Myplex'} />

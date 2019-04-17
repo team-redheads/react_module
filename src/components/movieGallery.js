@@ -29,6 +29,11 @@ class MovieGallery extends Component {
     render() {
         const { movie, session } = this.props;
 
+        // console.log("MovieGallery PROPS   ", this.props)
+        // console.log("MovieGallery MOVIE   ", movie)
+        //
+        // console.log("MovieGallery SESSION ", session)
+
         const settings = {
             speed: 500,
             slidesToShow: 4,
@@ -79,6 +84,7 @@ class MovieGallery extends Component {
                     <MovieItem key={ index } movie={ movie } session={ session } /> :
                     <MovieItem key={ index } movie={ movie } rentStart={ movie.rentStart }  />
             )
+
         });
 
 
