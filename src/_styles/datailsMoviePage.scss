@@ -2,9 +2,9 @@
 @import "abstracts/mixins";
 
 .block-info{
-
     @include clear;
     width: 100%;
+    min-width: 320px;
     min-height: calc(100vh - 60px);
     font-size: 16px;
     //border: 1px solid fuchsia;
@@ -29,5 +29,17 @@
         width: 25%;
         min-width: 300px;
         border: 1px solid coral;
+    }
+
+}
+
+@media (max-width: 1024px) {
+    .block-info__bg-color {
+        font-size: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        height: 100%;
+
     }
 }

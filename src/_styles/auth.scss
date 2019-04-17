@@ -36,3 +36,9 @@
 		height: 100vh;
 	}
 }
+@media (max-width: 780px) {
+	.auth-block__posters {
+		transition: all .5s;
+		display: none;
+	}
+}

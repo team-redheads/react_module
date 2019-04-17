@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import profile from '../_img/profile.svg'
 import ticket from '../_img/ticket.svg'
@@ -7,8 +7,6 @@ import ticket from '../_img/ticket.svg'
 class HeaderPersonal extends Component {
     render() {
         const { user } = this.props;
-        // console.log(' ------- this.props.match.url ------- ', this.props.match)
-        // console.log("user ------------ ", user);
         return (
             <div className="personal-block__header">
                 <div className="personal-block__user-name">
@@ -18,28 +16,22 @@ class HeaderPersonal extends Component {
                     {
                         user && <ul className="nav-personal__list">
                             <li className="nav-personal__item">
-                                <NavLink
+                                <Link
                                     className="nav-personal__link"
-                                    activeClassName="nav-personal__link_active"
-                                    // to="/personal/profile"
                                     to={`/personal/${user._id}`}
-                                    // to={`/${match.url}`}
                                 >
                                     <img src={profile} className='nav-personal__icon' alt=""/>
                                     Профайл
-                                </NavLink>
+                                </Link>
                             </li>
                             <li className="nav-personal__item">
-                                <NavLink
+                                <Link
                                     className="nav-personal__link"
-                                    activeClassName="nav-personal__link_active"
-                                    // to="/personal/tickets"
                                     to={`/personal/${user._id}/tickets`}
-                                    // to={`/${match.url}/tickets`}
                                 >
                                     <img src={ticket} className='nav-personal__icon' alt=""/>
                                     Билеты
-                                </NavLink>
+                                </Link>
                             </li>
                         </ul>
                     }

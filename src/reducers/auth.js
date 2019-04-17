@@ -9,11 +9,16 @@ export default (state = initialState.auth, { type, payload }) => {
         }
         case types.AUTH_REQUEST_SUCCESS: {
             const { token } = payload;
-            // console.log(' --- token', token);
             return { ...state, token, isFetching: false };
         }
         case types.AUTH_REQUEST_FAIL: {
-            return { ...state, isFetching: false, error: payload };
+            console.log('ERROR payload ', payload);
+            return {
+                ...state,
+                isFetching: false,
+                error: payload,
+                message: "Неверный пароль или  e-mail"
+            };
         }
         case types.SET_TOKEN: {
             return { ...state, token: payload };

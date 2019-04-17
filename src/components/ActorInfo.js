@@ -8,17 +8,17 @@ class ActorInfo extends Component {
         this.setState({
             visible: true,
         });
-    }
+    };
 
     handleOk = (e) => {
-        console.log(e);
+        // console.log(e);
         this.setState({
             visible: false,
         });
     };
 
     handleCancel = (e) => {
-        console.log(e);
+        // console.log(e);
         this.setState({
             visible: false,
         });
@@ -27,8 +27,8 @@ class ActorInfo extends Component {
     renderActors () {
         const {actor, movieActors} = this.props;
         const actorsItem = movieActors && movieActors.map((item, index) => {
-            if (item.indexOf(actor.fullName.split(', ')[0]) !== -1)  {
-                return (
+            return  (item.indexOf(actor.fullName.split(', ')[0]) !== -1) &&
+                (
                     <div key={index} className='block-actor-info'>
                         <div className='block-actor-info__wrapper-img'>
                             <img src={actor.img} alt="" />
@@ -43,7 +43,7 @@ class ActorInfo extends Component {
                             </span>
                         </div>
                     </div>
-                )}
+                )
         });
         return actorsItem
     }

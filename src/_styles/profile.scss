@@ -4,6 +4,7 @@
 .profile-block{
     //border: 1px solid red;
     display: flex;
+    width: 100%;
     &__button{
         //border: 1px solid blue;
         width: 35%;
@@ -33,7 +34,7 @@
     }
 
     &__content{
-        //border: 1px solid yellowgreen;
+        border: 1px solid yellowgreen;
         width: 65%;
         padding: 2.5rem 3.5rem;
         margin-top: 2.5rem;
@@ -69,5 +70,15 @@
         border-bottom: 1px solid #282c34;
         background-color: $bg-color-white;
         font-size: 16px;
+    }
+}
+
+@media (max-width: 900px) {
+    .profile-block {
+        display: flex;
+        flex-direction: column;
+    }
+    .profile-block__content{
+        width: 50%;
     }
 }

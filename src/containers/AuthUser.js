@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import jwt from "jwt-decode";
 import { bindActionCreators } from 'redux';
 import { Redirect } from "react-router-dom";
+import { postSignInRequest, postSignUpAuthRequest, getLogOutAuthRequest } from '../actions/actionAuth';
 import { jwtDecode } from "../_utils/checkExp";
-import jwt from "jwt-decode";
 
-
-import ModalWindow from '../components/ModalWindow'
-
+import ModalWindow from '../components/ModalWindow';
 import SignIn from '../components/signIn';
 import SignUp from '../components/SignUp';
-
 import Posters from '../components/AuthPosters';
-import { postSignInRequest, postSignUpAuthRequest, getLogOutAuthRequest } from '../actions/actionAuth';
+
 
 class AuthUser extends Component {
 	state = {
 		auth: true,
+		renderModalWindow: true
+	};
+
+	renderModal = () => {
+		setTimeout(() => this.setState({ renderModalWindow: false }), 2000);
+		this.setState({ renderModalWindow: true })
 	};
 
 	changeAuth = () => {
@@ -28,24 +32,21 @@ class AuthUser extends Component {
 	};
 
 	takeValueSignIn = values => {
-		// console.log('-----value_sign-in', values);
 		this.props.postSignInRequest(values);
+		this.renderModal();
 	};
 
 	takeValueSignUp = values => {
-		values.firstName = 'Unknown';
-		values.lastName = 'Unknown';
+		values.firstName = 'Енот';
+		values.lastName = 'Неопознанный';
 		values.confirmPassword = values.password;
 		this.props.postSignUpAuthRequest(values);
 	};
 
 	render() {
-		const { token } = this.props;
+		const { token, error, message } = this.props;
 
 		const token_lS = localStorage.getItem("token");
-
-		console.log("token    ", token);
-		console.log("token_lS ", jwtDecode(token_lS));
 
 		if (jwtDecode(token_lS)){
 			if (token && token === token_lS) {
@@ -54,13 +55,6 @@ class AuthUser extends Component {
 		} else { this.props.getLogOutAuthRequest() }
 
 
-		// if (token_lS && jwtDecode(token_lS)){
-		// 	if (token && token === token_lS) {
-		// 		return <Redirect to={`/personal/${jwt(token).id}`} />;
-		// 	}
-        // }
-        console.log(this.props.error)
-        const { error } = this.props
 		return (
 			<div className="auth-block">
 				<div className="auth-block__form">
@@ -79,18 +73,23 @@ class AuthUser extends Component {
 				<div className="auth-block__posters">
 					<Posters />
 				</div>
-                {error ? <ModalWindow text={error} /> : null}
+                { error && message && this.state.renderModalWindow ? <ModalWindow text={ message } /> : null}
 			</div>
 		)
 	}
 }
 
 const mapDispatchToProps = dispatch =>
-	bindActionCreators({ postSignInRequest, postSignUpAuthRequest, getLogOutAuthRequest }, dispatch);
+	bindActionCreators({
+		postSignInRequest,
+		postSignUpAuthRequest,
+		getLogOutAuthRequest
+	}, dispatch);
 
 const mapStateToProps = state => ({
     token: state.auth.token,
-    error: state.auth.error
+    error: state.auth.error,
+	message: state.auth.message
 });
 
 export default connect(
