@@ -10,7 +10,7 @@ import MiniHeader from '../../components/hallComponents/MiniHeader.js';
 import * as actionsRN from '../../actions/roomNames.js';
 import colorTrans from '../../_utils/colorTrans.js';
 
-let mapStateToProps = state => ( { currentSession: state.curSession, movies: state.movie.data, roomNames: state.roomNames.data } )
+const mapStateToProps = state => ( { currentSession: state.curSession, movies: state.movie.data, roomNames: state.roomNames.data } )
 
 class HallPage extends Component {
   state = {
@@ -19,9 +19,11 @@ class HallPage extends Component {
     movieName: '',
     movieDate: null
   }
-  getCurrentMovieName = id => (
-    this.props.movies.find ( el => el._id === id ).title
-  )
+  getCurrentMovieName = id => {
+    if ( !this.props.movies ) return
+    return this.props.movies.find ( el => el._id === id ).title
+  }
+
   getCurrentRoomName = id => {
     if ( !this.props.roomNames ) return
     return this.props.roomNames.rooms.find ( el => el._id === id ).name

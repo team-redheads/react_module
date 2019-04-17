@@ -58,7 +58,8 @@ class BuyTickets extends Component {
              </div>
             <div className = 'buy-content'>
               <InfoCard title = { moment( this.props.currentSession.data.date ).format('LLLL') }
-                        info = "время и место" />
+                        info = "время и место"
+                        white = {true} />
               <Information movie = { this.getCurrentMovie(this.props.currentSession.data.movie) } />
             </div>
             <div className = 'buy-select'><SelectPanel simple = {true} />

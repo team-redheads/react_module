@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default props => (
-  <div className = 'infoCard'>
-    <div className = 'infoTitle'>{ props.title }</div>
-    <div className = 'miniInfo'>{ props.info }</div>
+export default ({props, title, info, white}) => (
+  <div className = {`infoCard ${ white ? 'cardColor' : '' }`}>
+    <div className = 'infoTitle'>{ title }</div>
+    <div className = 'miniInfo'>{ info }</div>
   </div>
 )
