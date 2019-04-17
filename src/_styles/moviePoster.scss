@@ -46,3 +46,9 @@ $color-hover: #f00;
 		}
 	}
 }
+@media (max-width: 1024px) {
+	.block {
+		font-size: 14px;
+		margin: 0 auto	;
+	}
+}

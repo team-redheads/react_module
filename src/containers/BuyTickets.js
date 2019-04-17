@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header.js';
 import SelectPanel from '../components/hallComponents/SelectPanel/SelectPanel.js';
 import { connect }   from 'react-redux';
-import Poster from '../components/MoviePoster.js';
+// import Poster from '../components/MoviePoster.js';
 import moment from 'moment';
 import InfoCard from '../components/hallComponents/InfoCard.js';
 import { Redirect } from "react-router-dom";

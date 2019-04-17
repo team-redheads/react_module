@@ -7,8 +7,7 @@ const getActorsFail         = payload => ({type: types.GET_ACTORS_BY_MOVIE_ID_FA
 
 export const getActorsRequest = id => async dispatch => {
     dispatch(getActors());
-    console.log(' ----- ACTORS id', id);
-    // const token = localStorage.getItem("token");
+    // console.log(' ----- ACTORS id', id);
     try {
         const { data } = await AxiosInstance({
             method: "GET",

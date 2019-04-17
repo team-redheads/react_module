@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 class UserTickets extends Component{
     render() {
@@ -24,9 +25,9 @@ class UserTickets extends Component{
                             <th className='table-ticket__item-col'>11 апреля 2019 21:30</th>
                             <th className='table-ticket__item-col'>Зеленый</th>
                             <th className='table-ticket__item-col'>
-                                <a href="" className='table-ticket__item-col-link'>
+                                <Link to="/" className='table-ticket__item-col-link'>
                                     Показать
-                                </a>
+                                </Link>
                             </th>
                         </tr>
                         <tr className='table-ticket__item-row'>
@@ -35,9 +36,9 @@ class UserTickets extends Component{
                             <th className='table-ticket__item-col'>11 апреля 2019 21:30</th>
                             <th className='table-ticket__item-col'>Зеленый</th>
                             <th className='table-ticket__item-col'>
-                                <a href="" className='table-ticket__item-col-link'>
+                                <Link to='/' className='table-ticket__item-col-link'>
                                     Показать
-                                </a>
+                                </Link>
                             </th>
                         </tr>
 

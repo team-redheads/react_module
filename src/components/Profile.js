@@ -4,12 +4,9 @@ import { Field, reduxForm } from 'redux-form';
 import { Icon } from 'antd';
 
 import {renderField} from "./customField";
-// import {signInValidation} from "../_utils/validate";
 
 class Profile extends Component{
     render() {
-        // const {user} = this.props;
-        // console.log(' - Profile props', user);
         const { handleSubmit, submitting, pristine } = this.props;
         return (
             <form className='profile-block' onSubmit={handleSubmit}>
@@ -45,5 +42,4 @@ class Profile extends Component{
 }
 export default reduxForm({
     form: 'signIn',
-    // validate: signInValidation,
 })(Profile);

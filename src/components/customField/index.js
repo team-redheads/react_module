@@ -13,7 +13,6 @@ export const renderField = ({
 				{...input}
 				placeholder={label}
 				type={type}
-				className="block-field__input"
 				disabled={disabled}
 			/>
 			{touched && error &&  <span className="error">{error}</span>}

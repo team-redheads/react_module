@@ -9,7 +9,7 @@ export default (state = initialState.actors, {type, payload}) => {
             return { ...state, isFetching: true };
         }
         case types.GET_ACTORS_BY_MOVIE_ID_SUCCESS: {
-            console.log(" --- reducer payload ACTORS", payload);
+            // console.log(" --- reducer payload ACTORS", payload);
             const { actors } = payload;
 
             return { ...state, data: actors, isFetching: false };

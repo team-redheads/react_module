@@ -58,6 +58,43 @@ $color-text-table-item-hover: #ff0000;
             color: $color-text-table-item-hover;
         }
     }
+}
 
+
+@media (max-width: 900px) {
+    .block-ticket {
+        padding: 1.5rem;
+    }
+    .table-ticket {
+        margin: 0;
+        width: 70%;
+        font-size: 14px;
+        margin-top: 1rem;
+    }
+
+    &__header-row{
+        color: $color-text-table-header;
+        font-size: 16px;
+        font-weight: bolder;
+    }
+    &__header-col{
+        width: 100px;
+        padding: 0.5rem;
+    }
+
+    &__item-row{
+        background-color: $bg-table-item-color;
+        color: $color-text-table-item;
+        font-size: 14px;
+        border-bottom: 1px solid $bg-table-item-color-hover;
+        cursor: pointer;
+        &:hover{
+            background-color: $bg-table-item-color-hover;
+        }
+
+    }
+    &__item-col{
+        padding: 0.5rem;
+    }
 
 }

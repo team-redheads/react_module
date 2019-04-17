@@ -79,14 +79,6 @@ class Header extends Component {
 										Скоро в прокате
 									</Link>
 								</li>
-								{/*<li className="content-block__item">*/}
-									{/*<Link*/}
-										{/*className="content-block__link"*/}
-										{/*to="/"*/}
-									{/*>*/}
-										{/*О компании*/}
-									{/*</Link>*/}
-								{/*</li>*/}
 								<li className="content-block__item">
 									<Link
 										className="content-block__link"
@@ -106,7 +98,7 @@ class Header extends Component {
 							<Link className="log-in-block__link" to="/auth">
 								<img src={ava}  alt=""/>
 							</Link> :
-							<Link className="log-in-block__link" to="/auth" >
+							<Link className="log-in-block__link" to="/" >
 								<img src={logout} alt="" onClick={ this.handleLogout.bind(this) } className='logout' />
 							</Link>
 					}

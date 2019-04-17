@@ -3,6 +3,7 @@ import moment from 'moment'
 
 import trash from '../_img/trash.svg'
 import pencil from '../_img/pencil.svg'
+import {nowDate} from "../_utils/nowDate";
 
 class AllMovies extends Component {
 	state = {
@@ -17,7 +18,7 @@ class AllMovies extends Component {
 	rentOn = () => {
 		const { listMovie } = this.props
 		const rentOn = listMovie.filter(value => {
-			const newDate = moment().format('YYYY.MM.DD')
+			const newDate = moment(nowDate).format('YYYY.MM.DD')
 			const rentStart = moment(value.rentStart).format('YYYY.MM.DD')
 			const rentEnd = moment(value.rentEnd).format('YYYY.MM.DD')
 
@@ -30,7 +31,7 @@ class AllMovies extends Component {
 	rentSoon = () => {
 		const { listMovie } = this.props
 		const rentSoon = listMovie.filter(value => {
-			const newDate = moment().format('YYYY.MM.DD')
+			const newDate = moment(nowDate).format('YYYY.MM.DD')
 			const rentStart = moment(value.rentStart).format('YYYY.MM.DD')
 
 			return newDate < rentStart
@@ -42,7 +43,7 @@ class AllMovies extends Component {
 	rentEnd = () => {
 		const { listMovie } = this.props
 		const rentSoon = listMovie.filter(value => {
-			const newDate = moment().format('YYYY.MM.DD')
+			const newDate = moment(nowDate).format('YYYY.MM.DD')
 			const rentEnd = moment(value.rentEnd).format('YYYY.MM.DD')
 
 			return newDate > rentEnd
@@ -116,7 +117,7 @@ class ItemMovie extends Component {
 	componentDidMount() {
 		const { rentStart, rentEnd } = this.props
 		if (
-			moment().format('YYYY.MM.DD') <=
+			moment(nowDate).format('YYYY.MM.DD') <=
 			moment(rentEnd).format('YYYY.MM.DD')
 		) {
 			this.setState({ rent: 'В прокате' })
@@ -124,13 +125,13 @@ class ItemMovie extends Component {
 
 		if (
 			moment(rentStart).format('YYYY.MM.DD') >=
-			moment().format('YYYY.MM.DD')
+			moment(nowDate).format('YYYY.MM.DD')
 		) {
 			this.setState({ rent: 'Скоро в прокате' })
 		}
 
 		if (
-			moment().format('YYYY.MM.DD') >=
+			moment(nowDate).format('YYYY.MM.DD') >
 			moment(rentEnd).format('YYYY.MM.DD')
 		) {
 			this.setState({ rent: 'Прокат закончен', flag: true })

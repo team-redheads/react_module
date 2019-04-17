@@ -55,10 +55,10 @@ export default {
 		user: null,
 		error: null,
 	},
-	adminPanel: {
-		user: {
-			name: null,
-			role: null,
-		},
-	},
+	// adminPanel: {
+	// 	user: {
+	// 		name: null,
+	// 		role: null,
+	// 	},
+	// },
 }
