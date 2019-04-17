@@ -10,12 +10,16 @@ import MiniHeader from '../../components/hallComponents/MiniHeader.js';
 import * as actionsRN from '../../actions/roomNames.js';
 import colorTrans from '../../_utils/colorTrans.js';
 
-const mapStateToProps = state => ( { currentSession: state.curSession, movies: state.movie.data, roomNames: state.roomNames.data } )
+const mapStateToProps = state => ( {
+  currentSession: state.curSession,
+  movies: state.movie.data,
+  roomNames: state.roomNames.data,
+  places: state.spaceShadow,
+  price: state.places.price
+} )
 
 class HallPage extends Component {
   state = {
-    room: null,
-    price: 0,
     movieName: '',
     movieDate: null
   }
@@ -29,35 +33,25 @@ class HallPage extends Component {
     return this.props.roomNames.rooms.find ( el => el._id === id ).name
   }
   componentDidMount () {
-    console.log(this.props.currentSession,"curSession")
-    console.log(this.props.movies,'movie')
     if ( !this.props.currentSession.data ) return
-    this.props.setPrice( this.props.currentSession.data.costs )
     this.props.getRoomNamesRequest()
-    axios({
-        url: `http://subdomain.entony.fs.a-level.com.ua/api/movie/space?room=${this.props.currentSession.data.room}`,
-      }).then( response => {
-          this.setState( {
-            room: response.data,
-            price: this.props.currentSession.data.costs,
-            movieName: this.getCurrentMovieName(this.props.currentSession.data.movie),
-            movieDate: this.props.currentSession.data.date
-          } )
-          console.log(response,"roomsData")
-      } )
-        .catch( err => console.error( err.message ) )
+    this.props.getPlacesRequest( this.props.currentSession.data._id )
+    this.setState( {
+      movieName: this.getCurrentMovieName(this.props.currentSession.data.movie),
+      movieDate: this.props.currentSession.data.date
+    } )
   }
   render (){
-    console.log(this.state.movieName,'this.state.movieName', this.props.roomNames, 'rn')
     if ( !this.props.currentSession.data ) return ( <Redirect to='/' /> )
-    if ( !this.state.room )return ( <div className = 'room'>Loading...</div> )
+    if ( this.props.places.isFetching || this.props.places.initial ) return ( <div className = 'room'>Loading...</div> )
+    if ( this.props.places.error ) return ( <div className = 'room'>error</div> )
     return (
       <div className = 'hall-page'>
         <Header title={ 'Myplex' } />
         <MiniHeader nameMovie = { this.state.movieName } dateSession = { this.state.movieDate }
                     nameRoom = { colorTrans (this.getCurrentRoomName( this.props.currentSession.data.room )) + " зал" } />
         <div className = 'hall-content'>
-          <Rooms room = { this.state.room } price = { this.state.price }/>
+          <Rooms room = { this.props.places.places } price = { this.props.price }/>
           <SelectPanel />
         </div>
       </div>

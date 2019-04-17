@@ -12,6 +12,8 @@ import session_by_movie_id from './session_by_movie_id';
 import choiceSessionReducer from './choiceSessionReducer.js';
 import choicePlaces from './choicePlaces.js'
 import roomNames from './roomNames.js'
+import spaceShadow from './spaceShadow.js'
+import tickets from './tickets.js'
 
 import {adminAuth} from './adminAuth'
 
@@ -26,6 +28,8 @@ export default combineReducers({
     form: formReducer,
     curSession: choiceSessionReducer,
     places: choicePlaces,
+    spaceShadow,
     roomNames,
-    adminAuth
+    adminAuth,
+    tickets,
 });

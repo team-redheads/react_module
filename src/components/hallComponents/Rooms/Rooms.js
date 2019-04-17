@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import { connect }   from 'react-redux';
 import * as actions from '../../../actions/actionHall.js';
-// import axios from "axios";
 import UserIcon from './UserIcon.js';
 import Message from './Message.js';
 
-let mapStateToProps = state => ( { places: state.places.places } )
+const mapStateToProps = state => ( { places: state.places.places } )
 
 class Rooms extends Component {
   state = {
     message: false
   }
   generateHall = () => {
-    let res = []
+    const res = []
     let line = []
-    let showState = JSON.parse( JSON.stringify (this.props.room.space) )
+    const showState = JSON.parse( JSON.stringify (this.props.room) )
     showState.sort( (a, b) => a.row - b.row ).forEach( (elem, ind, arr) =>{
       if ( elem.row === ( arr[ind+1] ? arr[ ind+1 ].row : null) ) {
         line.push( elem )
@@ -25,10 +24,9 @@ class Rooms extends Component {
         line = []
       }
     })
-    console.log( res,"res" )
     return res
   }
-  mouseHandler = elem => event => {
+  mouseOverHandler = elem => event => {
     if ( (!elem.free && !elem.booked) && !this.checkId(elem._id) ) event.target.style.background = 'orange'
   }
 
@@ -39,19 +37,17 @@ class Rooms extends Component {
   checkId = id => this.props.places.some( el => el._id === id )
 
   clickHanler = elem => event => {
-    console.log( elem._id,"elem._id" )
     this.setState ({ message: true })
     if ( !localStorage.getItem('token') ) return
     if ( elem.free || elem.booked ) return
-    let newMass = [...this.props.places]
-    let check = newMass.reduce( ( prev, el, ind ) => el._id === elem._id ? ind : prev ,-1 )
+    const newMass = [...this.props.places]
+    const check = newMass.reduce( ( prev, el, ind ) => el._id === elem._id ? ind : prev ,-1 )
     check > -1 ? newMass.splice( check ,1 ) : newMass.push(elem)
     this.props.setPlaces( newMass )
-    console.log( 'cilck', this.props.places.indexOf(elem) )
   }
 
   render () {
-    let token = localStorage.getItem('token')
+    const token = localStorage.getItem('token')
     return (
       <div className = 'room'>
         <div className = 'room__screen'></div>
@@ -60,14 +56,14 @@ class Rooms extends Component {
           {this.generateHall ().map( (line, ind) =>(
             <div className ='room__hall__line' key = {ind}>
               {line.map( (elem,index ) => {
-                let inStock = this.checkId(elem._id)
+                const inStock = this.checkId(elem._id)
                 return(
                 <div className = 'room__hall__line__cell'
                      key = {index + ind}
                      title = {`ряд: ${elem.row}; место: ${elem.place}; цена: ${this.props.price}`}
                      style = {{background: inStock ? 'orange' : elem.free || elem.booked ? 'gray' : '#239903',
                               color: elem.free || elem.booked ? 'gray' : '#239903'}}
-                     onMouseOver = {this.mouseHandler(elem)}
+                     onMouseOver = {this.mouseOverHandler(elem)}
                      onMouseOut = {this.mouseOutHandler(elem)}
                      onClick = {this.clickHanler(elem)}>
                      {inStock ? <UserIcon check = {true}/> : elem.free || elem.booked ? <UserIcon /> : elem.place}
