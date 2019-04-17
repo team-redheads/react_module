@@ -1,14 +1,13 @@
 .panel {
   width: 20vw;
   height: 300px;
-  align-self: flex-start;
   background-color: #f2f1ed90;
   border-radius: 10px;
   &__item-bar{
     &__line {
       width: 100%;
-      border-top: 1px solid gray;
-      border-bottom: 1px solid gray;
+      border-top: 1px solid #d9d9db;
+      border-bottom: 1px solid #d9d9db;
       font-size: 18px;
       display: flex;
       justify-content: space-around;
@@ -37,4 +36,12 @@
 }
 .panel p {
   color: gray;
+}
+@media (max-width: 650px) {
+  .panel {
+    width: 65%;
+  }
+  .panel__item-bar__line span {
+    width: 25%;
+  }
 }
