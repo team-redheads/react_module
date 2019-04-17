@@ -50,6 +50,12 @@ export default {
 		error: null,
 		isFetching: false,
 	},
+	places: {
+		places: [],
+		error: false,
+		isFetching: false,
+		initial: true,
+	},
 	adminAuth: {
 		token: null,
 		user: null,

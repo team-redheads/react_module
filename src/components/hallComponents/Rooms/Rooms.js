@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect }   from 'react-redux';
 import * as actions from '../../../actions/actionHall.js';
-// import axios from "axios";
 import UserIcon from './UserIcon.js';
 import Message from './Message.js';
 
@@ -14,7 +13,7 @@ class Rooms extends Component {
   generateHall = () => {
     let res = []
     let line = []
-    let showState = JSON.parse( JSON.stringify (this.props.room.space) )
+    let showState = JSON.parse( JSON.stringify (this.props.room) )
     showState.sort( (a, b) => a.row - b.row ).forEach( (elem, ind, arr) =>{
       if ( elem.row === ( arr[ind+1] ? arr[ ind+1 ].row : null) ) {
         line.push( elem )
