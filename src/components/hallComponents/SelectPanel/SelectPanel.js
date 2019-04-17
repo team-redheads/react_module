@@ -3,7 +3,7 @@ import {connect}   from 'react-redux';
 import * as actions from '../../../actions/actionHall.js';
 import { Link } from 'react-router-dom';
 
-let mapStateToProps = state => ({
+const mapStateToProps = state => ({
   places: state.places.places,
   price: state.places.price
 })
@@ -13,12 +13,10 @@ class SelectPanel extends Component {
     contin: false
   }
   clickHandler = event => {
-    console.log('start')
     this.setState({ contin: true })
-    console.log('finish', this.state.contin)
   }
   clickDelHandler = elem => event => {
-    let newArr = [...this.props.places]
+    const newArr = [...this.props.places]
     newArr.splice(newArr.indexOf(elem),1)
     this.props.setPlaces(newArr)
   }
@@ -29,12 +27,11 @@ class SelectPanel extends Component {
   componentWillUnmount (){
     if ( !this.state.contin ) {
       this.props.clearPlaces()
-      console.log('willUnM', this.state.contin)
     }
   }
 
   render(){
-    let p = this.props
+    const p = this.props
     return(
       <div className = 'panel'>
         <h2>Выбранные места</h2>

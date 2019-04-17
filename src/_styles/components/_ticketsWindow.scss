@@ -1,0 +1,53 @@
+*{
+  user-select: none;
+}
+.tickets-wrap {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tickets-window {
+  // width: 60%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 15px;
+  &__success, &__fail {
+    width: 100%;
+    flex-grow: 1;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: 2em;
+  }
+}
+.tikcetBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+    width: 50px;
+    margin-top: 1rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid $bg-btn;
+    border-radius: 1.5rem;
+    background-color: #4c5566;
+    color: #fff;
+    &:hover {
+      color: #ff0000;
+    }
+}
+.tikcetBtn a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}

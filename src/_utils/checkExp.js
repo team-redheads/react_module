@@ -6,6 +6,7 @@ export const jwtDecode = token => {
 
 	if (token) {
 		const decodeObj = jwt(token);
+		localStorage.setItem('user',decodeObj.id)
 
 		console.log(" --- decodeObj --- ", decodeObj);
 		console.log(" --- decodeObj --- ", moment(decodeObj.exp * 1000).format('dddd, DD MM YYYY, HH:mm:ss'));
@@ -16,13 +17,13 @@ export const jwtDecode = token => {
 	else {
 		return false
     }
-    
+
 };
         export const checkExp = token => {
             const decodeObj = jwt(token)
             return moment().isSameOrBefore(decodeObj.exp * 1000)
         }
-        
+
         export const takeId = token => {
             const decodeObj = jwt(token)
             return decodeObj.id

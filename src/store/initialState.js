@@ -56,6 +56,10 @@ export default {
 		isFetching: false,
 		initial: true,
 	},
+	tickets: {
+		purchased: [],
+		notPurchased: [],
+	},
 	adminAuth: {
 		token: null,
 		user: null,

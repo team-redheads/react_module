@@ -8,7 +8,8 @@ export default (state = initialState.user, {type, payload}) => {
             return { ...state, isFetching: true };
         }
         case types.GET_USER_BY_ID_SUCCESS: {
-            const { user } = payload;
+            const { user } = payload
+            console.log(user,'user');
             return { ...state, data: user, isFetching: false };
         }
         case types.GET_USER_BY_ID_FAIL: {

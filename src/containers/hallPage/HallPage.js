@@ -33,8 +33,6 @@ class HallPage extends Component {
     return this.props.roomNames.rooms.find ( el => el._id === id ).name
   }
   componentDidMount () {
-    console.log(this.props.currentSession,"curSession")
-    console.log(this.props.movies,'movie')
     if ( !this.props.currentSession.data ) return
     this.props.getRoomNamesRequest()
     this.props.getPlacesRequest( this.props.currentSession.data._id )
@@ -47,7 +45,6 @@ class HallPage extends Component {
     if ( !this.props.currentSession.data ) return ( <Redirect to='/' /> )
     if ( this.props.places.isFetching || this.props.places.initial ) return ( <div className = 'room'>Loading...</div> )
     if ( this.props.places.error ) return ( <div className = 'room'>error</div> )
-    console.log(this.props.places.places, 'places')
     return (
       <div className = 'hall-page'>
         <Header title={ 'Myplex' } />
