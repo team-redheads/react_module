@@ -158,9 +158,6 @@ class ItemMovie extends Component {
 					<span className="block1" onClick={this.takeMovieId}>
 						<img src={trash} alt="" title="удалить" />
 					</span>
-					<span className="block2">
-						<img src={pencil} alt="" title="редактировать" />
-					</span>
 				</div>
 				<div
 					className={
