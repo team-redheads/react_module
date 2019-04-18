@@ -16,6 +16,7 @@ export const adminAddMovieFail = payload => {
 
 export const adminAddMovie = payload => dispatch => {
 	console.log('payload action add movie', payload)
+	const token = localStorage.getItem('token')
 
 	var request = new Request(
 		'http://subdomain.entony.fs.a-level.com.ua/api/movie',
@@ -53,6 +54,7 @@ export const adminOnLoadPosterFail = payload => {
 }
 
 export const adminOnLoadPoster = payload => dispatch => {
+	const token = localStorage.getItem('token')
 	var request = new Request(
 		'http://subdomain.entony.fs.a-level.com.ua/api/documents',
 		{
@@ -93,6 +95,7 @@ export const adminDellMovieFail = payload => {
 
 export const adminDellMovie = payload => dispatch => {
 	console.log('action dell movie', payload)
+	const token = localStorage.getItem('token')
 	var request = new Request(
 		`http://subdomain.entony.fs.a-level.com.ua/api/movie/${payload}`,
 		{
@@ -129,6 +132,7 @@ export const adminGetMovieFail = payload => {
 }
 
 export const adminGetMovie = () => dispatch => {
+	const token = localStorage.getItem('token')
 	var request = new Request(
 		`http://subdomain.entony.fs.a-level.com.ua/api/movie`,
 		{
@@ -165,6 +169,7 @@ export const adminGetRoomFail = payload => {
 }
 
 export const adminGetRoom = () => dispatch => {
+	const token = localStorage.getItem('token')
 	var request = new Request(
 		`http://subdomain.entony.fs.a-level.com.ua/api/movie/room`,
 		{
@@ -242,7 +247,7 @@ export const adminPostSessionFail = payload => {
 
 export const adminPostSession = payload => dispatch => {
 	console.log('action post session', payload)
-
+	const token = localStorage.getItem('token')
 	var request = new Request(
 		`http://subdomain.entony.fs.a-level.com.ua/api/movie/session`,
 		{
@@ -284,7 +289,7 @@ export const adminPutMovieFail = payload => {
 
 export const adminPutMovie = (payload, id) => dispatch => {
 	console.log('action put movie', payload, id)
-
+	const token = localStorage.getItem('token')
 	var request = new Request(
 		`http://subdomain.entony.fs.a-level.com.ua/api/movie/${id}`,
 		{
