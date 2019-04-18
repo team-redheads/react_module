@@ -53,3 +53,11 @@ export const validate = values => {
 
 	return errors
 }
+
+export const required = value => (value ? undefined : 'обязательное поле для ввода')
+
+export const onlyNumber = value =>
+	value && !/\[0-9]/g.test(value) ? 'Введите только цыфры' : undefined
+
+export const onlyWords = value =>
+	value && !/([а-яё]+)/.test(value) ? 'Введите только бувы' : undefined

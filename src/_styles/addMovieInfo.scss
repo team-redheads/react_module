@@ -40,32 +40,34 @@
 			width: inherit;
 			height: 300px;
 			margin: 0 0 40px 0;
-            background-color: #ffffff;
-            
-            .form-block__select {
-                width: 380px;
+			background-color: #ffffff;
 
-                label {
+			.form-block__select {
+				width: 380px;
+				position: relative;
+
+				label {
 					display: block;
 					color: #8d83a2;
 					font-size: 15px;
-                }
-                
-                select {
+				}
+
+				select {
 					width: 100%;
 					border: none;
 					border-bottom: 2px solid #e8e8e8;
 					padding: 15px 0;
 					font-size: 16px;
-                }
-                
-                option {
-                    padding: 15px 0;
-                }
-            }
+				}
+
+				option {
+					padding: 15px 0;
+				}
+			}
 
 			.form-block__input {
 				width: 380px;
+				position: relative;
 
 				label {
 					display: block;

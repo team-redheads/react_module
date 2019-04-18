@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 
 import moment from 'moment'
+import { required } from '../_utils/validate'
 
 import {
 	customInputAddMovie,
@@ -77,6 +78,7 @@ class AddMovie extends Component {
 									type="text"
 									label="Имя фильма"
 									placeholder="Хеллбой"
+									validate={[required]}
 								/>
 
 								<Field
@@ -85,6 +87,7 @@ class AddMovie extends Component {
 									type="text"
 									label="Ссылка на трейлер фильма"
 									placeholder="https://www.youtube.com/embed/5ed9ukVdFWM"
+									validate={[required]}
 								/>
 							</div>
 						</div>
@@ -95,6 +98,7 @@ class AddMovie extends Component {
 								type="text"
 								label="Возраст"
 								placeholder="18"
+								validate={[required]}
 							/>
 
 							<Field
@@ -103,6 +107,7 @@ class AddMovie extends Component {
 								type="text"
 								label="Период проката"
 								placeholder="11.04.2019 - 08.05.2019"
+								validate={[required]}
 							/>
 
 							<Field
@@ -111,6 +116,7 @@ class AddMovie extends Component {
 								type="text"
 								label="Язык"
 								placeholder="Украинский язык"
+								validate={[required]}
 							/>
 
 							<Field
@@ -119,6 +125,7 @@ class AddMovie extends Component {
 								type="text"
 								label="Длительность"
 								placeholder="2.01"
+								validate={[required]}
 							/>
 						</div>
 						<div className="form-block">
@@ -128,6 +135,7 @@ class AddMovie extends Component {
 								type="text"
 								label="Жанр"
 								placeholder="Боевик, Фантастика, Приключения, Фэнтези"
+								validate={[required]}
 							/>
 
 							<Field
@@ -136,6 +144,7 @@ class AddMovie extends Component {
 								type="text"
 								label="Производство"
 								placeholder="США"
+								validate={[required]}
 							/>
 
 							<Field
@@ -152,6 +161,7 @@ class AddMovie extends Component {
 								type="text"
 								label="Описание фильма"
 								placeholder="Фильм основан на популярной серии комиксов..."
+								validate={[required]}
 							/>
 						</div>
 					</div>

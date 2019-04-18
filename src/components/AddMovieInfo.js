@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 
 import { customInputAddMovie, customSelect } from './customField/customFields'
+import { required } from '../_utils/validate'
 
 class AddMovieInfo extends Component {
 	renderSelectMovie = () => {
@@ -59,6 +60,7 @@ class AddMovieInfo extends Component {
 								name="movie"
 								component={customSelect}
 								label="Фильм"
+								validate={[required]}
 							>
 								{this.renderSelectMovie()}
 							</Field>
@@ -67,6 +69,7 @@ class AddMovieInfo extends Component {
 								name="room"
 								component={customSelect}
 								label="Зал"
+								validate={[required]}
 							>
 								{this.renderSelectRoom()}
 							</Field>
@@ -77,6 +80,7 @@ class AddMovieInfo extends Component {
 								type="datetime-local"
 								label="Дата и время"
 								placeholder="18.04.2019"
+								validate={[required]}
 							/>
 
 							<Field
@@ -85,6 +89,7 @@ class AddMovieInfo extends Component {
 								type="text"
 								label="Цена"
 								placeholder="150"
+								validate={[required]}
 							/>
 						</div>
 					</div>

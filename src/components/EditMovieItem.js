@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 
+import { required, onlyNumber, onlyWords } from '../_utils/validate'
 import {
 	customInputAddMovie,
 	customTextAreaAddMovie,
@@ -29,7 +30,10 @@ class EditMovieItem extends Component {
 							/>
 							{posterLinkStore || posterLink ? (
 								<div className="poster">
-									<img src={posterLinkStore || posterLink} alt="" />
+									<img
+										src={posterLinkStore || posterLink}
+										alt=""
+									/>
 								</div>
 							) : null}
 						</div>
@@ -42,6 +46,7 @@ class EditMovieItem extends Component {
 							type="text"
 							label="Имя фильма"
 							placeholder="Хеллбой"
+							validate={[required]}
 						/>
 
 						<Field
@@ -60,6 +65,7 @@ class EditMovieItem extends Component {
 						type="text"
 						label="Возраст"
 						placeholder="18"
+						validate={[required]}
 					/>
 
 					<Field
@@ -68,6 +74,7 @@ class EditMovieItem extends Component {
 						type="text"
 						label="Период проката"
 						placeholder="11.04.2019 - 08.05.2019"
+						validate={[required]}
 					/>
 
 					<Field
@@ -76,6 +83,7 @@ class EditMovieItem extends Component {
 						type="text"
 						label="Язык"
 						placeholder="Украинский язык"
+						validate={[required]}
 					/>
 
 					<Field
@@ -84,6 +92,7 @@ class EditMovieItem extends Component {
 						type="text"
 						label="Длительность"
 						placeholder="2.01"
+						validate={[required]}
 					/>
 				</div>
 				<div className="form-block">
@@ -93,6 +102,7 @@ class EditMovieItem extends Component {
 						type="text"
 						label="Жанр"
 						placeholder="Боевик, Фантастика, Приключения, Фэнтези"
+						validate={[required]}
 					/>
 
 					<Field
@@ -101,6 +111,7 @@ class EditMovieItem extends Component {
 						type="text"
 						label="Производство"
 						placeholder="США"
+						validate={[required]}
 					/>
 
 					<Field
@@ -109,6 +120,7 @@ class EditMovieItem extends Component {
 						type="text"
 						label="В главных ролях"
 						placeholder="Дэвид Харбор, Иэн Макшейн, Мила Йовович, Томас Хейден Чёрч, Саша Лeйн"
+						validate={[onlyWords]}
 					/>
 
 					<Field
@@ -117,6 +129,7 @@ class EditMovieItem extends Component {
 						type="text"
 						label="Описание фильма"
 						placeholder="Фильм основан на популярной серии комиксов..."
+						validate={[ required]}
 					/>
 				</div>
 			</div>
