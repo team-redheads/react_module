@@ -9,7 +9,7 @@ export default (state = initialState.user, {type, payload}) => {
         }
         case types.GET_USER_BY_ID_SUCCESS: {
             const { user } = payload
-            console.log(user,'user');
+            // console.log(user,'user');
             return { ...state, data: user, isFetching: false };
         }
         case types.GET_USER_BY_ID_FAIL: {
@@ -21,8 +21,8 @@ export default (state = initialState.user, {type, payload}) => {
         }
         case types.PUT_USER_BY_ID_SUCCESS: {
             // const { user } = payload;
-            console.log("put state --- ", state);
-            console.log('put payload --- ', payload);
+            // console.log("put state --- ", state);
+            // console.log('put payload --- ', payload);
             return { ...state, payload, isFetching: false };
         }
         case types.PUT_USER_BY_ID_FAIL: {

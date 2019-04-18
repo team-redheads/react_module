@@ -30,8 +30,8 @@ class UserTickets extends Component{
             const currentRoom = currentSession && roomName  && roomName.find( el => el._id === currentSession.room).name;
 
             return currentUser && currentSession && currentMovie && currentRoom && (
-                <React.Fragment>
-                    <tr className='table-ticket__item-row' key={index}>
+                <React.Fragment key={index}>
+                    <tr className='table-ticket__item-row' >
                         <th className='table-ticket__item-col'> {currentMovie.title} </th>
                         <th className='table-ticket__item-col'> {moment(currentSession.date).format('DD MMMM YYYY HH:mm')} </th>
                         <th className='table-ticket__item-col'> {(currentRoom === 'green' && "Зеленый") || (currentRoom === 'yellow' && "Желтый") } </th>
@@ -41,7 +41,9 @@ class UserTickets extends Component{
                             </button>
                         </th>
                     </tr>
-                    <div key={itemTicket._id}
+                    <div
+                        // className = 'block-tickets'
+                        key={itemTicket._id}
                         className={this.state.disabled ? "block-ticket-visible" : "block-ticket-unvisible"}>
                         <div className = 'block-tickets-window'>
                             <div className = 'block-tickets-window__success'>

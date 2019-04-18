@@ -1,4 +1,4 @@
-import initialState from "../store/initialState";
+// import initialState from "../store/initialState";
 
 export default (state = {places: [], price: 0}, action) => {
     switch (action.type) {
