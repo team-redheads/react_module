@@ -8,15 +8,16 @@ import {Link} from "react-router-dom";
 class UserTickets extends Component{
     state = {
         clickBtn: false,
-        disabled: false
+        disabled: false,
+        id: null
     };
     handlerBtnOk = () => {
-        this.setState({ clickBtn: false,disabled: false  });
+        this.setState({ clickBtn: false,disabled: false, id: null });
         console.log('this.state ', this.state.clickBtn);
     }
 
-    handleBtnClick = () => {
-        this.setState({ clickBtn: true, disabled: true });
+    handleBtnClick = id => () => {
+        this.setState({ clickBtn: true, disabled: true, id: id });
         console.log('this.state ', this.state.clickBtn);
     }
 
@@ -28,7 +29,7 @@ class UserTickets extends Component{
             const currentSession = session && session.find( el => el._id === itemTicket.session);
             const currentMovie = movie && movie.find( el => el._id === currentSession.movie);
             const currentRoom = currentSession && roomName  && roomName.find( el => el._id === currentSession.room).name;
-
+              console.log(currentUser,  currentSession,  currentMovie,  currentRoom, "Ticked")
             return currentUser && currentSession && currentMovie && currentRoom && (
                 <React.Fragment>
                     <tr className='table-ticket__item-row' key={index}>
@@ -36,13 +37,13 @@ class UserTickets extends Component{
                         <th className='table-ticket__item-col'> {moment(currentSession.date).format('DD MMMM YYYY HH:mm')} </th>
                         <th className='table-ticket__item-col'> {(currentRoom === 'green' && "Зеленый") || (currentRoom === 'yellow' && "Желтый") } </th>
                         <th className='table-ticket__item-col'>
-                            <button className='table-ticket__item-col-link' onClick={this.handleBtnClick}>
+                            <button className='table-ticket__item-col-link' onClick={this.handleBtnClick(itemTicket._id)}>
                                 Показать
                             </button>
                         </th>
                     </tr>
                     <div key={itemTicket._id}
-                        className={this.state.disabled ? "block-ticket-visible" : "block-ticket-unvisible"}>
+                        className={this.state.id && this.state.id === itemTicket._id ? "block-ticket-visible" : "block-ticket-unvisible"}>
                         <div className = 'block-tickets-window'>
                             <div className = 'block-tickets-window__success'>
                                 <Ticket movieName = {currentMovie.title} userName = {`${currentUser.firstName} ${currentUser.lastName}`}
