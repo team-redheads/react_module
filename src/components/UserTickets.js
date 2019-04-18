@@ -1,17 +1,72 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import moment from 'moment';
+// import { Link } from 'react-router-dom'
+
+import Ticket from '../components/hallComponents/Ticket.js';
+import {Link} from "react-router-dom";
 
 class UserTickets extends Component{
+    state = {
+        clickBtn: false,
+        disabled: false
+    };
+    handlerBtnOk = () => {
+        this.setState({ clickBtn: false,disabled: false  });
+        console.log('this.state ', this.state.clickBtn);
+    }
+
+    handleBtnClick = () => {
+        this.setState({ clickBtn: true, disabled: true });
+        console.log('this.state ', this.state.clickBtn);
+    }
+
     render() {
+        const { user, movie, session, roomName } = this.props
+        const tickets = JSON.parse(localStorage.getItem('tickets'));
+        const ticketItem = tickets.map( (itemTicket, index) => {
+            const currentUser = itemTicket.user === user._id && user.local;
+            const currentSession = session && session.find( el => el._id === itemTicket.session);
+            const currentMovie = movie && movie.find( el => el._id === currentSession.movie);
+            const currentRoom = currentSession && roomName  && roomName.find( el => el._id === currentSession.room).name;
+
+            return currentUser && currentSession && currentMovie && currentRoom && (
+                <React.Fragment>
+                    <tr className='table-ticket__item-row' key={index}>
+                        <th className='table-ticket__item-col'> {currentMovie.title} </th>
+                        <th className='table-ticket__item-col'> {moment(currentSession.date).format('DD MMMM YYYY HH:mm')} </th>
+                        <th className='table-ticket__item-col'> {(currentRoom === 'green' && "Зеленый") || (currentRoom === 'yellow' && "Желтый") } </th>
+                        <th className='table-ticket__item-col'>
+                            <button className='table-ticket__item-col-link' onClick={this.handleBtnClick}>
+                                Показать
+                            </button>
+                        </th>
+                    </tr>
+                    <div key={itemTicket._id}
+                        className={this.state.disabled ? "block-ticket-visible" : "block-ticket-unvisible"}>
+                        <div className = 'block-tickets-window'>
+                            <div className = 'block-tickets-window__success'>
+                                <Ticket movieName = {currentMovie.title} userName = {`${currentUser.firstName} ${currentUser.lastName}`}
+                                        row = {itemTicket.row} place = {itemTicket.place}
+                                        time = {moment(currentSession.date).format('HH:mm')} date = {moment(currentSession.date).format('DD.MM.YYYY')}
+                                        hall = {currentRoom}
+                                />
+                            </div>
+                            <Link to = {`/personal/${localStorage.getItem('user')}/tickets`}>
+                                <div className = "block-ticketBtn" onClick={this.handlerBtnOk}> OK </div>
+                            </Link>
+                        </div>
+                    </div>
+                </React.Fragment>
+            )
+        });
+
         return (
             <div className='block-ticket'>
-                {/*UserTickets*/}
                 <h2 className='block-ticket__header'>История покупки билетов </h2>
                 <table className='table-ticket'>
                     {/*<caption> Все би </caption>*/}
                     <thead className='table-ticket__header'>
                         <tr className='table-ticket__header-row'>
-                            <th className='table-ticket__header-col'>Дата покупки</th>
                             <th className='table-ticket__header-col'>Фильм</th>
                             <th className='table-ticket__header-col'>Сеанс</th>
                             <th className='table-ticket__header-col'>Зал</th>
@@ -19,29 +74,7 @@ class UserTickets extends Component{
                         </tr>
                     </thead>
                     <tbody>
-                        <tr className='table-ticket__item-row'>
-                            <th className='table-ticket__item-col'>2019.04.08 16:50</th>
-                            <th className='table-ticket__item-col'>Капитан Марвел</th>
-                            <th className='table-ticket__item-col'>11 апреля 2019 21:30</th>
-                            <th className='table-ticket__item-col'>Зеленый</th>
-                            <th className='table-ticket__item-col'>
-                                <Link to="/" className='table-ticket__item-col-link'>
-                                    Показать
-                                </Link>
-                            </th>
-                        </tr>
-                        <tr className='table-ticket__item-row'>
-                            <th className='table-ticket__item-col'>2019.04.08 16:50</th>
-                            <th className='table-ticket__item-col'>Капитан Марвел</th>
-                            <th className='table-ticket__item-col'>11 апреля 2019 21:30</th>
-                            <th className='table-ticket__item-col'>Зеленый</th>
-                            <th className='table-ticket__item-col'>
-                                <Link to='/' className='table-ticket__item-col-link'>
-                                    Показать
-                                </Link>
-                            </th>
-                        </tr>
-
+                        {ticketItem}
                     </tbody>
                 </table>
             </div>

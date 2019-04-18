@@ -11,7 +11,7 @@ export const getRoomNamesRequest = () => async dispatch => {
             method: "GET",
             url: "movie/room"
         });
-        console.log(data,'data')
+        // console.log(data,' ------ room data')
         dispatch(getRoomNamesSuccess(data));
     } catch (err) {
         dispatch(getRoomNamesFail(err));

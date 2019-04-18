@@ -14,9 +14,6 @@ const AxiosInstance = axios.create({
 AxiosInstance.interceptors.request.use(
     config => {
         const token = localStorage.getItem("token");
-        // console.log("AxiosInstance token", token);
-        // проверка токена с  jwt decode
-
         if (token) {
             return {
                 ...config,
@@ -32,9 +29,6 @@ AxiosInstance.interceptors.request.use(
 AxiosInstance.interceptors.response.use(
     response => response,
     error => {
-        // const { response = {} } = error;
-        // if (response.status === 403) logOut();
-
         return Promise.reject(error);
     }
 );

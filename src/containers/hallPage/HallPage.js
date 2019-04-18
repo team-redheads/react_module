@@ -4,7 +4,6 @@ import SelectPanel from '../../components/hallComponents/SelectPanel/SelectPanel
 import { connect }   from 'react-redux';
 import Header from '../../components/Header';
 import * as actions from '../../actions/actionHall.js';
-import axios from "axios";
 import { Redirect } from "react-router-dom";
 import MiniHeader from '../../components/hallComponents/MiniHeader.js';
 import * as actionsRN from '../../actions/roomNames.js';
