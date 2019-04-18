@@ -16,6 +16,7 @@ export const adminAddMovieFail = payload => {
 
 export const adminAddMovie = payload => dispatch => {
 	console.log('payload action add movie', payload)
+
 	var request = new Request(
 		'http://subdomain.entony.fs.a-level.com.ua/api/movie',
 		{
@@ -203,7 +204,7 @@ export const adminGetUserFail = payload => {
 
 export const adminGetUser = payload => dispatch => {
 	console.log('action get user', payload)
-
+	const token = localStorage.getItem('token')
 	var request = new Request(
 		`http://subdomain.entony.fs.a-level.com.ua/api/users/${payload}`,
 		{
