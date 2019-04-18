@@ -59,16 +59,58 @@ export default {
 	tickets: {
 		purchased: [],
 		notPurchased: [],
-	},
+    },
+    
+
+
+
+
+    
 	adminAuth: {
 		token: null,
 		user: null,
 		error: null,
 	},
-	// adminPanel: {
-	// 	user: {
-	// 		name: null,
-	// 		role: null,
-	// 	},
-	// },
+	adminPanel: {
+		user: {
+			name: null,
+			role: null,
+		},
+		movie: {
+			movie: null,
+			error: null,
+		},
+		addMovie: {
+			posterLink: null,
+			movie: null,
+			error: null,
+		},
+		dellMovie: {
+			movie: null,
+			error: null,
+		},
+		getMovie: {
+			movie: null,
+			error: null,
+		},
+		getRoom: {
+			room: null,
+			error: null,
+		},
+		getUser: {
+			user: null,
+			role: null,
+			error: null,
+		},
+		postSession: {
+			session: null,
+			message: null,
+			error: null,
+		},
+		putMovie: {
+			movie: null,
+			message: null,
+			error: null,
+		},
+	},
 }

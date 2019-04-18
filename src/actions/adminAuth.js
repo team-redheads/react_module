@@ -6,7 +6,7 @@ export const setToken = payload => {
 }
 
 export const adminSignInSuccess = payload => {
-    console.log('ошибка', payload)
+    console.log('----- success', payload)
 
 	return {
 		type: 'SIGN_IN_SUCCES',
@@ -15,7 +15,7 @@ export const adminSignInSuccess = payload => {
 }
 
 export const adminSignInFail = payload => {
-    console.log('ошибка', payload)
+    console.log('-----ошибка fail', payload)
 	return {
 		type: 'SIGN_IN_FAIL',
 		payload,

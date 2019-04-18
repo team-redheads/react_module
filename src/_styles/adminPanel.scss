@@ -18,12 +18,14 @@
 		&__first-name {
             display: inline-block;
 			margin: 0 5px 0 0;
-			font-size: 27px;
+            font-size: 27px;
+            font-weight: bold;
 		}
 		&__last-name {
             display: inline-block;
 			margin: 0;
-			font-size: 27px;
+            font-size: 27px;
+            font-weight: bold;
 		}
 		&__email {
             margin: 0;
@@ -33,7 +35,7 @@
 
 	.nav-main-admin {
 		max-width: 1300px;
-		min-width: 1000px;
+		min-width: 1200px;
 		margin: 0 auto;
 
 		&__list {

@@ -12,14 +12,29 @@ export const customInput = ({ label, input, type, meta, placeholder }) => {
 	)
 }
 
-export const customSelect = ({ label, input }) => {
+export const customInputAddMovie = ({ type, label, input, placeholder }) => {
 	return (
-		<div className="custom-input">
+		<div className="form-block__input">
 			<label>{label}</label>
-			<select {...input}>
-				<option />
-				<option />
-			</select>
+			<input {...input} type={type} placeholder={placeholder} />
+		</div>
+	)
+}
+
+export const customTextAreaAddMovie = ({ label, input, placeholder }) => {
+	return (
+		<div className="form-block__text-area">
+			<label>{label}</label>
+			<textarea {...input} placeholder={placeholder} />
+		</div>
+	)
+}
+
+export const customSelect = ({ label, input, children }) => {
+	return (
+		<div className="form-block__select">
+			<label>{label}</label>
+			<select {...input}>{children}</select>
 		</div>
 	)
 }

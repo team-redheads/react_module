@@ -1,30 +1,35 @@
-import jwt from "jwt-decode";
-import moment from "moment";
+import jwt from 'jwt-decode'
+import moment from 'moment'
 
 export const jwtDecode = token => {
 	// const decodeObj = jwt(token);
 
 	if (token) {
-		const decodeObj = jwt(token);
-		localStorage.setItem('user',decodeObj.id)
+		const decodeObj = jwt(token)
+		localStorage.setItem('user', decodeObj.id)
 
 		// console.log(" --- decodeObj --- ", decodeObj);
 		// console.log(" --- decodeObj --- ", moment(decodeObj.exp * 1000).format('dddd, DD MM YYYY, HH:mm:ss'));
 		// console.log(' --- jwt --- ', moment().isSameOrBefore(decodeObj.exp * 1000));
 
-		return moment().isSameOrBefore(decodeObj.exp * 1000);
-	}
-	else {
+		return moment().isSameOrBefore(decodeObj.exp * 1000)
+	} else {
 		return false
-    }
+	}
+}
 
-};
-        export const checkExp = token => {
-            const decodeObj = jwt(token)
-            return moment().isSameOrBefore(decodeObj.exp * 1000)
-        }
+export const checkExp = token => {
+	const decodeObj = jwt(token)
+	return moment().isSameOrBefore(decodeObj.exp * 1000)
+}
 
-        export const takeId = token => {
-            const decodeObj = jwt(token)
-            return decodeObj.id
-        }
+export const takeId = token => {
+	const decodeObj = jwt(token)
+	return decodeObj.id
+}
+
+export const checkRole = token => {
+    const decodeObj = jwt(token)
+    return decodeObj.role === 0 ? true : false
+	
+}

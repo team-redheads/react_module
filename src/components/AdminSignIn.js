@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 
 import logo from '../_img/logo.svg'
 import { customInput } from './customField/customFields'
-import { signInValidation } from '../_utils/validate'
+import { validate } from '../_utils/validate'
 
 class AdminSignIn extends Component {
 	render() {
@@ -43,4 +43,4 @@ class AdminSignIn extends Component {
 	}
 }
 
-export default reduxForm({ form: 'adminSignIn', signInValidation })(AdminSignIn)
+export default reduxForm({ form: 'adminSignIn', validate })(AdminSignIn)

@@ -3,22 +3,21 @@ import moment from 'moment'
 
 import trash from '../_img/trash.svg'
 import pencil from '../_img/pencil.svg'
-import {nowDate} from "../_utils/nowDate";
 
 class AllMovies extends Component {
 	state = {
-		listMovie: null,
+		renderMovie: null,
 	}
 
 	componentDidMount() {
-		console.log(this.props.listMovieо)
-		this.allMovie(this.props.listMovie)
+		const { adminGetMovieProps } = this.props
+		this.allMovie(adminGetMovieProps)
 	}
 
 	rentOn = () => {
-		const { listMovie } = this.props
-		const rentOn = listMovie.filter(value => {
-			const newDate = moment(nowDate).format('YYYY.MM.DD')
+		const { adminGetMovieProps } = this.props
+		const rentOn = adminGetMovieProps.filter(value => {
+			const newDate = moment().format('YYYY.MM.DD')
 			const rentStart = moment(value.rentStart).format('YYYY.MM.DD')
 			const rentEnd = moment(value.rentEnd).format('YYYY.MM.DD')
 
@@ -29,9 +28,9 @@ class AllMovies extends Component {
 	}
 
 	rentSoon = () => {
-		const { listMovie } = this.props
-		const rentSoon = listMovie.filter(value => {
-			const newDate = moment(nowDate).format('YYYY.MM.DD')
+		const { adminGetMovieProps } = this.props
+		const rentSoon = adminGetMovieProps.filter(value => {
+			const newDate = moment().format('YYYY.MM.DD')
 			const rentStart = moment(value.rentStart).format('YYYY.MM.DD')
 
 			return newDate < rentStart
@@ -41,9 +40,9 @@ class AllMovies extends Component {
 	}
 
 	rentEnd = () => {
-		const { listMovie } = this.props
-		const rentSoon = listMovie.filter(value => {
-			const newDate = moment(nowDate).format('YYYY.MM.DD')
+		const { adminGetMovieProps } = this.props
+		const rentSoon = adminGetMovieProps.filter(value => {
+			const newDate = moment().format('YYYY.MM.DD')
 			const rentEnd = moment(value.rentEnd).format('YYYY.MM.DD')
 
 			return newDate > rentEnd
@@ -53,36 +52,43 @@ class AllMovies extends Component {
 	}
 
 	allMovie = val => {
+		const { adminDellMovieFunc } = this.props
+
 		let itemMovie = val.map(value => {
 			return (
 				<ItemMovie
 					key={value._id}
+					id={value._id}
 					poster={value.poster}
 					title={value.title}
 					rentStart={value.rentStart}
-                    rentEnd={value.rentEnd}
-                    
+					rentEnd={value.rentEnd}
+					adminDellMovieFunc={adminDellMovieFunc}
 				/>
 			)
 		})
-		return this.setState({ listMovie: itemMovie })
+		return this.setState({ renderMovie: itemMovie })
 	}
 
 	render() {
-		const { listMovie } = this.props
+		const { adminGetMovieProps } = this.props
+		const { renderMovie } = this.state
+
 		return (
 			<div className="all-movie-block">
 				<h2 className="all-movie-block__title">Все фильмы</h2>
 				<div className="all-movie-block__center">
 					<div className="all-movie-block__content">
-						<ul className="list">{this.state.listMovie}</ul>
+						<ul className="list">{renderMovie}</ul>
 					</div>
 					<div className="all-movie-block__filter filter">
 						<ul className="filter__list">
 							<h3 className="filter__title">Фильтр</h3>
 							<li
-								className="filter__item filter__item_active"
-								onClick={() => this.allMovie(listMovie)}
+								className="filter__item"
+								onClick={() =>
+									this.allMovie(adminGetMovieProps)
+								}
 							>
 								Все фильмы
 							</li>
@@ -117,35 +123,39 @@ class ItemMovie extends Component {
 	componentDidMount() {
 		const { rentStart, rentEnd } = this.props
 		if (
-			moment(nowDate).format('YYYY.MM.DD') <=
+			moment().format('YYYY.MM.DD') <=
 			moment(rentEnd).format('YYYY.MM.DD')
 		) {
 			this.setState({ rent: 'В прокате' })
 		}
 
 		if (
-			moment(rentStart).format('YYYY.MM.DD') >=
-			moment(nowDate).format('YYYY.MM.DD')
+			moment(rentStart).format('YYYY.MM.DD') >
+			moment().format('YYYY.MM.DD')
 		) {
 			this.setState({ rent: 'Скоро в прокате' })
 		}
 
 		if (
-			moment(nowDate).format('YYYY.MM.DD') >
-			moment(rentEnd).format('YYYY.MM.DD')
+			moment().format('YYYY.MM.DD') > moment(rentEnd).format('YYYY.MM.DD')
 		) {
 			this.setState({ rent: 'Прокат закончен', flag: true })
 		}
 	}
 
+	takeMovieId = event => {
+		const id = event.currentTarget.parentNode.parentNode.id
+		this.props.adminDellMovieFunc(id)
+	}
+
 	render() {
-		const { poster, title, rentStart, rentEnd } = this.props
+		const { id, poster, title, rentStart, rentEnd } = this.props
 		const { rent, flag } = this.state
 
 		return (
-			<li className="item">
+			<li className="item" id={id}>
 				<div className="item__item-block">
-					<span className="block1" >
+					<span className="block1" onClick={this.takeMovieId}>
 						<img src={trash} alt="" title="удалить" />
 					</span>
 					<span className="block2">
