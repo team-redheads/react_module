@@ -53,3 +53,20 @@
   width: 1.3em;
   height: 1.7em;
 }
+@media (max-width: 650px) {
+  .room{
+    &__hall{
+      &__line {
+        &__cell{
+          width: calc(2vh + 2vw);
+          height: calc(3vh + 3vw);
+          font-size: 12px;
+        }
+      }
+    }
+    &__screen{
+      width: 100%;
+      margin-top: 2em;
+    }
+  }
+}

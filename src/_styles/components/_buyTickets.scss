@@ -1,8 +1,8 @@
 .buy-main{
   position: relative;
   //min-height: calc(100vh - 60px);
-  width: 100%;
-  min-height: 100vh;
+  width: 100м;
+  height: 100vh;
   background: url("_img/bg.jpg") fixed;
   background-size: cover;
   background-position: center;
@@ -15,8 +15,9 @@
   align-items: center;
   background-color: rgba(31, 35, 55, 0.85);
   width: 100%;
-  min-height: 100vh;
-  //height: 100vh;
+  max-height: 100vh;
+  overflow-y: auto;
+  height: 100vh;
   position: absolute;
 }
 .main-cont{
@@ -58,4 +59,26 @@
     &:hover {
       color: #ff0000;
     }
+}
+@media (max-width: 1024px) {
+  .main-cont {
+    flex-direction: column;
+    align-items: center;
+  }
+  .buy-poster img {
+    width: 80%;
+  }
+  .buy-poster {
+    display: flex;
+    justify-content: center;
+  }
+  .buy-select {
+    width: 100%;
+  }
+  .buy-select .panel {
+    width: 60%;
+  }
+  .buy-btn {
+    margin-bottom: 4em;
+  }
 }

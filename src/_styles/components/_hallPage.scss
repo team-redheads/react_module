@@ -4,13 +4,33 @@
   flex-direction: column;
   user-select: none;
 }
-.hall-content {
-  position: relative;
-  flex-grow: 1;
-  width: 100%;
-}
 .hall-page, .hall-content {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.hall-content {
+  position: relative;
+  flex-grow: 1;
+  width: 100%;
+  justify-content: center;
+}
+.selectFix {
+  margin-right: 5%;
+}
+@media (max-width: 650px) {
+  .hall-content {
+    flex-direction: column;
+  }
+  .hall-page {
+    height: auto;
+  }
+  .selectFix {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-right: 0;
+    align-items: center;
+    margin-top: 2em;
+  }
 }

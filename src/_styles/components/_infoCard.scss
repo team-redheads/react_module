@@ -16,3 +16,11 @@
 .cardColor {
   color: white;
 }
+@media (max-width: 650px) {
+  .infoTitle {
+    font-size: 18px;
+  }
+  .miniInfo {
+    font-size: 12px;
+  }
+}

@@ -51,7 +51,7 @@ class HallPage extends Component {
                     nameRoom = { colorTrans (this.getCurrentRoomName( this.props.currentSession.data.room )) + " зал" } />
         <div className = 'hall-content'>
           <Rooms room = { this.props.places.places } price = { this.props.price }/>
-          <SelectPanel />
+          <div className = "selectFix"><SelectPanel /></div>
         </div>
       </div>
     )
