@@ -12,6 +12,7 @@ $color-text-table-item-hover: #ff0000;
     text-align: center;
     padding: 2.5rem;
     width: 100%;
+    position: relative;
     &__header{
         font-weight: bold;
         font-size: 26px;
@@ -50,8 +51,17 @@ $color-text-table-item-hover: #ff0000;
         padding: 0.7rem;
     }
     &__item-col-link{
-        color: $color-text-table-item;
+        color: $bg-table-item-color;
         text-decoration: none;
+        padding: 0.7rem 1rem;
+        border: 1px solid $bg-btn;
+        border-radius: 1.5rem;
+        background-color: #4c5566;
+
+        &:hover {
+            color: #ff0000;
+        }
+
         &:hover,
         &:active,
         &:focus{
@@ -97,4 +107,63 @@ $color-text-table-item-hover: #ff0000;
         padding: 0.5rem;
     }
 
+}
+
+
+.block-ticket-visible{
+    position: absolute;
+    top: 15%;
+    width: 100%;
+    //height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.block-ticket-unvisible{
+    display: none;
+}
+
+.block-tickets-window {
+    // width: 60%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    background-color: #f87f61;
+    //background-color: #f9f9f9;
+    border-radius: 15px;
+    &__success {
+        width: 100%;
+        flex-grow: 1;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+        padding-top: 2em;
+    }
+}
+.block-ticketBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+    width: 50px;
+    margin-top: 1rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid $bg-btn;
+    border-radius: 1.5rem;
+    background-color: #4c5566;
+    color: #fff;
+    &:hover {
+        color: #ff0000;
+    }
+}
+.block-ticketBtn a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
 }

@@ -1,4 +1,5 @@
 import initialState from "../store/initialState";
+// import * as types from "../actions/actionTypes";
 
 export default (state = initialState.roomNames, action ) => {
   return ( action.type === 'ROOMS_NAMES_FETCHING' ) ? { ...state, isFetching: true } :

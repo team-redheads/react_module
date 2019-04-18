@@ -3,6 +3,9 @@ import { Switch, Route } from 'react-router-dom';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {getUserByIdRequest, updateUserByIdRequest} from "../actions/actionUser";
+import {getMovieRequest} from "../actions/actionMovie";
+import {getSessionRequest} from "../actions/actionSession";
+import {getRoomNamesRequest} from '../actions/roomNames';
 // import jwt from "jwt-decode";
 // import jwtDecode from "../_utils/checkExp";
 
@@ -12,10 +15,15 @@ import HeaderPersonal from '../components/HeaderPersonal';
 import Profile from '../components/Profile'
 import UserTickets from '../components/UserTickets'
 
+
+
 class PersonalContainer extends Component{
     componentDidMount() {
         const { id } = this.props.match.params;
         this.props.getUserByIdRequest(id);
+        this.props.getMovieRequest();
+        this.props.getSessionRequest();
+        this.props.getRoomNamesRequest();
 
         // const token = localStorage.getItem('token');
         // return !(jwtDecode(token)) && this.props.history.push('/auth')
@@ -35,18 +43,13 @@ class PersonalContainer extends Component{
     };
 
     render() {
-        const { user } = this.props;
-        // const { user, match } = this.props
-        // console.log(' ------- this.props.match.url', this.props.match.url);
-        // console.log(' ------- this.props.match.url', match);
+        const { user, session, movie, roomNames } = this.props;
 
         return (
             <React.Fragment>
                 <Header title={'Личный кабинет'} />
                 <React.Fragment>
-                    <HeaderPersonal user={ user }
-                                    // match={match}
-                    />
+                    <HeaderPersonal user={ user }/>
                     {
                         user && <div className="personal-block__content">
                             <Switch>
@@ -64,7 +67,11 @@ class PersonalContainer extends Component{
                                        path={`/personal/${ user._id}/tickets`}
                                        // path={`/${match.url}/:id`}
                                        render={ () => (
-                                           <UserTickets match={ this.props.match}/>
+                                           <UserTickets user={user}
+                                                        movie={movie && movie}
+                                                        session={session && session}
+                                                        roomName={roomNames && roomNames.rooms}
+                                           />
                                        )}
                                 />
                             </Switch>
@@ -78,12 +85,18 @@ class PersonalContainer extends Component{
 }
 
 const mapStateToProps = state => ({
-    user: state.user.data
+    user: state.user.data,
+    session: state.session.data,
+    movie: state.movie.data,
+    roomNames: state.roomNames.data
 });
 const mapDispatchToProps = dispatch => bindActionCreators(
     {
         getUserByIdRequest,
-        updateUserByIdRequest
+        updateUserByIdRequest,
+        getMovieRequest,
+        getSessionRequest,
+        getRoomNamesRequest
     }, dispatch);
 
 PersonalContainer = connect(

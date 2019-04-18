@@ -57,7 +57,7 @@ class Information extends Component {
                          ) : (
                             <li className="block-list-info__li">
                                 <span className="block-list-info__key">В главных ролях: </span>
-                                <span className="block-list-info__value">{`${movie.actors && movie.actors.join(', ')}`} </span>
+                                <span className="block-list-info__value">{`${movie.actors && movie.actors.join(', ')} `} </span>
                             </li>
                         )
                     }
