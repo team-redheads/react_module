@@ -78,7 +78,7 @@ class AddMovie extends Component {
 			long: movieItem && movieItem.long,
 			genre: movieItem && movieItem.genre.join(','),
 			country: movieItem && movieItem.country.join(','),
-			actors: movieItem && movieItem.actors.join(','),
+			actors: !movieItem || movieItem.actors === null ? ' ' : movieItem.actors.join(','),
 			description: movieItem && movieItem.description,
 		}
 	}
