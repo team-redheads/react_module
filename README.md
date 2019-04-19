@@ -1,18 +1,22 @@
-/admin-panel - need auth
+Это вариант проекта с открытыми разделами в закрытые части сайта. Проект был защищен на курсах A-level Ukraine. 18.04.2019
+
+Адреса для доступа в админ панель сайта. Для нее нужна вторизация.
+
+/admin-panel/all-movies
+
+/admin-panel/add-movie
+
+/admin-panel/add-movie-info
+
+/admin-panel/edit-movie
 
 /admin-panel/auth
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Адреса для доступа в панель пользователь сайта. Для нее нужна вторизация.
 
-## Available Scripts
+/personal/id-пользователя
 
-In the project directory, you can run:
+/personal/id-пользователя/tickets
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
+![Главная страница](https://github.com/team-redheads/react_module/raw/master/src/_screen/img1.png)
