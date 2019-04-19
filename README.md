@@ -34,4 +34,4 @@
 ![Главная страница](https://github.com/team-redheads/react_module/raw/master/src/_screen/admin-all-movie.png)
 ![Главная страница](https://github.com/team-redheads/react_module/raw/master/src/_screen/admin-add-movie.png)
 ![Главная страница](https://github.com/team-redheads/react_module/raw/master/src/_screen/admin-add-movie-info.png)
-
+![Главная страница](https://github.com/team-redheads/react_module/raw/master/src/_screen/admin-edit-movie.png)
