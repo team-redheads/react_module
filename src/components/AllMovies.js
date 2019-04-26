@@ -14,14 +14,15 @@ class AllMovies extends Component {
 		this.allMovie(adminGetMovieProps)
 	}
 
+    newDate = moment().format('YYYY.MM.DD')
+
 	rentOn = () => {
 		const { adminGetMovieProps } = this.props
 		const rentOn = adminGetMovieProps.filter(value => {
-			const newDate = moment().format('YYYY.MM.DD')
 			const rentStart = moment(value.rentStart).format('YYYY.MM.DD')
 			const rentEnd = moment(value.rentEnd).format('YYYY.MM.DD')
 
-			return rentStart <= newDate && newDate <= rentEnd
+			return rentStart <= this.newDate && this.newDate <= rentEnd
 		})
 		console.log(rentOn)
 		this.allMovie(rentOn)
@@ -30,10 +31,9 @@ class AllMovies extends Component {
 	rentSoon = () => {
 		const { adminGetMovieProps } = this.props
 		const rentSoon = adminGetMovieProps.filter(value => {
-			const newDate = moment().format('YYYY.MM.DD')
 			const rentStart = moment(value.rentStart).format('YYYY.MM.DD')
 
-			return newDate < rentStart
+			return this.newDate < rentStart
 		})
 		console.log(rentSoon)
 		this.allMovie(rentSoon)
@@ -42,10 +42,9 @@ class AllMovies extends Component {
 	rentEnd = () => {
 		const { adminGetMovieProps } = this.props
 		const rentSoon = adminGetMovieProps.filter(value => {
-			const newDate = moment().format('YYYY.MM.DD')
 			const rentEnd = moment(value.rentEnd).format('YYYY.MM.DD')
 
-			return newDate > rentEnd
+			return this.newDate > rentEnd
 		})
 		console.log(rentSoon)
 		this.allMovie(rentSoon)
