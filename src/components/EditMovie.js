@@ -40,7 +40,7 @@ class AddMovie extends Component {
 	choiseMovie = event => {
 		const { adminGetMovieProps, clearPosterFunc } = this.props
 
-		const movieItem = adminGetMovieProps.map(movie => {
+		const movieItem = adminGetMovieProps.forEach(movie => {
 			if (movie._id === event.target.parentNode.id) {
 				this.setState({ movieItem: movie, moviePoster: movie.poster })
 			}
